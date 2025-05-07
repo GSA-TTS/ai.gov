@@ -4,7 +4,7 @@
   "private": true,
   "files": [
    "static"
- ],
+  ],
   "scripts": {
     "build": "gulp update",
     "lint": "eslint . --max-warnings 0",
