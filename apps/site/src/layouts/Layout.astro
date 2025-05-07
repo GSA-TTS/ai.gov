@@ -13,6 +13,35 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script is:inline>
+      /* eslint-disable no-var */
+      (function uswdsInit() {
+        'use strict';
+
+        var loadingClass = 'usa-js-loading';
+        var fallback;
+
+        document.documentElement.classList.add(loadingClass);
+        function revertClass() {
+          document.documentElement.classList.remove(loadingClass);
+        }
+
+        fallback = setTimeout(revertClass, 8000);
+
+        function verifyLoaded() {
+          if (window.uswdsPresent) {
+            clearTimeout(fallback);
+            revertClass();
+            window.removeEventListener('load', verifyLoaded, true);
+          }
+        }
+
+        window.addEventListener('load', verifyLoaded, true);
+      })();
+    </script>
+    <script>
+      import '@repo/ui/static/uswds/js/uswds.js';
+    </script>
   </head>
   <body>
     <UsaHeader />

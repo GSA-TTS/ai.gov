@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^7.0.13",
-    "astro": "^5.7.10",
     "@repo/ui": "workspace:*",
+    "astro": "^5.7.10",
     "svelte": "^5.28.2"
+  },
+  "devDependencies": {
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

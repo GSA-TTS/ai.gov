@@ -1,5 +1,7 @@
 ---
-import iconDotGov from '@repo/ui/';
+import iconDotGov from '@repo/ui/static/uswds/img/icon-dot-gov.svg';
+import iconHttps from '@repo/ui/static/uswds/img/icon-https.svg';
+import usFlagSmall from '@repo/ui/static/uswds/img/us_flag_small.png';
 ---
 
 <section
@@ -13,7 +15,7 @@ import iconDotGov from '@repo/ui/';
           <img
             aria-hidden="true"
             class="usa-banner__header-flag"
-            src="/assets/img/us_flag_small.png"
+            src={usFlagSmall.src}
             alt=""
           />
         </div>
@@ -41,7 +43,7 @@ import iconDotGov from '@repo/ui/';
         <div class="usa-banner__guidance tablet:grid-col-6">
           <img
             class="usa-banner__icon usa-media-block__img"
-            src="/assets/img/icon-dot-gov.svg"
+            src={iconDotGov.src}
             role="img"
             alt=""
             aria-hidden="true"
@@ -57,7 +59,7 @@ import iconDotGov from '@repo/ui/';
         <div class="usa-banner__guidance tablet:grid-col-6">
           <img
             class="usa-banner__icon usa-media-block__img"
-            src="/assets/img/icon-https.svg"
+            src={iconHttps.src}
             role="img"
             alt=""
             aria-hidden="true"
