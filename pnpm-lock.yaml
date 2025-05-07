@@ -26,6 +26,9 @@ importers:
       '@astrojs/svelte':
         specifier: ^7.0.13
         version: 7.0.13(@types/node@22.13.0)(astro@5.7.10(@types/node@22.13.0)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3))(sass-embedded@1.83.4)(svelte@5.28.2)(typescript@5.7.3)
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       astro:
         specifier: ^5.7.10
         version: 5.7.10(@types/node@22.13.0)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3)

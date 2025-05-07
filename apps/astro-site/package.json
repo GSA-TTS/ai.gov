@@ -1,5 +1,5 @@
 {
-  "name": "astro-site",
+  "name": "@repo/site",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/svelte": "^7.0.13",
     "astro": "^5.7.10",
+    "@repo/ui": "workspace:*",
     "svelte": "^5.28.2"
   }
 }
