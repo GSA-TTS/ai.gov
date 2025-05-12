@@ -17,21 +17,28 @@ const { content } = Astro.props;
 
 <style>
   p {
-    color: #8d8d8d;
+    color: #8d8d8d; /* needs more contrast. */
     margin-top: 0;
     margin-bottom: 1rem;
   }
+
   ul {
     margin-bottom: 2rem;
   }
+
   li {
     line-height: 140%;
     display: block;
     margin-bottom: 1rem;
   }
+
   a {
     text-decoration: none;
     display: block;
     color: #000;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 </style>
