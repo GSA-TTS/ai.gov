@@ -20,6 +20,7 @@
     "astro-purgecss": "^5.2.2",
     "prettier-plugin-astro": "^0.14.1",
     "purgecss": "^7.0.2",
+    "slugify": "^1.6.6",
     "vitest": "^3.0.7"
   }
 }
