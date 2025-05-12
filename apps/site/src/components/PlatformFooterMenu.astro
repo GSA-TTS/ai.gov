@@ -1,9 +1,14 @@
 ---
 const { content } = Astro.props;
+import slugify from 'slugify';
+
+const menuLabel = `platform-footer-${slugify(content.title, {
+  lower: true,
+})}`;
 ---
 
-<p>{content.title}</p>
-<ul class="add-list-reset">
+<p id={menuLabel}>{content.title}</p>
+<ul class="add-list-reset" aria-labelledby={menuLabel}>
   {
     content.items.map(item => {
       return (
