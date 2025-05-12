@@ -1,0 +1,24 @@
+---
+import { footerMenus } from '../data/footer';
+import PlatformFooterMenu from './PlatformFooterMenu.astro';
+---
+
+<div class="grid-container">
+  <div class="grid-row grid-gap">
+    <div class="tablet:grid-col-12">
+      <nav class="usa-footer__nav" aria-label="Footer navigation">
+        <div class="grid-row grid-gap">
+          {
+            footerMenus.map(menu => {
+              return (
+                <div class="tablet:grid-col-3">
+                  <PlatformFooterMenu content={menu} />
+                </div>
+              );
+            })
+          }
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

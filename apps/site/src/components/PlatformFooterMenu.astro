@@ -1,0 +1,37 @@
+---
+const { content } = Astro.props;
+---
+
+<p>{content.title}</p>
+<ul class="add-list-reset">
+  {
+    content.items.map(item => {
+      return (
+        <li>
+          <a href={item.url}>{item.title}</a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  p {
+    color: #8d8d8d;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  ul {
+    margin-bottom: 2rem;
+  }
+  li {
+    line-height: 140%;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  a {
+    text-decoration: none;
+    display: block;
+    color: #000;
+  }
+</style>
