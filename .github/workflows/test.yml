@@ -1,0 +1,41 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup project
+        uses: ./.github/actions/setup
+
+      - name: Run tests
+        run: pnpm test
+
+#    steps:
+#      - name: Checkout repository
+#        uses: actions/checkout@v4
+#        
+#      - name: Install pnpm
+#        uses: pnpm/action-setup@v4
+#        id: pnpm-install
+#        with:
+#          run_install: false
+#
+#      - name: Install node.js version
+#        uses: actions/setup-node@v4
+#        id: install-node
+#        with:
+#          node-version-file: '.nvmrc'
+#          cache: 'pnpm'
+#          cache-dependency-path: 'pnpm-lock.yaml'
+#
+#      - name: Install dependencies
+#        run: pnpm install
+#        
+#      - name: Run tests
+#        run: pnpm test
