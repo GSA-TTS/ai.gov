@@ -2,18 +2,19 @@
   "name": "vitest",
   "private": true,
   "scripts": {
-    "clean:modules": "find $(git rev-parse --show-toplevel) -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "build": "turbo run build",
+    "build:astro": "pnpm --filter @repo/site build",
+    "check-types": "turbo run check-types",
     "clean:dist": "find $(git rev-parse --show-toplevel) -name 'dist' -type d -prune -exec rm -rf '{}' +",
+    "clean:modules": "find $(git rev-parse --show-toplevel) -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "dev": "turbo run dev",
+    "dev:astro": "pnpm --filter @repo/site dev",
     "format": "prettier --write \"{packages,apps}/*/src/**/*.{js,jsx,ts,tsx,scss,css,astro}\"",
     "lint": "turbo run lint",
-    "build": "turbo run build",
-    "dev": "turbo run dev",
+    "prepare": "husky",
+    "preview:astro": "pnpm --filter @repo/site preview",
     "test": "turbo run test",
-    "view-report": "turbo run view-report",
-    "dev:astro": "pnpm --filter astro-site dev",
-    "build:astro": "pnpm --filter astro-site build",
-    "preview:astro": "pnpm --filter astro-site preview",
-    "prepare": "husky"
+    "view-report": "turbo run view-report"
   },
   "devDependencies": {
     "husky": "^9.1.7",

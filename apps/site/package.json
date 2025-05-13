@@ -5,6 +5,7 @@
   "scripts": {
     "astro": "astro",
     "build": "astro build",
+    "check-types": "tsc --noEmit",
     "dev": "astro dev",
     "preview": "astro preview",
     "test": "vitest run"
