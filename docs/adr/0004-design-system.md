@@ -22,7 +22,7 @@ At the time of comparison, sites using USWDS pass core web vitals 60% of the tim
 
 ![](0004-design-system-performance.png)
 
-Additionally, the accessibility of the Tailwind + shadcn/ui raised some concerns. During the build of the related chat product, there was a large stream of work related to correcting accessibility issues. Furthermore, an inspection of the shadcn/ui site with [Axe](https://www.deque.com/axe/), [WAVE](https://wave.webaim.org/), and a light manual audit in the form of the tab key was able to surface several accessiblity issues.
+Additionally, the accessibility of the Tailwind + shadcn/ui raised some concerns. During the build of the related chat product, there was a large stream of work related to correcting accessibility issues. Furthermore, an inspection of the shadcn/ui site with [Axe](https://www.deque.com/axe/), [WAVE](https://wave.webaim.org/), and a light manual audit in the form of the tab key was able to surface several accessibility issues.
 
 ## Consequences
 
