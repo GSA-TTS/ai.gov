@@ -33,9 +33,9 @@ There will be some overrides of USWDS required to get the UI to closely resemble
 Consider the following where a [button](https://designsystem.digital.gov/components/button/) is used.
 
 ```
-<a class="usa-button usa-button--primary ai-button ai-button--primary" href="#">
+<button class="usa-button usa-button--primary ai-button ai-button--primary" href="#">
   Button text
-</a>
+</button>
 ```
 
 To clearly delineate the styles that are owned by the application, note that there is a corresponding style with an `ai-` prefix that corresponds to a USWDS-provided style that we'd like to override.
