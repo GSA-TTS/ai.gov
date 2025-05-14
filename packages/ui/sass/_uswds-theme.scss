@@ -1,10 +1,11 @@
 @use "uswds-core" with (
-  $theme-show-notifications: false,
   $theme-banner-max-width: "full",
+  $theme-button-stroke-width: 1px, 
+  $theme-column-gap-desktop: 3,
   $theme-footer-max-width: "full",
   $theme-grid-container-max-width: "full",
   $theme-header-max-width: "none",
-  $theme-column-gap-desktop: 3, 
+  $theme-show-notifications: false,
   $theme-utility-breakpoints: (
     "mobile": true,
     "mobile-lg": true
