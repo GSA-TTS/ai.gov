@@ -3,7 +3,7 @@ import { footerMenus } from '../data/footer';
 import PlatformFooterMenu from './PlatformFooterMenu.astro';
 ---
 
-<div class="grid-container">
+<div class="grid-container ai-maxw-widescreen">
   <section
     class="usa-section ai-section ai-footer-cta"
     aria-labelledby="ai-footer-cta"
@@ -65,30 +65,5 @@ import PlatformFooterMenu from './PlatformFooterMenu.astro';
 
   .ai-section {
     padding-block: 3.375rem;
-  }
-
-  .ai-button {
-    border-radius: 99rem;
-    font-weight: 400;
-    padding-inline: 2rem;
-    padding-block: 0.75rem;
-  }
-
-  .ai-button--primary {
-    background-color: #000;
-  }
-
-  .ai-button--primary:hover {
-    background-color: #333;
-  }
-
-  .ai-button--outline {
-    box-shadow: inset 0 0 0 2px #000;
-    color: #000;
-  }
-
-  .ai-button--outline:hover {
-    box-shadow: inset 0 0 0 2px #333;
-    color: #333;
   }
 </style>

@@ -1,0 +1,33 @@
+.ai-button {
+  border-radius: var(--ai-radius-round);
+  font-weight: 400;
+  padding-inline: 2rem;
+  padding-block: 0.75rem;
+}
+
+.ai-button--primary {
+  background-color: var(
+    --ai-color-background-button-primary-rest,
+    var(--ai-color-black)
+  );
+  color: var(--ai-color-text-button-primary-rest, var(--ai-color-white));
+}
+
+.ai-button--primary:hover {
+  background-color: var(
+    --ai-color-background-button-primary-hover,
+    var(--ai-color-black)
+  );
+}
+
+.ai-button--outline {
+  box-shadow: inset 0 0 0 1px
+    var(--ai-color-stroke-button-outline-rest, var(--ai-color-black));
+  color: var(--ai-color-text-button-outline-rest, var(--ai-color-black));
+}
+
+.ai-button--outline:hover {
+  box-shadow: inset 0 0 0 1px
+    var(--ai-color-stroke-button-outline-hover, var(--ai-color-black));
+  color: var(--ai-color-text-button-outline-hover, var(--ai-color-black));
+}
