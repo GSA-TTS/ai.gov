@@ -1,9 +1,5 @@
-@import '@repo/ui/static/uswds/styles/styles.css';
-
-:root {
-  --ai-maxw-widescreen: 90rem;
-}
-
-.ai-maxw-widescreen {
-  max-width: var(--ai-maxw-widescreen);
-}
+@layer designsystem, theme, buttons;
+@import '@repo/ui/static/uswds/styles/styles.css' layer(designsystem);
+@import './theme.css' layer(theme);
+@import './utilities/layout.css' layer(theme);
+@import './components/buttons.css' layer(buttons);

@@ -1,13 +1,40 @@
 @use "uswds-core" with (
-  $theme-banner-max-width: "full",
-  $theme-button-stroke-width: 1px, 
-  $theme-column-gap-desktop: 3,
+  // layout  
   $theme-footer-max-width: "full",
   $theme-grid-container-max-width: "full",
   $theme-header-max-width: "none",
-  $theme-show-notifications: false,
-  $theme-utility-breakpoints: (
-    "mobile": true,
-    "mobile-lg": true
-  ),
+  $theme-banner-max-width: "full", 
+  $theme-column-gap-desktop: 3,
+  
+  // buttons
+  $theme-button-stroke-width: 1px,
+  
+  // fonts
+  $theme-font-weight-thin: false,
+  $theme-font-weight-light: false,
+  $theme-font-weight-normal: 400,
+  $theme-font-weight-medium: false,
+  $theme-font-weight-semibold: 600,
+  $theme-font-weight-bold: 700,
+  $theme-font-weight-heavy: false,
+  $theme-generate-all-weights: false,
+  $theme-font-type-sans: "brand-sans",
+  $theme-font-type-serif: "brand-sans",
+  $theme-font-type-mono: false,
+  $theme-typeface-tokens:
+    (
+      brand-sans: (
+        "display-name": var(--ai-font-family-sans),
+        "cap-height": 364px
+      )
+    ),
+    
+    // misc
+    $theme-show-notifications: false,
+    
+    // breakpoints
+    $theme-utility-breakpoints: (
+      "mobile": true,
+      "mobile-lg": true
+    ),
 );
