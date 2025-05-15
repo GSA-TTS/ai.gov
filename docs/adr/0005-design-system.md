@@ -1,4 +1,4 @@
-# 4. Design system
+# 5. Design system
 
 Date: 2025-05-13
 
@@ -20,7 +20,7 @@ In parallel with the assessment of USWDS, Tailwind + shadcn/ui was also assessed
 
 At the time of comparison, sites using USWDS pass core web vitals 60% of the time compared to 41% for Tailwind, 30% of the time for shadcn/ui, and 49% of the time for all technologies in the data set.
 
-![](0004-design-system-performance.png)
+![](0005-design-system-performance.png)
 
 Additionally, the accessibility of the Tailwind + shadcn/ui raised some concerns. During the build of the related chat product, there was a large stream of work related to correcting accessibility issues. Furthermore, an inspection of the shadcn/ui site with [Axe](https://www.deque.com/axe/), [WAVE](https://wave.webaim.org/), and a light manual audit in the form of the tab key was able to surface several accessibility issues.
 
