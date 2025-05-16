@@ -18,7 +18,18 @@ The AI Platform project requires a UI library for user interactions on the clien
 
 At the time of this writing, the most popular JS interface library is React, which was also considered for the project.
 
-Traditional frameworks like React rely on a virtual DOM and synthetic events for updating the UI, whereas Svelte compiles components to highly optimized, vanilla JavaScript at build time. This approach ensures smaller bundles, faster execution, and efficient updates to the DOM.
+As part of this assessment, engineering looked at an identical feature using the [Astro examples](https://github.com/withastro/astro/tree/main/examples/) for Svelte and React. Each implements a simple "counter" component that increments or decrements a number with a set of buttons as below:
+
+![Hello, React demo](0006-react-demo.png)
+
+The final result of the app size on disk are as follows:
+
+| Framework | Total Size (kb) |
+|-----------|-----------------|
+| React     | 141.0           |
+| Svelte    | 15.8            |
+
+Traditional frameworks like React rely on a virtual DOM and synthetic events for updating the UI, whereas Svelte compiles components to vanilla JavaScript at build time. This approach ensures smaller bundles, faster execution, and efficient updates to the DOM as reflected in the tests.
 
 ## Consequences
 Due to the project's goal at the time of this writing, it will act as a hub for the chat, console, API, and public site. 
