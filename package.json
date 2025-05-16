@@ -1,5 +1,5 @@
 {
-  "name": "vitest",
+  "name": "@gsa-tts/ai.gov",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -17,6 +17,8 @@
     "view-report": "turbo run view-report"
   },
   "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.14.0",
     "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "turbo": "^2.5.2",
