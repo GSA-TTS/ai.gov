@@ -1,5 +1,5 @@
 {
-  "name": "@gsa-tts/ai.gov",
+  "name": "@repo/ai.gov",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -14,6 +14,8 @@
     "prepare": "husky",
     "preview:astro": "pnpm --filter @repo/site preview",
     "test": "turbo run test",
+    "test:e2e:ci": "pnpm --filter @repo/site test:e2e:ci",
+    "test:e2e:dev": "pnpm --filter @repo/site test:e2e:dev",
     "view-report": "turbo run view-report"
   },
   "devDependencies": {

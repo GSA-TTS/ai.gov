@@ -8,7 +8,9 @@
     "check-types": "tsc --noEmit",
     "dev": "astro dev",
     "preview": "astro preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:e2e:ci": "pnpm playwright test",
+    "test:e2e:dev": "pnpm playwright test --ui-port=8080 --ui-host=0.0.0.0"
   },
   "dependencies": {
     "@astrojs/svelte": "^7.0.13",
