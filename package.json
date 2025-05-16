@@ -1,5 +1,5 @@
 {
-  "name": "vitest",
+  "name": "@repo/ai.gov",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -14,9 +14,13 @@
     "prepare": "husky",
     "preview:astro": "pnpm --filter @repo/site preview",
     "test": "turbo run test",
+    "test:e2e:ci": "pnpm --filter @repo/site test:e2e:ci",
+    "test:e2e:dev": "pnpm --filter @repo/site test:e2e:dev",
     "view-report": "turbo run view-report"
   },
   "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.14.0",
     "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "turbo": "^2.5.2",
