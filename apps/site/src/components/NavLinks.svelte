@@ -40,6 +40,12 @@
 </ul>
 
 <style>
+  @media (min-width: 64em) {
+    .ai-nav__submenu {
+      width: 9rem;
+    }
+  }
+
   .ai-nav__primary button, a {
     font-weight: 500;
     color: #404040;
@@ -59,7 +65,6 @@
 
   .ai-nav__submenu {
     background-color: #f0f0f0;
-    width: 9rem
   }
 
   .ai-nav__submenu-item a {
