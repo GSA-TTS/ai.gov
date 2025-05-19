@@ -22,7 +22,7 @@ jobs:
       run: pnpm exec playwright install --with-deps
       
     - name: Build project
-      run: pnpm build
+      run: pnpm --filter @repo/ui build && pnpm i && pnpm build
       
     - name: Run Playwright tests
       run: pnpm test:e2e:ci
