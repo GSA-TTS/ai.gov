@@ -1,45 +1,83 @@
-# Turborepo starter
+# AI.gov
 
-This Turborepo starter is maintained by the Turborepo core team.
+## Overview
 
-## Using this example
+This is the monorepo for ai.gov. It uses [Turborepo](https://turborepo.com/) and [pnpm](https://pnpm.io/) for repo and dependency management respectively.
 
-This example is based on the `basic` example (`npx create-turbo@latest`) to demonstrate how to use Vitest and get the most out of Turborepo's caching.
+Additional documentation:
 
-For this reason, the only commands in the root package.json are `turbo run test` and `turbo run view-report`.
+- [Architectural Decision Records (ADRs)](./docs/adr/)
 
-`turbo run test`: Runs the test in each package using Turborepo.
-`turbo run view-report`: Collects coverage from each package and shows it in a merged report.
+## Development
 
-### Remote Caching
+This project uses the version of Node.js defined in [.nvmrc](./nvmrc). To ensure you're using the correct node version, you may use the [Node Version Manager (NVM)](https://github.com/nvm-sh/nvm):
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+```bash
+nvm install
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+It may be helpful to add the following to your bash config so nvm is automatically detected:
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+```bash
+_nvmrc_hook() {
+  if [[ $PWD == $PREV_PWD ]]; then
+    return
+  fi
 
+  PREV_PWD=$PWD
+  [[ -f ".nvmrc" ]] && nvm use
+}
+
+if ! [[ "${PROMPT_COMMAND:-}" =~ _nvmrc_hook ]]; then
+  PROMPT_COMMAND="_nvmrc_hook${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+fi
 ```
-npx turbo link
+
+This project uses [pnpm workspaces](https://pnpm.io/workspaces). To work with this project, [install pnpm](https://pnpm.io/installation) and then the project dependencies:
+
+```bash
+pnpm install
 ```
 
-## Useful Links
+To run tests.
 
-Learn more about the power of Turborepo:
+```bash
+pnpm test
+```
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+If you start having unexplained build errors, the following commands are useful to clean up and start fresh.
+
+```bash
+pnpm clean:dist # removes previously built files recursively
+pnpm clean:modules # removes node_module directories recursively
+
+# ... run more commands like pnpm install and pnpm build after you have run these
+```
+
+To start developing with hot reloading, use:
+
+```bash
+pnpm build
+```
+
+then run:
+
+```bash
+pnpm dev
+```
+
+These local servers will be started:
+
+- Public website (./apps/site) - http://localhost:4321/
+
+To lint the source code:
+
+```bash
+pnpm lint
+```
+
+To check types the source code:
+
+```bash
+pnpm check-types
+```

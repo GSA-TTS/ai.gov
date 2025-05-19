@@ -19,6 +19,11 @@ jobs:
       - name: Run tests
         run: pnpm test
         
+      - name: Check types
+        run: pnpm check-types
+
+      - name: Lint
+        run: pnpm lint
+        
       - name: Check formatting
         run: pnpm format --check
-
