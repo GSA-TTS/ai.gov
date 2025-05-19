@@ -19,6 +19,7 @@
     "view-report": "turbo run view-report"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.14.0",
     "husky": "^9.1.7",

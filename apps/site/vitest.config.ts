@@ -1,10 +1,12 @@
-import { defineConfig, mergeConfig } from 'vitest/config';
-import { baseConfig } from '@repo/vitest-config/base';
+/// <reference types="vitest" />
+import { getViteConfig } from 'astro/config';
+import {baseConfig} from "@repo/vitest-config/base";
 
-export default mergeConfig(baseConfig, defineConfig({
+export default getViteConfig({
+  ...baseConfig,
   test: {
     include: [
-      'src/**/*.test.ts',
+      'src/**/*.test.ts'
     ]
   },
-}));
+});
