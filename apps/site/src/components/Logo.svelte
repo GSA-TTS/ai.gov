@@ -1,10 +1,10 @@
 <script>
-  export const title = 'AI.gov';
+  import { siteName } from '../../constants';
 </script>
 
-<div class="usa-logo ai-logo">
+<div class="usa-logo line-height-1 margin-y-0">
   <em class="usa-logo__text">
-    <a href="/" title="AI.gov" aria-label="AI.gov">
+    <a href="/" class="display-block" title={siteName} aria-label={siteName}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="105"
@@ -40,11 +40,3 @@
     </a>
   </em>
 </div>
-
-<style>
-  .ai-logo {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 0;
-  }
-</style>

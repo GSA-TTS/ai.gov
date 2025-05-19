@@ -27,12 +27,12 @@
 
 <style>
   [type='search'] {
-    height: 2.5rem;
+    height: var(--ai-button-height);
   }
 
   .ai-input {
     border-color: var(--ai-button-border-outline-rest);
-    border-radius: 999rem;
+    border-radius: var(--ai-radius-round);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -43,6 +43,6 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left: transparent;
-    height: 2.5rem;
+    height: var(--ai-button-height);
   }
 </style>

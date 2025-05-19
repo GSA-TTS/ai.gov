@@ -13,7 +13,7 @@ function togglePlatformMenu() {
 ---
 
 <div class="usa-overlay"></div>
-<header class="usa-header usa-header--basic">
+<header class="usa-header usa-header--basic height-15">
   <div class="usa-nav-container ai-nav-container">
     <div class="usa-navbar ai-navbar">
       <Logo />
@@ -38,19 +38,16 @@ function togglePlatformMenu() {
 </header>
 
 <style>
-  @media (max-width: 64em) {
-    .ai-nav-container {
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-    .ai-nav {
-      flex: 1;
-      overflow-y: auto;
-    }
+  .ai-nav-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
   }
   @media (min-width: 64em) {
     .ai-nav-container {
+      display: flex;
+      flex-direction: row;
+      height: auto;
       position: relative;
       top: 62px;
     }

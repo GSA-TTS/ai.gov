@@ -8,6 +8,6 @@
 
 <style>
   .ai-menu-btn {
-    background-color: #000;
+    background-color: var(--ai-button-background-primary-rest);
   }
 </style>

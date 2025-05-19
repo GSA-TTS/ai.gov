@@ -40,18 +40,14 @@
 </ul>
 
 <style>
-  @media (min-width: 64em) {
-    .ai-nav__submenu {
-      width: 9rem;
-    }
-  }
-
-  .ai-nav__primary button, a {
+  .ai-nav__primary button,
+  a {
     font-weight: 500;
     color: #404040;
   }
 
-  .ai-nav__primary button:hover, a:hover {
+  .ai-nav__primary button:hover,
+  a:hover {
     font-weight: 500;
     color: #005ea2;
   }
@@ -74,5 +70,11 @@
   .ai-nav__submenu-item a:hover {
     background-color: #404040;
     color: #fff;
+  }
+
+  @media (min-width: 64em) {
+    .ai-nav__submenu {
+      width: 9rem;
+    }
   }
 </style>
