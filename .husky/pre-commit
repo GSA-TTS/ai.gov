@@ -1,2 +1,6 @@
-pnpm format
-pnpm test
+#!/usr/bin/env bash
+
+pnpm format;
+pnpm lint;
+pnpm check-types;
+pnpm test;
