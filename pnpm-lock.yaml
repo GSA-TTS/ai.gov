@@ -44,9 +44,40 @@ importers:
 
   apps/merged-copy:
     dependencies:
+      '@astrojs/svelte':
+        specifier: ^7.0.13
+        version: 7.0.13(@types/node@22.15.18)(astro@5.7.14(@types/node@22.15.18)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3))(sass-embedded@1.83.4)(svelte@5.28.2)(typescript@5.7.3)
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       astro:
-        specifier: ^5.7.14
+        specifier: ^5.7.10
         version: 5.7.14(@types/node@22.15.18)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3)
+      svelte:
+        specifier: ^5.28.2
+        version: 5.28.2
+    devDependencies:
+      '@repo/vitest-config':
+        specifier: workspace:*
+        version: link:../../packages/vitest-config
+      '@vitest/coverage-istanbul':
+        specifier: ^3.0.7
+        version: 3.0.7(vitest@3.0.7(@types/debug@4.1.12)(@types/node@22.15.18)(@vitest/ui@3.0.7)(jsdom@26.0.0)(sass-embedded@1.83.4))
+      astro-purgecss:
+        specifier: ^5.2.2
+        version: 5.2.2(astro@5.7.14(@types/node@22.15.18)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3))(purgecss@7.0.2)
+      prettier-plugin-astro:
+        specifier: ^0.14.1
+        version: 0.14.1
+      purgecss:
+        specifier: ^7.0.2
+        version: 7.0.2
+      slugify:
+        specifier: ^1.6.6
+        version: 1.6.6
+      vitest:
+        specifier: ^3.0.7
+        version: 3.0.7(@types/debug@4.1.12)(@types/node@22.15.18)(@vitest/ui@3.0.7)(jsdom@26.0.0)(sass-embedded@1.83.4)
 
   apps/site:
     dependencies:
@@ -5093,6 +5124,28 @@ snapshots:
       - tsx
       - yaml
 
+  '@astrojs/svelte@7.0.13(@types/node@22.15.18)(astro@5.7.14(@types/node@22.15.18)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3))(sass-embedded@1.83.4)(svelte@5.28.2)(typescript@5.7.3)':
+    dependencies:
+      '@sveltejs/vite-plugin-svelte': 5.0.3(svelte@5.28.2)(vite@6.3.5(@types/node@22.15.18)(sass-embedded@1.83.4))
+      astro: 5.7.14(@types/node@22.15.18)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3)
+      svelte: 5.28.2
+      svelte2tsx: 0.7.37(svelte@5.28.2)(typescript@5.7.3)
+      typescript: 5.7.3
+      vite: 6.3.5(@types/node@22.15.18)(sass-embedded@1.83.4)
+    transitivePeerDependencies:
+      - '@types/node'
+      - jiti
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - yaml
+
   '@astrojs/telemetry@3.2.1':
     dependencies:
       ci-info: 4.2.0
@@ -6156,6 +6209,11 @@ snapshots:
   astro-purgecss@5.2.2(astro@5.7.10(@types/node@22.15.18)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3))(purgecss@7.0.2):
     dependencies:
       astro: 5.7.10(@types/node@22.15.18)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3)
+      purgecss: 7.0.2
+
+  astro-purgecss@5.2.2(astro@5.7.14(@types/node@22.15.18)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3))(purgecss@7.0.2):
+    dependencies:
+      astro: 5.7.14(@types/node@22.15.18)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3)
       purgecss: 7.0.2
 
   astro@5.7.10(@types/node@22.15.18)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3):

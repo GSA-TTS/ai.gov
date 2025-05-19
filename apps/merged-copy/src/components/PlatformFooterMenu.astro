@@ -1,0 +1,48 @@
+---
+const { content } = Astro.props;
+import slugify from 'slugify';
+
+const menuLabel = `platform-footer-${slugify(content.title, {
+  lower: true,
+})}`;
+---
+
+<p id={menuLabel}>{content.title}</p>
+<ul class="add-list-reset" aria-labelledby={menuLabel}>
+  {
+    content.items.map(item => {
+      return (
+        <li>
+          <a href={item.url}>{item.title}</a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  p {
+    color: rgba(0, 0, 0, 0.54);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    margin-bottom: 2rem;
+  }
+
+  li {
+    display: block;
+    line-height: 140%;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: #000;
+    display: block;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+</style>
