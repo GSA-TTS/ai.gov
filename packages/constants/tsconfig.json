@@ -7,16 +7,9 @@
     "resolveJsonModule": true,
     "baseUrl": ".", // Required for relative imports
     "paths": {
-      "@ui/*": ["../../packages/ui/src/*"], // Alias for shared UI components
-      "@shared-assets/*": ["../../packages/shared-assets/*"]
+      "@ui/*": ["../../packages/ui/src/*"] // Alias for shared UI components
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.astro",
-    ".astro/types.d.ts",
-    "../../packages/shared-assets/**/*.svg"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro", ".astro/types.d.ts"],
   "exclude": ["dist", "node_modules"]
 }

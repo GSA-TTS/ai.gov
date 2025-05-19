@@ -1,0 +1,7 @@
+.ai-section {
+  padding-block: var(--ai-layout-section-spacing-y);
+}
+
+.ai-maxw-widescreen {
+  max-width: var(--ai-layout-maxw-widescreen);
+}

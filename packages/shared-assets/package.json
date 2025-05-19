@@ -1,0 +1,19 @@
+{
+  "name": "@repo/shared-assets",
+  "version": "0.0.1",
+  "private": true,
+  "files": [
+    "logos",
+    "fonts",
+    "uswds"
+  ],
+  "scripts": {
+    "lint": "eslint \"**/*.{ts,tsx}\"",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "^5.0.4"
+  }
+}

@@ -1,0 +1,65 @@
+---
+import { footerMenus } from '../data/footer';
+import PlatformFooterMenu from './PlatformFooterMenu.astro';
+---
+
+<div class="grid-container ai-maxw-widescreen">
+  <section
+    class="usa-section ai-section ai-footer-cta"
+    aria-labelledby="ai-footer-cta"
+  >
+    <p class="ai-footer-cta__heading" id="ai-footer-cta">
+      Get your team started today
+    </p>
+    <div class="ai-footer-cta__buttons">
+      <ul class="usa-button-group ai-button-group">
+        <li class="usa-button-group__item">
+          <a
+            class="usa-button usa-button--primary ai-button ai-button--primary"
+            href="#">Contact Sales</a
+          >
+        </li>
+        <li class="usa-button-group__item">
+          <a
+            class="usa-button usa-button--outline ai-button ai-button--outline"
+            href="#">Start Building</a
+          >
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="usa-section ai-section">
+    <div class="grid-row grid-gap">
+      <div class="tablet:grid-col-12">
+        <nav aria-label="Footer navigation">
+          <div class="grid-row grid-gap">
+            {
+              footerMenus.map(menu => {
+                return (
+                  <div class="tablet:grid-col-3">
+                    <PlatformFooterMenu content={menu} />
+                  </div>
+                );
+              })
+            }
+          </div>
+        </nav>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .ai-footer-cta__heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .ai-footer-cta {
+    border-bottom: 1px solid #cdcdcd;
+  }
+
+  .ai-button-group {
+    margin: 0;
+    gap: 1.5rem;
+  }
+</style>

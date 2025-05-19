@@ -1,5 +1,5 @@
 {
-  "name": "@repo/site",
+  "name": "@repo/console",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -8,8 +8,7 @@
     "check-types": "tsc --noEmit",
     "dev": "astro dev",
     "preview": "astro preview",
-    "test": "vitest run",
-    "postinstall": "mkdir -p public && ln -sfn ../../../packages/ui/static/uswds public/uswds"
+    "test": "vitest run"
   },
   "dependencies": {
     "@astrojs/svelte": "^7.0.13",
