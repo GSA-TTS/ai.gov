@@ -12,7 +12,7 @@ The AI Platform project requires a description of Console architecture decisions
 
 ## Decision
 
-The Console team create a separate astro app (`console`) within the ai.gov monorepo similar to `site` and utilize shared components between the apps.
+The Console team creates a separate astro app (`console`) within the ai.gov monorepo similar to `site` and utilize shared components between the apps.
 
 ## Alternatives Considered
 
@@ -43,6 +43,4 @@ Different teams can work on different apps with clearer ownership boundries.
 
 - Technology divergence 
 
-Can optimize each app for its specific use case
-
-While there are many benefits, there are certain downsides that were considered like development overhead with duplicate configuration and boilerplate, and authentication complexity.
+Can optimize each app for its specific use case.
