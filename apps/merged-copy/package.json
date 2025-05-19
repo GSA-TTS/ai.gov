@@ -1,5 +1,5 @@
 {
-  "name": "apps-merged-copy",
+  "name": "@repo/merged-copy",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
