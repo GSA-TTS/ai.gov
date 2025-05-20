@@ -1,5 +1,5 @@
 export const getBaseUrl = () => {
-  const { BASEURL } = import.meta.env;
+  const { BASEURL } = process.env;
 
   if (!BASEURL) {
     return '/';
