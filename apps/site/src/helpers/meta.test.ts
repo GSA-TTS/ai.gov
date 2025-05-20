@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { getPageTitle } from './meta.js';
+import { describe, it, expect, afterEach, vi } from 'vitest';
+import { getPageTitle, getBaseUrl } from './meta.js';
 import { siteName } from '../../constants.js';
 
 describe('getPageTitle', () => {
