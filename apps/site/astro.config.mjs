@@ -8,8 +8,13 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+const addTrailingSlash = (path) => {
+  return path.endsWith('/') ? path : `${path}/`;
+};
+
 // https://astro.build/config
 export default defineConfig({
+  base: addTrailingSlash(process.env.BASEURL || ''),
   integrations: [
     svelte(),
     // purgecss should go last
