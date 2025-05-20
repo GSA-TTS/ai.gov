@@ -1,27 +1,58 @@
-import { describe, it, expect, afterEach, vi } from 'vitest';
+import { describe, it, expect, afterEach } from 'vitest';
 import { getPageTitle, getBaseUrl } from './meta.js';
 import { siteName } from '../../constants.js';
 
-describe('getPageTitle', () => {
-  it('should return the title from props if it exists', () => {
-    const mockAstroGlobal = {
-      props: {
-        title: 'Page Title',
-      },
-    } as any;
+describe('meta', () => {
+  describe('getPageTitle', () => {
+    it('should return the title from props if it exists', () => {
+      const mockAstroGlobal = {
+        props: {
+          title: 'Page Title',
+        },
+      } as any;
 
-    const result = getPageTitle(mockAstroGlobal);
+      const result = getPageTitle(mockAstroGlobal);
 
-    expect(result).toBe('Page Title');
+      expect(result).toBe('Page Title');
+    });
+
+    it('should return the siteName if title is not provided in props', () => {
+      const mockAstroGlobal = {
+        props: {},
+      } as any;
+
+      const result = getPageTitle(mockAstroGlobal);
+
+      expect(result).toBe(siteName);
+    });
   });
 
-  it('should return the siteName if title is not provided in props', () => {
-    const mockAstroGlobal = {
-      props: {},
-    } as any;
+  describe('getBaseUrl', () => {
+    const originalEnv = { ...process.env };
 
-    const result = getPageTitle(mockAstroGlobal);
+    afterEach(() => {
+      process.env = { ...originalEnv };
+    });
 
-    expect(result).toBe(siteName);
+    it('should return "/" if BASEURL is not defined', () => {
+      delete process.env.BASEURL;
+
+      const result = getBaseUrl();
+      expect(result).toBe('/');
+    });
+
+    it('should return the BASEURL with a trailing slash', () => {
+      process.env.BASEURL = 'https://example.com';
+
+      const result = getBaseUrl();
+      expect(result).toBe('https://example.com/');
+    });
+
+    it('should handle an empty BASEURL and return "/"', () => {
+      process.env.BASEURL = '';
+
+      const result = getBaseUrl();
+      expect(result).toBe('/');
+    });
   });
 });
