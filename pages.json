@@ -1,5 +1,6 @@
 {
   "cache": false,
+  "fullClone": true,
   "headers": [
     {
       "/*.html": {
