@@ -5,15 +5,16 @@ import { siteName } from '../../constants.js';
 describe('meta', () => {
   describe('getPageTitle', () => {
     it('should return the title from props if it exists', () => {
+      const title = 'Page Title';
       const mockAstroGlobal = {
         props: {
-          title: 'Page Title',
+          title,
         },
       } as any;
 
       const result = getPageTitle(mockAstroGlobal);
 
-      expect(result).toBe('Page Title');
+      expect(result).toBe(title);
     });
 
     it('should return the siteName if title is not provided in props', () => {
