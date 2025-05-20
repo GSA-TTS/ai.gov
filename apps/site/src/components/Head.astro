@@ -2,6 +2,9 @@
 import { siteName } from '../../constants';
 const { title } = Astro.props;
 import { Font } from 'astro:assets';
+import { getBaseUrl } from '../helpers/meta';
+
+const baseUrl = getBaseUrl();
 ---
 
 <meta name="viewport" content="width=device-width" />
@@ -13,7 +16,7 @@ import { Font } from 'astro:assets';
     performance.mark('gsa:documenthead:start');
   }
 </script>
-<script is:inline src="/uswds/js/uswds-init.min.js"></script>
+<script is:inline src=`${baseUrl}uswds/js/uswds-init.min.js`></script>
 <Font cssVariable="--ai-font-family-sans" preload />
 <style>
   body {
