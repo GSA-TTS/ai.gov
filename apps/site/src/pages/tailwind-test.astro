@@ -1,0 +1,40 @@
+---
+import TailwindLayout from '../layouts/TailwindLayout.astro';
+import { Button } from '../components/ui/button.tsx'; // Import the Shadcn Button
+---
+
+<TailwindLayout title="Tailwind Test Page">
+  <div class="tw-container tw-mx-auto tw-py-10">
+    <h1 class="tw-text-2xl tw-font-bold">Tailwind CSS & Shadcn/UI Test</h1>
+    <p class="tw-mt-4">
+      This page uses Tailwind CSS for styling and includes a Shadcn/UI button
+      component.
+    </p>
+
+    <div class="tw-mt-8">
+      <h2 class="tw-text-xl tw-font-semibold">Shadcn/UI Button:</h2>
+      <div class="tw-mt-4 tw-space-x-2">
+        <Button client:visible>Default Button</Button>
+        <Button client:visible variant="destructive">Destructive</Button>
+        <Button client:visible variant="outline">Outline</Button>
+        <Button client:visible variant="secondary">Secondary</Button>
+        <Button client:visible variant="ghost">Ghost</Button>
+        <Button client:visible variant="link">Link</Button>
+      </div>
+    </div>
+
+    <div
+      class="tw-mt-8 tw-p-4 tw-bg-primary tw-text-primary-foreground tw-rounded-md"
+    >
+      This box uses primary background and foreground colors.
+    </div>
+    <div
+      class="tw-mt-4 tw-p-4 tw-bg-secondary tw-text-secondary-foreground tw-rounded-md"
+    >
+      This box uses secondary background and foreground colors.
+    </div>
+    <div class="tw-mt-4 tw-p-4 tw-border tw-border-border tw-rounded-md">
+      This box has a border.
+    </div>
+  </div>
+</TailwindLayout>

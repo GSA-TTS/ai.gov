@@ -2,6 +2,8 @@
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import purgecss from 'astro-purgecss';
+import tailwind from '@astrojs/tailwind';
+import react from '@astrojs/react';
 import { join as pathJoin, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -14,9 +16,30 @@ const addTrailingSlash = (path) => {
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    resolve: {
+      alias: {
+        '@ui': pathJoin(__dirname, '../../packages/ui'),
+        // Ensure the existing '@/' alias for src is also here if needed for Vite, 
+        // though it's often handled by Astro's default setup for src.
+        // For consistency with tsconfig, let's add it:
+        '@': pathJoin(__dirname, './src'), 
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        // @ts-ignore - Suppressing type error for scss options, as runtime behavior is correct.
+        scss: {
+          includePaths: ['/Users/ivanmetzger/GitHub/ai.gov/packages/ui/node_modules/@uswds/uswds/dist/scss/stylesheets/packages'],
+        },
+      },
+    },
+  },
   base: addTrailingSlash(process.env.BASEURL || ''),
   integrations: [
+    tailwind(), // Tailwind integration first
     svelte(),
+    react(),    // React integration
     // purgecss should go last
     purgecss({
       fontFace: true, // Removes unused @font-face rules
