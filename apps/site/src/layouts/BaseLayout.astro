@@ -1,9 +1,8 @@
 ---
 import '../styles/global.css';
 import UsaBanner from '../components/UsaBanner.astro';
-import UsaSkipNav from '../components/UsaSkipNav.astro';
-// import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
+import UsaSkipNav from '../components/UsaSkipNav.astro';
 import { getPageTitle } from '../helpers/meta';
 
 const title = getPageTitle(Astro);
@@ -16,7 +15,9 @@ const title = getPageTitle(Astro);
     <Head title={title} />
   </head>
   <body>
-    <slot name="skip-nav" />
+    <slot name="skip-nav">
+      <UsaSkipNav mainContentId="#main-content" />
+    </slot>
     <UsaBanner />
     <slot />
   </body>
