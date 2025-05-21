@@ -12,6 +12,7 @@ export const baseConfig = defineConfig({
             file: `../coverage.json`,
           },
         ],
+        ["text"],
       ],
       enabled: true,
       exclude: ["**/*.astro"],
