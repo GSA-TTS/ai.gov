@@ -4,17 +4,14 @@ import svelte from '@astrojs/svelte';
 import purgecss from 'astro-purgecss';
 import { join as pathJoin, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { normalizeTrailingSlash } from "./src/helpers/string-formatters.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const addTrailingSlash = (path) => {
-  return path.endsWith('/') ? path : `${path}/`;
-};
-
 // https://astro.build/config
 export default defineConfig({
-  base: addTrailingSlash(process.env.BASEURL || ''),
+  base: normalizeTrailingSlash(process.env.BASEURL || ''),
   integrations: [
     svelte(),
     // purgecss should go last

@@ -1,3 +1,6 @@
-export const addTrailingSlash = (path: string) => {
-  return path.endsWith('/') ? path : `${path}/`;
+export const normalizeTrailingSlash = (path?: string) => {
+  if (typeof path !== 'string' || !path) {
+    return '/';
+  }
+  return path.replace(/\/+$/, '') + '/';
 };
