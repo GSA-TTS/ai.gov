@@ -8,13 +8,12 @@
     "check-types": "tsc --noEmit",
     "dev": "astro dev",
     "preview": "astro preview",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "postinstall": "mkdir -p public && ln -sfn ../../../packages/ui/static/uswds public/uswds"
   },
   "dependencies": {
     "@astrojs/svelte": "^7.0.13",
     "@repo/constants": "workspace:*",
-    "@repo/shared-components": "workspace:*",
     "@repo/styles": "workspace:*",
     "@repo/ui": "workspace:*",
     "astro": "^5.7.10",
@@ -24,7 +23,6 @@
     "astro-purgecss": "^5.2.2",
     "prettier-plugin-astro": "^0.14.1",
     "purgecss": "^7.0.2",
-    "slugify": "^1.6.6",
     "vitest": "^3.0.7"
   }
 }

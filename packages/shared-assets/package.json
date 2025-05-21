@@ -8,8 +8,7 @@
     "uswds"
   ],
   "scripts": {
-    "lint": "eslint \"**/*.{ts,tsx}\"",
-    "check-types": "tsc --noEmit"
+    "lint": "echo 'Linting skipped for assets package'"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

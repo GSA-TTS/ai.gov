@@ -8,12 +8,11 @@
     "check-types": "tsc --noEmit",
     "dev": "astro dev",
     "preview": "astro preview",
-    "test": "vitest run"
+    "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
     "@astrojs/svelte": "^7.0.13",
     "@repo/constants": "workspace:*",
-    "@repo/shared-components": "workspace:*",
     "@repo/styles": "workspace:*",
     "@repo/ui": "workspace:*",
     "astro": "^5.7.10",

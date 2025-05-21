@@ -80,16 +80,16 @@ export default defineConfig({
   },
   vite: {
     optimizeDeps: {
-      include: ['@repo/constants', '@repo/shared-components'],
+      include: ['@repo/constants'],
     },
     resolve: {
-      dedupe: ['@repo/constants', '@repo/shared-components'],
+      dedupe: ['@repo/constants'],
       alias: {
         '@shared-assets': resolve(__dirname, '../../packages/shared-assets')
       },
     },
     ssr: {
-      noExternal: ['@repo/constants', '@repo/shared-components'],
+      noExternal: ['@repo/constants'],
     },
     assetsInclude: ['**/*.svg']
   },

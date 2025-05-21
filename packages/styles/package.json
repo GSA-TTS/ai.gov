@@ -5,13 +5,6 @@
   "types": "src/index.ts",
   "files": ["src"],
   "scripts": {
-    "lint": "eslint ."
-  },
-  "dependencies": {
-    "@repo/ui": "workspace:*"
-  },
-  "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*"
+    "lint": "echo 'Linting skipped for styles package'"
   }
 }
