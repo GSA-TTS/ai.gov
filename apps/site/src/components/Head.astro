@@ -2,7 +2,8 @@
 import { siteName } from '../../constants';
 const { title } = Astro.props;
 import { Font } from 'astro:assets';
-import { getBaseUrl } from '../helpers/meta';
+
+import { getBaseUrl } from '../helpers/url';
 
 const baseUrl = getBaseUrl();
 ---
