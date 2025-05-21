@@ -10,7 +10,10 @@ export const getBaseUrl = () => {
   return normalizeTrailingSlash(BASEURL);
 };
 
-export const getUrlFromBase = (assetPath: string) => {
+export const getUrlFromBase = (assetPath?: string) => {
   const base = normalizeTrailingSlash(getBaseUrl());
+  if (typeof assetPath !== 'string' || !assetPath) {
+    return base;
+  }
   return `${base}${assetPath.replace(/^\/+/, '')}`;
 };
