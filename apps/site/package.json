@@ -9,6 +9,8 @@
     "dev": "astro dev",
     "preview": "astro preview",
     "test": "vitest run --passWithNoTests",
+    "test:e2e:ci": "pnpm playwright test",
+    "test:e2e:dev": "pnpm playwright test --ui-port=8080 --ui-host=0.0.0.0",
     "postinstall": "mkdir -p public && ln -sfn ../../../packages/ui/static/uswds public/uswds"
   },
   "dependencies": {
@@ -20,6 +22,8 @@
     "svelte": "^5.28.2"
   },
   "devDependencies": {
+    "@repo/vitest-config": "workspace:*",
+    "@vitest/coverage-istanbul": "^3.0.7",
     "astro-purgecss": "^5.2.2",
     "prettier-plugin-astro": "^0.14.1",
     "purgecss": "^7.0.2",

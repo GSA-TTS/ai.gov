@@ -14,6 +14,7 @@ export const baseConfig = defineConfig({
         ],
       ],
       enabled: true,
+      exclude: ["**/*.astro"],
     },
   },
 });

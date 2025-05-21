@@ -3,11 +3,13 @@ import AgencyFooter from '@repo/ui/src/components/AgencyFooter.astro';
 import BaseLayout from './BaseLayout.astro';
 import { getPageTitle } from '@repo/ui/src/helpers/meta';
 import PlatformFooter from '@repo/ui/src/components/PlatformFooter.astro';
+import AgencyHeader from '@repo/ui/src/components/AgencyHeader.astro';
 
 const title = getPageTitle(Astro);
 ---
 
 <BaseLayout title={title}>
+  <AgencyHeader />
   <slot />
   <PlatformFooter />
   <AgencyFooter />

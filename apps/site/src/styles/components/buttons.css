@@ -3,6 +3,7 @@
   --ai-button-radius: var(--ai-radius-round);
   --ai-button-padding-x: 2rem;
   --ai-button-padding-y: 0.75rem;
+  --ai-button-height: 2.5rem;
 
   /* primary button */
   --ai-button-background-primary-rest: #000;
@@ -22,9 +23,12 @@
 .ai-button {
   background-color: var(--ai-button-background-primary-rest);
   border-radius: var(--ai-button-radius);
-  font-weight: 400;
+  font-weight: 500;
   padding-inline: var(--ai-button-padding-x);
   padding-block: var(--ai-button-padding-y);
+  margin: 0;
+  height: var(--ai-button-height);
+  min-width: 107px;
 }
 
 .ai-button:is(:hover, :focus) {

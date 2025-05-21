@@ -1,5 +1,5 @@
 {
-  "name": "vitest",
+  "name": "@repo/ai.gov",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -15,15 +15,23 @@
     "dev:all": "turbo run dev --parallel --filter @repo/site --filter @repo/console",
     "format": "prettier --write \"{packages,apps}/*/src/**/*.{js,jsx,ts,tsx,scss,css,astro}\"",
     "lint": "turbo run lint",
+    "pages": "rm -rf node_modules && npm i -g pnpm turbo && pnpm i && pnpm build && ln -sf ./apps/site/dist _site",
     "prepare": "husky",
     "preview:site": "pnpm --filter @repo/site preview",
     "preview:console": "pnpm --filter @repo/console preview",
     "test": "turbo run test",
+    "test:e2e:ci": "pnpm --filter @repo/site test:e2e:ci",
+    "test:e2e:dev": "pnpm --filter @repo/site test:e2e:dev",
     "view-report": "turbo run view-report"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.14.0",
     "husky": "^9.1.7",
     "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-svelte": "^3.4.0",
     "turbo": "^2.5.2",
     "typescript": "5.7.3"
   },

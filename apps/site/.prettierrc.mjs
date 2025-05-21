@@ -10,6 +10,12 @@ export default {
         parser: 'astro',
       },
     },
+    {
+      files: '*.svelte',
+      options: {
+        parser: 'svelte',
+      },
+    },
   ],
-  plugins: ['prettier-plugin-astro'],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-svelte'],
 };

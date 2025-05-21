@@ -5,26 +5,29 @@ import { AstroGlobal } from 'astro';
 
 type PartialAstroGlobal = Pick<AstroGlobal, 'props'>;
 
-describe('getPageTitle', () => {
-  it('should return the title from props if it exists', () => {
-    const mockAstroGlobal = {
-      props: {
-        title: 'Page Title',
-      },
-    } as PartialAstroGlobal;
+describe('meta', () => {
+  describe('getPageTitle', () => {
+    it('should return the title from props if it exists', () => {
+      const title = 'Page Title';
+      const mockAstroGlobal = {
+        props: {
+          title,
+        },
+      } as PartialAstroGlobal;
 
-    const result = getPageTitle(mockAstroGlobal as AstroGlobal);
+      const result = getPageTitle(mockAstroGlobal as AstroGlobal);
 
-    expect(result).toBe('Page Title');
-  });
+      expect(result).toBe(title);
+    });
 
-  it('should return the siteName if title is not provided in props', () => {
-    const mockAstroGlobal = {
-      props: {},
-    } as PartialAstroGlobal;
+    it('should return the siteName if title is not provided in props', () => {
+      const mockAstroGlobal = {
+        props: {},
+      } as PartialAstroGlobal;
 
-    const result = getPageTitle(mockAstroGlobal as AstroGlobal);
+      const result = getPageTitle(mockAstroGlobal as AstroGlobal);
 
-    expect(result).toBe(siteName);
+      expect(result).toBe(siteName);
+    });
   });
 });
