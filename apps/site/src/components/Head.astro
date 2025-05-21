@@ -2,10 +2,11 @@
 import { siteName } from '../../constants';
 const { title } = Astro.props;
 import { Font } from 'astro:assets';
+import { getUrlFromBase } from '../helpers/url';
 ---
 
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href=`${getUrlFromBase('favicon.svg')}` />
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
 <script is:inline>
@@ -13,7 +14,8 @@ import { Font } from 'astro:assets';
     performance.mark('gsa:documenthead:start');
   }
 </script>
-<script is:inline src="/uswds/js/uswds-init.min.js"></script>
+<script is:inline src=`${getUrlFromBase('uswds/js/uswds-init.min.js')}`
+></script>
 <Font cssVariable="--ai-font-family-sans" preload />
 <style>
   body {

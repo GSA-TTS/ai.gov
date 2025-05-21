@@ -11,6 +11,7 @@
     "dev:astro": "pnpm --filter @repo/site dev",
     "format": "prettier --write \"{packages,apps}/*/src/**/*.{js,jsx,ts,tsx,scss,css,astro,svelte}\"",
     "lint": "turbo run lint",
+    "pages": "rm -rf node_modules && npm i -g pnpm turbo && pnpm i && pnpm build && ln -sf ./apps/site/dist _site",
     "prepare": "husky",
     "preview:astro": "pnpm --filter @repo/site preview",
     "test": "turbo run test",

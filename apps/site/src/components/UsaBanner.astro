@@ -1,5 +1,5 @@
 ---
-
+import { getUrlFromBase } from '../helpers/url.js';
 ---
 
 <section
@@ -13,7 +13,7 @@
           <img
             aria-hidden="true"
             class="usa-banner__header-flag"
-            src="/uswds/img/us_flag_small.png"
+            src=`${getUrlFromBase('uswds/img/us_flag_small.png')}`
             alt=""
           />
         </div>
@@ -41,7 +41,7 @@
         <div class="usa-banner__guidance tablet:grid-col-6">
           <img
             class="usa-banner__icon usa-media-block__img"
-            src="/uswds/img/icon-dot-gov.svg"
+            src=`${getUrlFromBase('uswds/img/icon-dot-gov.svg')}`
             role="img"
             alt=""
             aria-hidden="true"
@@ -57,7 +57,7 @@
         <div class="usa-banner__guidance tablet:grid-col-6">
           <img
             class="usa-banner__icon usa-media-block__img"
-            src="/uswds/img/icon-https.svg"
+            src=`${getUrlFromBase('uswds/img/icon-https.svg')}`
             role="img"
             alt=""
             aria-hidden="true"
