@@ -4,12 +4,9 @@ import MenuButton from './MenuButton.svelte';
 import NavLinks from './NavLinks.svelte';
 import SearchBar from './SearchBar.svelte';
 import NavActionButtons from './NavActionButtons.svelte';
-
-import { getBaseUrl } from '../helpers/url';
+import { getUrlFromBase } from '../helpers/url';
 
 let isPlatformExpanded = false;
-const baseUrl = getBaseUrl();
-
 function togglePlatformMenu() {
   isPlatformExpanded = !isPlatformExpanded;
 }
@@ -24,7 +21,7 @@ function togglePlatformMenu() {
       <nav aria-label="Primary navigation" class="usa-nav ai-nav">
         <button type="button" class="usa-nav__close">
           <img
-            src=`${baseUrl}uswds/img/usa-icons/close.svg`
+            src=`${getUrlFromBase('uswds/img/usa-icons/close.svg')}`
             role="img"
             alt="Close"
           />
