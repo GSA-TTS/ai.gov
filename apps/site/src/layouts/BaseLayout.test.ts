@@ -21,7 +21,7 @@ describe('BaseLayout', () => {
   test('Can override the skip link', async () => {
     const result = await container.renderToString(BaseLayout, {
       slots: {
-        'skip-nav': '<div></div>',
+        'skip-nav': '',
       },
     });
 
