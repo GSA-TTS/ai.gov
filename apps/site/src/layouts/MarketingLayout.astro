@@ -8,6 +8,7 @@ import AgencyHeader from 'src/components/AgencyHeader.astro';
 const title = getPageTitle(Astro);
 ---
 
+<slot name="skip-nav" />
 <BaseLayout title={title}>
   <AgencyHeader />
   <slot />
