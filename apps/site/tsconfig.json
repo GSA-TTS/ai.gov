@@ -16,7 +16,6 @@
     "src/**/*.tsx",
     "src/**/*.astro",
     ".astro/types.d.ts",
-    "../../packages/shared-assets/**/*.svg"
   ],
   "exclude": ["dist", "node_modules"]
 }
