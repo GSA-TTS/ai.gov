@@ -10,5 +10,12 @@
       "@ui/*": ["../../packages/ui/src/*"] // Alias for shared UI components
     }
   },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.astro",
+    "src/**/*.js",
+    "src/**/*.jsx"
+  ],
   "exclude": ["dist", "node_modules"]
 }
