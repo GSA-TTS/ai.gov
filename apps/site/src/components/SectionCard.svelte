@@ -5,9 +5,7 @@
   export let textColor: string = '#000';
   export let title: string = '';
   export let description: string = '';
-  export let button1: string | undefined;
-  export let button1Type: string = 'primary';
-  export let button2: string | undefined;
+  export let buttons: Array<{ text: string; type: string; href?: string }> = [];
   export let iconText: string = '';
   export let iconSvgPath: string | undefined;
   export let isHeaderSection: boolean = false;
@@ -58,29 +56,21 @@
         </div>
         <p class="ai-section-card__description">{description}</p>
       </div>
-      {#if button1 || button2}
+      {#if buttons.length}
         <div class="ai-menu-buttons" role="group" aria-label="Section actions">
-          {#if button1}
+          {#each buttons as button}
             <a
-              class="usa-button usa-button--primary ai-button {button1Type ===
-              'white'
-                ? 'ai-button--white'
-                : 'ai-button--primary'}"
+              class="usa-button ai-button
+                {button.type === 'white' ? 'ai-button--white' : ''}
+                {button.type === 'outline' ? 'ai-button--outline' : ''}
+                {button.type === 'primary' ? 'ai-button--primary' : ''}
+                {button.type === 'unstyled' ? 'ai-button--unstyled' : ''}"
+              href={button.href || '/'}
               type="button"
-              href="/"
             >
-              {button1}
+              {button.text}
             </a>
-          {/if}
-          {#if button2}
-            <a
-              class="usa-button usa-button--unstyled ai-button ai-button--unstyled"
-              type="button"
-              href="/"
-            >
-              {button2}
-            </a>
-          {/if}
+          {/each}
         </div>
       {/if}
     </div>
