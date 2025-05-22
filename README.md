@@ -39,6 +39,13 @@ This project uses [pnpm workspaces](https://pnpm.io/workspaces). To work with th
 pnpm install
 ```
 
+This project uses playwright tests. Run this command to install.
+
+```bash
+pnpm exec playwright install
+```
+
+
 To run tests.
 
 ```bash
