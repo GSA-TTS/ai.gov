@@ -1,25 +1,10 @@
 ---
 import MarketingLayout from '../layouts/MarketingLayout.astro';
 import UsaSkipNav from '../components/UsaSkipNav.astro';
+import AgencyMainContent from '../components/AgancyMainContent.astro';
 ---
 
 <MarketingLayout>
   <UsaSkipNav mainContentId="#main-content" slot="skip-nav" />
-  <main
-    id="main-content"
-    class="grid-container ai-maxw-widescreen ai-main-content"
-  >
-    <div
-      style="min-height: 500px; margin: 2rem 0; display: flex; flex-direction: column; justify-content: center; align-items: center;"
-    >
-      <h1 style="margin-bottom: 1rem;">Page title</h1>
-      <p>We are working hard to bring you this content. Stay tuned!</p>
-    </div>
-  </main>
+  <AgencyMainContent />
 </MarketingLayout>
-
-<style>
-  .ai-main-content {
-    border-top: 0;
-  }
-</style>
