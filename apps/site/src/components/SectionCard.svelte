@@ -24,14 +24,7 @@
             <div class="ai-section-card__icon">
               {#if iconSvgPath}
                 {#if iconSvgPath.endsWith('.svg')}
-                  <img
-                    src={iconSvgPath}
-                    alt={iconText}
-                    width="20.656"
-                    height="21"
-                  />
-                {:else}
-                  {@html iconSvgPath}
+                  <img src={iconSvgPath} alt="" width="20.656" height="21" />
                 {/if}
               {/if}
             </div>

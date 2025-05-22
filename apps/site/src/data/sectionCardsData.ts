@@ -15,7 +15,7 @@ export const sectionCardsData = {
   },
   chatSection: {
     iconSvgPath: '/images/chat-icon.svg',
-    iconText: 'Chat',
+    iconText: 'CHAT',
     title: 'AI assistant: Start your journey to smarter solutions',
     description:
       'Streamline how you implement artificial intelligence across your workflow.',
