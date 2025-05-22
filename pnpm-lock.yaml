@@ -36,12 +36,6 @@ importers:
         specifier: 5.7.3
         version: 5.7.3
 
-  apps/clean-install:
-    dependencies:
-      astro:
-        specifier: ^5.7.14
-        version: 5.8.0(@types/node@22.15.18)(rollup@4.40.1)(sass-embedded@1.83.4)(typescript@5.7.3)
-
   apps/product-info:
     dependencies:
       '@astrojs/svelte':

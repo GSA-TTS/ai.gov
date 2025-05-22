@@ -68,7 +68,7 @@ pnpm dev
 
 These local servers will be started:
 
-- Public website (./apps/site) - http://localhost:4321/
+- Public website (./apps/product-info) - http://localhost:4321/
 
 To lint the source code:
 
