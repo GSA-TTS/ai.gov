@@ -12,12 +12,7 @@
     }
   },
   "include": [
-    "src/**/*",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.astro",
-    "src/**/*.js",
-    "src/**/*.jsx"
+    "src"
   ],
   "exclude": ["dist", "node_modules"]
 }
