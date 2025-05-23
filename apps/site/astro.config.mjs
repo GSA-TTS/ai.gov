@@ -62,12 +62,12 @@ export default defineConfig({
         provider: 'local', // Serves fonts locally
         variants: [
           {
-            src: [{ url: './src/fonts/archivo-regular.woff2' }],
+            src: [{ url: 'fonts/archivo-regular.woff2' }],
             weight: 400,
             style: 'normal',
           },
           {
-            src: [{ url: './src/fonts/archivo-semibold.woff2' }],
+            src: [{ url: 'fonts/archivo-semibold.woff2' }],
             weight: 600,
             style: 'normal',
           },
