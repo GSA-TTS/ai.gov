@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import { siteName } from '../../constants';
-import { getUrlFromBase } from '../helpers/url';
+import { siteName } from '@repo/constants';
+// import { getUrlFromBase } from '@repo/ui/src/helpers/url';
+import gsaLogo from '@shared-assets/logos/gsa-logo.svg';
 ---
 
 <footer id="footer" class="usa-footer">
@@ -20,7 +21,7 @@ import { getUrlFromBase } from '../helpers/url';
                   class="usa-identifier__logo GSAFooter__logo"
                 >
                   <Image
-                    src=`${getUrlFromBase('/images/gsa-logo.svg')}`
+                    src={gsaLogo}
                     alt="GSA.gov home."
                     width="60"
                     height="60"

@@ -1,6 +1,5 @@
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { test, expect, describe, beforeEach } from 'vitest';
-// @ts-ignore
 import UsaSkipNav from './UsaSkipNav.astro';
 
 type UsaSkipNavSlots = Record<string, unknown>;

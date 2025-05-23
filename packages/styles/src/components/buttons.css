@@ -1,0 +1,45 @@
+:root {
+  /* global button */
+  --ai-button-radius: var(--ai-radius-round);
+  --ai-button-padding-x: 2rem;
+  --ai-button-padding-y: 0.75rem;
+
+  /* primary button */
+  --ai-button-background-primary-rest: #000;
+  --ai-button-background-primary-hover: var(
+    --ai-button-background-primary-rest
+  );
+  --ai-button-text-primary-rest: #fff;
+  --ai-button-text-primary-hover: var(--ai-button-text-primary-rest);
+
+  /* outline button */
+  --ai-button-text-outline-rest: #000;
+  --ai-button-text-outline-hover: var(--ai-button-text-outline-rest);
+  --ai-button-border-outline-rest: #000;
+  --ai-button-border-outline-hover: var(--ai-button-border-outline-rest);
+}
+
+.ai-button {
+  background-color: var(--ai-button-background-primary-rest);
+  border-radius: var(--ai-button-radius);
+  font-weight: 400;
+  padding-inline: var(--ai-button-padding-x);
+  padding-block: var(--ai-button-padding-y);
+}
+
+.ai-button:is(:hover, :focus) {
+  background-color: var(--ai-button-background-primary-hover);
+  color: var(--ai-button-text-primary-hover);
+}
+
+.ai-button--outline {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px var(--ai-button-border-outline-rest);
+  color: var(--ai-button-text-outline-rest);
+}
+
+.ai-button--outline:is(:hover, :focus) {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px var(--ai-button-border-outline-hover);
+  color: var(--ai-button-text-outline-hover);
+}

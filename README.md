@@ -39,6 +39,13 @@ This project uses [pnpm workspaces](https://pnpm.io/workspaces). To work with th
 pnpm install
 ```
 
+This project uses playwright tests. Run this command to install.
+
+```bash
+pnpm exec playwright install
+```
+
+
 To run tests.
 
 ```bash
@@ -66,9 +73,26 @@ then run:
 pnpm dev
 ```
 
+To start developing each app individually, use:
+
+```bash
+pnpm build:site
+
+pnpm build:console
+```
+
+then run:
+
+```bash
+pnpm dev:site
+
+pnpm dev:console
+```
+
 These local servers will be started:
 
 - Public website (./apps/site) - http://localhost:4321/
+- Private console dashboard (./apps/console) - http://localhost:4322/
 
 To lint the source code:
 

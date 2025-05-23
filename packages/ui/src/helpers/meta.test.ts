@@ -1,6 +1,9 @@
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { getPageTitle } from './meta.js';
-import { siteName } from '../../constants.js';
+import { siteName } from '@repo/constants';
+import { AstroGlobal } from 'astro';
+
+type PartialAstroGlobal = Pick<AstroGlobal, 'props'>;
 
 describe('meta', () => {
   describe('getPageTitle', () => {
@@ -10,9 +13,9 @@ describe('meta', () => {
         props: {
           title,
         },
-      } as any;
+      } as PartialAstroGlobal;
 
-      const result = getPageTitle(mockAstroGlobal);
+      const result = getPageTitle(mockAstroGlobal as AstroGlobal);
 
       expect(result).toBe(title);
     });
@@ -20,9 +23,9 @@ describe('meta', () => {
     it('should return the siteName if title is not provided in props', () => {
       const mockAstroGlobal = {
         props: {},
-      } as any;
+      } as PartialAstroGlobal;
 
-      const result = getPageTitle(mockAstroGlobal);
+      const result = getPageTitle(mockAstroGlobal as AstroGlobal);
 
       expect(result).toBe(siteName);
     });

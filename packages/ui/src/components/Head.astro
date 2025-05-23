@@ -1,5 +1,4 @@
 ---
-import { siteName } from '../../constants';
 const { title } = Astro.props;
 import { Font } from 'astro:assets';
 import { getUrlFromBase } from '../helpers/url';
@@ -23,7 +22,7 @@ import { getUrlFromBase } from '../helpers/url';
   }
 </style>
 <script>
-  import '@repo/ui/static/uswds/js/uswds.js';
+  import '../../static/uswds/js/uswds.js';
 </script>
 <!-- This belongs at the very bottom of the head -->
 <script is:inline>
