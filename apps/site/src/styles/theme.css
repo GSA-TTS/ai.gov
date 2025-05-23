@@ -5,3 +5,7 @@
   --ai-layout-maxw-widescreen: 86rem; /* 1376px */
   --ai-layout-section-spacing-y: 3.375rem;
 }
+
+body {
+  font-family: var(--ai-font-family-sans), sans-serif;
+}

@@ -16,7 +16,7 @@ export default defineConfig({
     svelte(),
     // purgecss should go last
     purgecss({
-      fontFace: true, // Removes unused @font-face rules
+      fontFace: false, // Removes unused @font-face rules
       keyframes: true, // Removes unused keyframes
       safelist: {
         standard: [
