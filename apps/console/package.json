@@ -8,12 +8,11 @@
     "check-types": "tsc --noEmit",
     "dev": "astro dev",
     "preview": "astro preview",
-    "test": "vitest run --passWithNoTests"
+    "test": "vitest run --passWithNoTests",
+    "postinstall": "mkdir -p public && ln -sfn ../../../packages/ui/static/uswds public/uswds && ln -sfn ../../../packages/ui/assets public/assets"
   },
   "dependencies": {
     "@astrojs/svelte": "^7.0.13",
-    "@repo/constants": "workspace:*",
-    "@repo/styles": "workspace:*",
     "@repo/ui": "workspace:*",
     "astro": "^5.7.10",
     "svelte": "^5.28.2"

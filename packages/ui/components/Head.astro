@@ -1,7 +1,7 @@
 ---
 const { title } = Astro.props;
 import { Font } from 'astro:assets';
-import { getUrlFromBase } from '../helpers/url';
+import { getUrlFromBase } from '@repo/ui/helpers';
 ---
 
 <meta name="viewport" content="width=device-width" />
@@ -22,7 +22,7 @@ import { getUrlFromBase } from '../helpers/url';
   }
 </style>
 <script>
-  import '../../static/uswds/js/uswds.js';
+  import '../static/uswds/js/uswds.js';
 </script>
 <!-- This belongs at the very bottom of the head -->
 <script is:inline>

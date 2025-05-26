@@ -14,7 +14,7 @@ export const sectionCardsData = {
     textColor: '#000',
   },
   chatSection: {
-    iconSvgPath: '/images/chat-icon.svg',
+    iconSvgPath: 'assets/images/chat-icon.svg',
     iconText: 'CHAT',
     title: 'AI assistant: Start your journey to smarter solutions',
     description:
@@ -29,7 +29,7 @@ export const sectionCardsData = {
     textColor: '#FFF',
   },
   apiSection: {
-    iconSvgPath: '/images/api-icon.svg',
+    iconSvgPath: 'assets/images/api-icon.svg',
     iconText: 'API',
     title: 'Access several trusted models; Get up and running fast',
     description:
@@ -48,7 +48,7 @@ export const sectionCardsData = {
     textColor: '#000',
   },
   consoleSection: {
-    iconSvgPath: '/images/console-icon.svg',
+    iconSvgPath: 'assets/images/console-icon.svg',
     iconText: 'CONSOLE',
     title: 'Make critical decisions that drive transformational success',
     description:

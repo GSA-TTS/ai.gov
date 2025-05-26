@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { getPageTitle } from './meta.js';
-import { siteName } from '@repo/constants';
+import { siteName } from '@repo/ui/constants';
 import { AstroGlobal } from 'astro';
 
 type PartialAstroGlobal = Pick<AstroGlobal, 'props'>;

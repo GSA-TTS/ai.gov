@@ -11,12 +11,10 @@
     "test": "vitest run --passWithNoTests",
     "test:e2e:ci": "pnpm playwright test",
     "test:e2e:dev": "pnpm playwright test --ui-port=8080 --ui-host=0.0.0.0",
-    "postinstall": "mkdir -p public && ln -sfn ../../../packages/ui/static/uswds public/uswds"
+    "postinstall": "mkdir -p public && ln -sfn ../../../packages/ui/static/uswds public/uswds && ln -sfn ../../../packages/ui/assets public/assets"
   },
   "dependencies": {
     "@astrojs/svelte": "^7.0.13",
-    "@repo/constants": "workspace:*",
-    "@repo/styles": "workspace:*",
     "@repo/ui": "workspace:*",
     "astro": "^5.7.10",
     "svelte": "^5.28.2"

@@ -10,4 +10,4 @@ export const paths = {
   utilities: {
     layout: './utilities/layout.css',
   },
-};
+} as const;

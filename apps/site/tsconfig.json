@@ -5,10 +5,9 @@
     "moduleResolution": "NodeNext",
     "jsx": "react",
     "resolveJsonModule": true,
-    "baseUrl": ".", // Required for relative imports
+    "baseUrl": ".",
     "paths": {
-      "@ui/*": ["../../packages/ui/src/*"], // Alias for shared UI components
-      "@shared-assets/*": ["../../packages/shared-assets/*"]
+      "@ui/*": ["../../packages/ui/src/*"],
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro", ".astro/types.d.ts"],

@@ -3,8 +3,28 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./components": "./components/index.ts",
+    "./components/*": "./components/*",
+    "./constants": "./constants/index.ts",
+    "./styles": "./styles/index.ts",
+    "./styles/*": "./styles/*",
+    "./helpers": "./helpers/index.ts",
+    "./helpers/*": "./helpers/*",
+    "./astro-config": "./astro-config/index.ts",
+    "./assets/*": "./assets/*",
+    "./static/*": "./static/*"
+  },
   "files": [
-   "static"
+   "index.ts",
+    "components",
+    "constants", 
+    "styles",
+    "helpers",
+    "astro-config",
+    "assets",
+    "static"
   ],
   "scripts": {
     "build": "gulp update",
@@ -13,9 +33,10 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
+    "astro-purgecss": "^5.2.2",
+    "@astrojs/svelte": "^7.0.13",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@repo/constants": "workspace:*",
     "@turbo/gen": "^2.4.0",
     "@types/node": "^22.13.0",
     "@types/react": "19.0.8",
@@ -25,7 +46,8 @@
     "gulp": "^5.0.0",
     "typescript": "5.7.3",
     "astro": "^5.7.10",
-    "vitest": "^1.0.0"
+    "vitest": "^1.0.0",
+    "svelte": "^5.28.2"
   },
   "dependencies": {
     "@uswds/uswds": "3.12.0",
