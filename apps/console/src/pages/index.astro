@@ -1,12 +1,10 @@
 ---
-// Console home page
+import ConsoleLayout from '../layouts/ConsoleLayout.astro';
+import UsaSkipNav from '@repo/ui/src/components/UsaSkipNav.astro';
+import DashboardContent from '../components/DashboardContent.astro';
 ---
 
-<html>
-  <head>
-    <title>Console</title>
-  </head>
-  <body>
-    <h1>Console App</h1>
-  </body>
-</html>
+<ConsoleLayout title="Dashboard">
+  <UsaSkipNav mainContentId="#main-content" slot="skip-nav" />
+  <DashboardContent />
+</ConsoleLayout>
