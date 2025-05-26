@@ -1,0 +1,76 @@
+---
+import BaseLayout from './BaseLayout.astro';
+const { title } = Astro.props;
+---
+
+<BaseLayout title={`Console - ${title}`}>
+  <div class="console-layout">
+    <div class="console-container">
+      <aside class="console-sidebar">
+        <nav>
+          <ul>
+            <li><a href="/console">Dashboard</a></li>
+            <li><a href="/console/settings">Settings</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="console-content">
+        <slot />
+      </main>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .console-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+
+  .console-container {
+    display: flex;
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .console-sidebar {
+    width: 250px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .console-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .console-sidebar li {
+    margin-bottom: 0.75rem;
+  }
+
+  .console-sidebar a {
+    display: block;
+    padding: 0.5rem;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+
+  .console-content {
+    flex: 1;
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+</style>
