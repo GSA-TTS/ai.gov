@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Astro Components
 export { default as AgencyFooter } from './AgencyFooter.astro';
 export { default as AgencyHeader } from './AgencyHeader.astro';
