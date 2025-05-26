@@ -11,64 +11,69 @@
   export let isHeaderSection: boolean = false;
 </script>
 
-<section
-  class="ai-section-card"
-  style="background: {backgroundColor}; color: {textColor};"
-  aria-labelledby={headingId}
->
-  <div class="ai-section-card__row">
-    <div class="ai-section-card__content">
-      <div class="ai-section-card__text">
-        {#if iconSvgPath || iconText}
-          <div class="ai-section-card__icon-row">
-            <div class="ai-section-card__icon">
-              {#if iconSvgPath}
-                {#if iconSvgPath.endsWith('.svg')}
-                  <img src={iconSvgPath} alt="" width="20.656" height="21" />
+<div style="background: {backgroundColor}; color: {textColor};">
+  <section
+    class="grid-container ai-maxw-widescreen ai-section-card"
+    aria-labelledby={headingId}
+  >
+    <div class="ai-section-card__row">
+      <div class="ai-section-card__content">
+        <div class="ai-section-card__text">
+          {#if iconSvgPath || iconText}
+            <div class="ai-section-card__icon-row">
+              <div class="ai-section-card__icon">
+                {#if iconSvgPath}
+                  {#if iconSvgPath.endsWith('.svg')}
+                    <img src={iconSvgPath} alt="" width="20.656" height="21" />
+                  {/if}
                 {/if}
+              </div>
+              {#if iconText}
+                <span class="ai-section-card__icon-text">{iconText}</span>
               {/if}
             </div>
-            {#if iconText}
-              <span class="ai-section-card__icon-text">{iconText}</span>
+          {/if}
+          <div class="ai-section-card__title-row">
+            {#if isHeaderSection}
+              <h1
+                id={headingId}
+                class="ai-section-card__title ai-section-card__title--header"
+              >
+                {title}
+              </h1>
+            {:else}
+              <h2 id={headingId} class="ai-section-card__title">
+                {title}
+              </h2>
             {/if}
           </div>
-        {/if}
-        <div class="ai-section-card__title-row">
-          {#if isHeaderSection}
-            <h1
-              id={headingId}
-              class="ai-section-card__title ai-section-card__title--header"
-            >
-              {title}
-            </h1>
-          {:else}
-            <h2 id={headingId} class="ai-section-card__title">
-              {title}
-            </h2>
-          {/if}
+          <p class="ai-section-card__description">{description}</p>
         </div>
-        <p class="ai-section-card__description">{description}</p>
-      </div>
-      {#if buttons.length}
-        <div class="ai-menu-buttons" role="group" aria-label="Section actions">
-          {#each buttons as button}
-            <a
-              class="usa-button ai-button
+        {#if buttons.length}
+          <div
+            class="ai-menu-buttons"
+            role="group"
+            aria-label="Section actions"
+          >
+            {#each buttons as button}
+              <a
+                class="usa-button ai-button
                 {button.type === 'white' ? 'ai-button--white' : ''}
                 {button.type === 'outline' ? 'ai-button--outline' : ''}
                 {button.type === 'primary' ? 'ai-button--primary' : ''}
                 {button.type === 'unstyled' ? 'ai-button--unstyled' : ''}"
-              href={button.href || '/'}
-              type="button"
-            >
-              {button.text}
-            </a>
-          {/each}
-        </div>
-      {/if}
+                href={button.href || '/'}
+                type="button"
+              >
+                {button.text}
+              </a>
+            {/each}
+          </div>
+        {/if}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <style>
   .ai-section-card {
@@ -141,8 +146,9 @@
     margin: 0;
   }
   .ai-section-card__title--header {
-    font-weight: 600;
-    font-size: 48px;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 120%;
   }
   .ai-section-card__description {
     align-self: stretch;
@@ -156,5 +162,13 @@
   .ai-menu-buttons {
     display: flex;
     gap: 1.5rem;
+  }
+
+  @media (min-width: 64em) {
+    .ai-section-card__title--header {
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 120%;
+    }
   }
 </style>

@@ -10,7 +10,7 @@ const menuLabel = `platform-footer-${slugify(content.title, {
 <p id={menuLabel}>{content.title}</p>
 <ul class="add-list-reset" aria-labelledby={menuLabel}>
   {
-    content.items.map(item => {
+    content.items.map((item: { url: string; title: string }) => {
       return (
         <li>
           <a href={item.url}>{item.title}</a>

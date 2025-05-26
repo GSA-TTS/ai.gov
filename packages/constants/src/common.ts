@@ -1,1 +1,1 @@
-export const siteName = 'AI.gov';
+export const siteName = 'AI.GOV';
