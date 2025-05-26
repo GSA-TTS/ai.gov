@@ -1,28 +1,34 @@
 {
-  "extends": "../../packages/typescript-config/base.json", // Extend the shared monorepo config
+  "extends": "../typescript-config/base.json",
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "jsx": "react",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "@ui-assets/*": ["./assets/*"]
-    }
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["astro/client"]
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     "**/*.astro",
     "**/*.d.ts",
-    "index.ts",
-    "components/**/*",
-    "helpers/**/*",
-    "constants/**/*",
-    "styles/**/*",
-    "astro-config/**/*",
-    "data/**/*",
-    "assets/**/*.svg"
   ],
-  "exclude": ["dist", "node_modules", ".turbo", "**/*.test.ts", "**/*.test.tsx", "static/**/*" ]
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".turbo",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "static/**/*",
+    "astro.d.ts"
+  ]
 }

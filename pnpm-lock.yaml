@@ -154,6 +154,9 @@ importers:
       '@uswds/uswds':
         specifier: 3.12.0
         version: 3.12.0
+      astro:
+        specifier: ^5.7.10
+        version: 5.7.13(@types/node@22.15.18)(rollup@4.40.2)(sass-embedded@1.83.4)(typescript@5.7.3)(yaml@1.10.2)
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -188,9 +191,6 @@ importers:
       '@uswds/compile':
         specifier: 1.2.2
         version: 1.2.2(ts-node@10.9.2(@types/node@22.15.18)(typescript@5.7.3))
-      astro:
-        specifier: ^5.7.10
-        version: 5.7.13(@types/node@22.15.18)(rollup@4.40.2)(sass-embedded@1.83.4)(typescript@5.7.3)(yaml@1.10.2)
       astro-purgecss:
         specifier: ^5.2.2
         version: 5.2.2(astro@5.7.13(@types/node@22.15.18)(rollup@4.40.2)(sass-embedded@1.83.4)(typescript@5.7.3)(yaml@1.10.2))(purgecss@7.0.2)

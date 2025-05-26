@@ -1,5 +1,6 @@
 // @ts-check
-import { defineConfig, type AstroUserConfig } from 'astro/config';
+import { defineConfig } from 'astro/config';
+import type { AstroIntegration } from 'astro';
 import svelte from '@astrojs/svelte';
 import purgecss from 'astro-purgecss';
 import { join as pathJoin, dirname, resolve } from 'path';
@@ -8,59 +9,95 @@ import { normalizeTrailingSlash } from "../helpers/string-formatters";
 
 interface AstroConfigOptions {
   appDir: string;
-  overrides?: Partial<AstroUserConfig>;
+  overrides?: {
+    integrations?: AstroIntegration[];
+    vite?: Record<string, unknown>;
+    [key: string]: unknown;
+  };
 }
 
 /**
  * Creates an Astro config with app-specific customizations
  */
-export function createAstroConfig({ appDir, overrides = {} }: AstroConfigOptions): AstroUserConfig {
+export function createAstroConfig({ appDir, overrides = {} }: AstroConfigOptions) {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
 
-  const baseConfig = defineConfig({
-    base: normalizeTrailingSlash(process.env.BASEURL || ''),
-    integrations: [
-      svelte(),
-      // purgecss should go last
-      purgecss({
-        fontFace: true, // Removes unused @font-face rules
-        keyframes: true, // Removes unused keyframes
-        safelist: {
-          standard: [
-            /abbr/,
-            "kbd",
-            "samp",
-            "sub",
-            "optgroup",
-            "fieldset",
-            "summary",
-            "cite",
-            "dfn",
-            "pre",
-          ],
-          deep: [
-            /usa-in-page.+/,
-          ],
+  const baseIntegrations: AstroIntegration[] = [
+    svelte(),
+    // purgecss should go last
+    purgecss({
+      fontFace: true, // Removes unused @font-face rules
+      keyframes: true, // Removes unused keyframes
+      safelist: {
+        standard: [
+          /abbr/,
+          "kbd",
+          "samp",
+          "sub",
+          "optgroup",
+          "fieldset",
+          "summary",
+          "cite",
+          "dfn",
+          "pre",
+        ],
+        deep: [
+          /usa-in-page.+/,
+        ],
+      },
+      dynamicAttributes: [
+        "contentEditable",
+        "title",
+        "type",
+      ],
+      blocklist: [],
+      content: [
+        pathJoin(appDir, 'src/**/*.{astro,svelte,ts,tsx,js,jsx}'),
+        pathJoin(__dirname, '../components/**/*.{svelte,js,jsx,astro}'),
+      ],
+      extractors: [
+        {
+          extractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+          extensions: ['astro', 'html'],
         },
-        dynamicAttributes: [
-          "contentEditable",
-          "title",
-          "type",
-        ],
-        blocklist: [],
-        content: [
-          pathJoin(appDir, 'src/**/*.{astro,svelte,ts,tsx,js,jsx}'),
-          pathJoin(__dirname, '../components/**/*.{svelte,js,jsx,astro}'),
-        ],
-        extractors: [
-          {
-            extractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-            extensions: ['astro', 'html'],
-          },
-        ],
-      }),
-    ],
+      ],
+    }),
+  ];
+
+  // Handle vite config merging separately
+  const baseViteConfig = {
+    optimizeDeps: {
+      include: ['@repo/ui'],
+    },
+    resolve: {
+      dedupe: ['@repo/ui'],
+      alias: {
+        '@ui-assets': resolve(appDir, '../../packages/ui/assets')
+      },
+    },
+    ssr: {
+      noExternal: ['@repo/ui'],
+    },
+    assetsInclude: ['**/*.svg']
+  };
+
+  const mergedViteConfig = overrides.vite ? {
+    ...baseViteConfig,
+    ...overrides.vite,
+    resolve: {
+      ...baseViteConfig.resolve,
+      ...(overrides.vite.resolve as Record<string, unknown> || {}),
+      alias: {
+        ...baseViteConfig.resolve.alias,
+        ...((overrides.vite.resolve as Record<string, unknown>)?.alias as Record<string, unknown> || {}),
+      },
+    },
+  } : baseViteConfig;
+
+  return defineConfig({
+    base: normalizeTrailingSlash(process.env.BASEURL || ''),
+    integrations: overrides.integrations || baseIntegrations,
     experimental: {
       // Astro Experimental Fonts API for managing custom fonts
       fonts: [
@@ -88,40 +125,10 @@ export function createAstroConfig({ appDir, overrides = {} }: AstroConfigOptions
         entrypoint: 'astro/assets/services/noop'
       }
     },
-    vite: {
-      optimizeDeps: {
-        include: ['@repo/ui'],
-      },
-      resolve: {
-        dedupe: ['@repo/ui'],
-        alias: {
-          '@ui-assets': resolve(appDir, '../../packages/ui/assets')
-        },
-      },
-      ssr: {
-        noExternal: ['@repo/ui'],
-      },
-      assetsInclude: ['**/*.svg']
-    },
+    vite: mergedViteConfig,
+    // Spread other overrides (excluding the ones we handle specifically)
+    ...Object.fromEntries(
+      Object.entries(overrides).filter(([key]) => !['integrations', 'vite'].includes(key))
+    ),
   });
-
-  // Merge with any app-specific overrides
-  return {
-    ...baseConfig,
-    ...overrides,
-    // Deep merge some nested objects
-    vite: {
-      ...baseConfig.vite,
-      ...overrides.vite,
-      resolve: {
-        ...baseConfig.vite?.resolve,
-        ...overrides.vite?.resolve,
-        alias: {
-          ...baseConfig.vite?.resolve?.alias,
-          ...overrides.vite?.resolve?.alias,
-        },
-      },
-    },
-    integrations: overrides.integrations || baseConfig.integrations,
-  };
 }
