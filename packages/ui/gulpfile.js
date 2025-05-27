@@ -8,7 +8,7 @@ import uswds from '@uswds/compile';
  * Set the major version of USWDS you're using
  * (Current options are the numbers 2 or 3)
  */
-uswds.paths.src.sass = './sass';
+uswds.paths.src.sass = './styles/sass';
 uswds.settings.version = 3;
 
 uswds.paths.dist.css = './static/uswds/styles';
