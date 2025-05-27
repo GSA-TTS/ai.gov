@@ -8,7 +8,6 @@
     "check-types": "echo 'Type checking temporarily disabled' || tsc --noEmit",
     "dev": "astro dev",
     "preview": "astro preview",
-    "test": "vitest run --passWithNoTests",
     "test:e2e:ci": "pnpm playwright test",
     "test:e2e:dev": "pnpm playwright test --ui-port=8080 --ui-host=0.0.0.0",
     "postinstall": "mkdir -p public && ln -sfn ../../../packages/ui/static/uswds public/uswds && ln -sfn ../../../packages/ui/assets public/assets"
