@@ -1,7 +1,24 @@
+@font-face {
+  font-family: 'Archivo';
+  src: url('/fonts/archivo-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archivo';
+  src: url('/fonts/archivo-semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
 :root {
   --ai-color-black: #000;
   --ai-color-white: #fff;
   --ai-radius-round: 999rem;
   --ai-layout-maxw-widescreen: 86rem; /* 1376px */
   --ai-layout-section-spacing-y: 3.375rem;
+}
+
+body {
+  font-family: 'Archivo', sans-serif;
 }
