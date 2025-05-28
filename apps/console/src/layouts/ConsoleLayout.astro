@@ -1,0 +1,31 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ConsoleSidebar from '../components/SideNav.astro';
+
+const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<BaseLayout title={`Console - ${title}`}>
+  <div class="ai-console-layout">
+    <ConsoleSidebar currentPath={currentPath} />
+    <main class="ai-console-content">
+      <slot />
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .ai-console-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #ffffff;
+  }
+
+  .ai-console-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    background-color: #f9fafb;
+  }
+</style>
