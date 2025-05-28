@@ -1,6 +1,6 @@
 <script>
   import { siteName } from '@repo/ui/constants';
-  import { getUrlFromBase } from 'helpers';
+  import { getUrlFromBase } from '../helpers';
   const logoSrc = getUrlFromBase('/assets/images/ai-gov-logo.svg');
 </script>
 
