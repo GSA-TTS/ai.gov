@@ -14,7 +14,9 @@ function togglePlatformMenu() {
 
 <div class="usa-overlay"></div>
 <header class="usa-header usa-header--basic height-15">
-  <div class="usa-nav-container ai-nav-container">
+  <div
+    class="usa-nav-container ai-nav-container grid-container ai-maxw-widescreen"
+  >
     <div class="usa-navbar ai-navbar">
       <Logo />
       <MenuButton />
@@ -45,7 +47,12 @@ function togglePlatformMenu() {
   .ai-nav-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ai-navbar {
+    padding-left: 1rem;
   }
   @media (min-width: 64em) {
     .ai-nav-container {
@@ -54,6 +61,8 @@ function togglePlatformMenu() {
       height: auto;
       position: relative;
       top: 62px;
+      padding-left: 1rem;
+      padding-right: 2rem;
     }
     .ai-navbar {
       width: fit-content;

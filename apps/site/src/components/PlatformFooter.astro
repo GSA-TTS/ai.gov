@@ -1,5 +1,6 @@
 ---
 import { footerMenus } from '../data/footer';
+import { siteName } from '../../constants';
 import PlatformFooterMenu from './PlatformFooterMenu.astro';
 ---
 
@@ -8,24 +9,28 @@ import PlatformFooterMenu from './PlatformFooterMenu.astro';
     class="usa-section ai-section ai-footer-cta"
     aria-labelledby="ai-footer-cta"
   >
+    <div
+      class="usa-identifier__identity ai-identifier__identity"
+      aria-label="Agency description"
+    >
+      <p class="usa-identifier__identity-domain ai-identifier__identity-domain">
+        {siteName}
+      </p>
+      <p class="usa-identifier__identity-disclaimer text-normal">
+        An official website of the U.S.
+        <a class="ai-button--unstyled" href="https://www.gsa.gov/"
+          >General Services Administration</a
+        >
+      </p>
+    </div>
     <p class="ai-footer-cta__heading" id="ai-footer-cta">
-      Get your team started today
+      Get your team started today.
     </p>
     <div class="ai-footer-cta__buttons">
-      <ul class="usa-button-group ai-button-group">
-        <li class="usa-button-group__item">
-          <a
-            class="usa-button usa-button--primary ai-button ai-button--primary"
-            href="#">Contact Sales</a
-          >
-        </li>
-        <li class="usa-button-group__item">
-          <a
-            class="usa-button usa-button--outline ai-button ai-button--outline"
-            href="#">Start Building</a
-          >
-        </li>
-      </ul>
+      <a
+        class="usa-button usa-button--primary ai-button ai-button--primary"
+        href="#">Contact us</a
+      >
     </div>
   </section>
   <section class="usa-section ai-section">
@@ -58,8 +63,13 @@ import PlatformFooterMenu from './PlatformFooterMenu.astro';
     border-bottom: 1px solid #cdcdcd;
   }
 
-  .ai-button-group {
-    margin: 0;
-    gap: 1.5rem;
+  .ai-identifier__identity {
+    line-height: 140%;
+    padding-bottom: 54px;
+  }
+
+  .ai-identifier__identity-domain {
+    font-weight: 700;
+    color: #000;
   }
 </style>
