@@ -19,6 +19,18 @@ describe('BaseLayout', () => {
   });
 
   test('Can override the skip link', async () => {
+    const link = `<a href="#">Jump to main content</a>`;
+    const result = await container.renderToString(BaseLayout, {
+      slots: {
+        'skip-nav': '',
+      },
+    });
+
+    expect(result).to.contain(link);
+    expect(result).not.toContain('Skip to main content');
+  });
+
+  test('Can remove the skip link', async () => {
     const result = await container.renderToString(BaseLayout, {
       slots: {
         'skip-nav': '',
