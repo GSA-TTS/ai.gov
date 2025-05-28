@@ -19,7 +19,9 @@ const navigationItems = [
   { label: 'Payment settings', href: '/payment-settings', section: 'ADMIN' },
 ];
 
-const analysisItems = navigationItems.filter(item => item.section === 'ANALYSIS');
+const analysisItems = navigationItems.filter(
+  item => item.section === 'ANALYSIS'
+);
 const adminItems = navigationItems.filter(item => item.section === 'ADMIN');
 ---
 
@@ -27,37 +29,41 @@ const adminItems = navigationItems.filter(item => item.section === 'ADMIN');
   <div class="ai-console-sidebar__brand">
     <Logo />
   </div>
-  
+
   <nav class="ai-console-sidebar__nav">
     <div class="ai-console-sidebar__section">
       <h3 class="ai-console-sidebar__section-title">ANALYSIS</h3>
       <ul class="ai-console-sidebar__list">
-        {analysisItems.map(item => (
-          <li class="ai-console-sidebar__item">
-            <a 
-              href={item.href}
-              class={`ai-console-sidebar__link ${currentPath === item.href ? 'ai-console-sidebar__link--active' : ''}`}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
+        {
+          analysisItems.map(item => (
+            <li class="ai-console-sidebar__item">
+              <a
+                href={item.href}
+                class={`ai-console-sidebar__link ${currentPath === item.href ? 'ai-console-sidebar__link--active' : ''}`}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
 
     <div class="ai-console-sidebar__section">
       <h3 class="ai-console-sidebar__section-title">ADMIN</h3>
       <ul class="ai-console-sidebar__list">
-        {adminItems.map(item => (
-          <li class="ai-console-sidebar__item">
-            <a 
-              href={item.href}
-              class={`ai-console-sidebar__link ${currentPath === item.href ? 'ai-console-sidebar__link--active' : ''}`}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
+        {
+          adminItems.map(item => (
+            <li class="ai-console-sidebar__item">
+              <a
+                href={item.href}
+                class={`ai-console-sidebar__link ${currentPath === item.href ? 'ai-console-sidebar__link--active' : ''}`}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </nav>
@@ -66,7 +72,9 @@ const adminItems = navigationItems.filter(item => item.section === 'ADMIN');
     <div class="ai-console-sidebar__user">
       <div class="ai-console-sidebar__avatar">ZW</div>
       <div class="ai-console-sidebar__user-info">
-        <div class="ai-console-sidebar__user-name">General Services Administration</div>
+        <div class="ai-console-sidebar__user-name">
+          General Services Administration
+        </div>
         <div class="ai-console-sidebar__user-role">Longer Agency Name</div>
       </div>
     </div>
@@ -76,7 +84,7 @@ const adminItems = navigationItems.filter(item => item.section === 'ADMIN');
 <style>
   .ai-console-sidebar {
     width: 280px;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     border-right: 1px solid #e5e7eb;
     padding: 1.5rem 0;
     overflow-y: auto;
