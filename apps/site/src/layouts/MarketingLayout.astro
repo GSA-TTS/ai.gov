@@ -10,6 +10,7 @@ import {
 const title = getPageTitle(Astro);
 ---
 
+<slot name="skip-nav" />
 <BaseLayout title={title}>
   <AgencyHeader />
   <slot />

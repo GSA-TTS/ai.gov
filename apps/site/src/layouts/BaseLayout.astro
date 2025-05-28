@@ -13,7 +13,9 @@ const title = getPageTitle(Astro);
     <Head title={title} />
   </head>
   <body>
-    <slot name="skip-nav" />
+    <slot name="skip-nav">
+      <UsaSkipNav mainContentId="#main-content" />
+    </slot>
     <UsaBanner />
     <slot />
   </body>
