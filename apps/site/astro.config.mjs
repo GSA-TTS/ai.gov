@@ -53,26 +53,4 @@ export default defineConfig({
       ],
     }),
   ],
-  experimental: {
-    // Astro Experimental Fonts API for managing custom fonts
-    fonts: [
-      {
-        name: 'Archivo',
-        cssVariable: '--ai-font-family-sans', // Scoped variable name
-        provider: 'local', // Serves fonts locally
-        variants: [
-          {
-            src: [{ url: './src/fonts/archivo-regular.woff2' }],
-            weight: 400,
-            style: 'normal',
-          },
-          {
-            src: [{ url: './src/fonts/archivo-semibold.woff2' }],
-            weight: 600,
-            style: 'normal',
-          },
-        ],
-      },
-    ],
-  },
 });
