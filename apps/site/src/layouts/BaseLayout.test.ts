@@ -22,7 +22,7 @@ describe('BaseLayout', () => {
     const link = `<a href="#">Jump to main content</a>`;
     const result = await container.renderToString(BaseLayout, {
       slots: {
-        'skip-nav': '',
+        'skip-nav': link,
       },
     });
 
