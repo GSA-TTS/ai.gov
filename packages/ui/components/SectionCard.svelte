@@ -16,8 +16,8 @@
     class="grid-container ai-maxw-widescreen ai-section-card"
     aria-labelledby={headingId}
   >
-    <div class="ai-section-card__row">
-      <div class="ai-section-card__content">
+    <div class="grid-row">
+      <div class="desktop:grid-col-5">
         <div class="ai-section-card__text">
           {#if iconSvgPath || iconText}
             <div class="ai-section-card__icon-row">
@@ -77,87 +77,33 @@
 
 <style>
   .ai-section-card {
-    display: flex;
-    min-height: 420px;
-    padding-left: 32px;
-    padding-right: 32px;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 10px;
-    align-self: stretch;
-  }
-  .ai-section-card__row {
-    display: flex;
-    max-width: 580px;
-    align-items: flex-end;
-    gap: 64px;
-    align-self: stretch;
-  }
-  .ai-section-card__content {
-    display: flex;
-    padding-bottom: 42px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    flex: 1 0 0;
-  }
-  .ai-section-card__text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    align-self: stretch;
+    padding: 2rem;
   }
   .ai-section-card__icon-row {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
+    gap: .5rem;
+    margin-bottom: .25rem;
   }
   .ai-section-card__icon {
-    width: 20.656px;
-    height: 21px;
-    aspect-ratio: 20.66 / 21;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .ai-section-card__icon-text {
-    color: inherit;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-  }
-  .ai-section-card__title-row {
-    display: flex;
-    align-items: flex-end;
-    gap: 16px;
-    align-self: stretch;
-  }
   .ai-section-card__title {
-    align-self: stretch;
-    color: inherit;
-    font-size: 36px;
-    font-style: normal;
+    font-size: 2.25rem;
     font-weight: 400;
-    line-height: 120%;
-    margin: 0;
+    line-height: 1.2;
+    margin-block: 0 1rem;
   }
   .ai-section-card__title--header {
+    font-size: 2.25rem;
     font-weight: 500;
-    font-size: 36px;
-    line-height: 120%;
+    line-height: 1.2;
   }
   .ai-section-card__description {
-    align-self: stretch;
-    color: inherit;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%;
-    margin: 0;
+    line-height: 1.4;
+    margin-block: 0 1.5rem;
   }
   .ai-menu-buttons {
     display: flex;
@@ -165,10 +111,15 @@
   }
 
   @media (min-width: 64em) {
+    .ai-section-card {
+      padding-block-start: 9.5rem;
+      padding-block-end: 2.625rem;
+    }
+    
     .ai-section-card__title--header {
       font-weight: 600;
-      font-size: 48px;
-      line-height: 120%;
+      font-size: 3rem;
+      line-height: 1.2;
     }
   }
 </style>
