@@ -1,0 +1,59 @@
+---
+import { Logo } from '@repo/ui/components';
+import NavigationSection from './NavigationSection.svelte';
+import SideNavUserFooter from './SideNavUserFooter.svelte';
+import { sideNavConfig } from '../../data/sideNavConfig.js';
+
+export interface Props {
+  currentPath?: string;
+}
+
+const { currentPath } = Astro.props;
+---
+
+<aside class="ai-console-sidebar">
+  <div class="ai-console-sidebar__brand">
+    <Logo />
+  </div>
+
+  <nav class="ai-console-sidebar__nav">
+    {sideNavConfig.sections.map(section => (
+      <NavigationSection
+        title={section.title}
+        items={section.items}
+        currentPath={currentPath}
+        client:load
+      />
+    ))}
+  </nav>
+
+  <SideNavUserFooter
+    userName="General Services Administration"
+    userRole="Longer Agency Name"
+    avatarText="ZW"
+    avatarColor="#374151"
+    client:load
+  />
+</aside>
+
+<style>
+  .ai-console-sidebar {
+    width: 280px;
+    background-color: #f5f5f5;
+    border-right: 1px solid #e5e7eb;
+    padding: 1.5rem 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ai-console-sidebar__brand {
+    padding: 0 1.5rem 2rem;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 2rem;
+  }
+
+  .ai-console-sidebar__nav {
+    flex: 1;
+  }
+</style>
