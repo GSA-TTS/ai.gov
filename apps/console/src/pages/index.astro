@@ -1,47 +1,46 @@
 ---
 import ConsoleLayout from '../layouts/ConsoleLayout.astro';
-import { UsaSkipNav, AgencyMainContent } from '@repo/ui/components';
 ---
 
 <ConsoleLayout title="Dashboard">
   <h1>Dashboard</h1>
 
-  <div class="dashboard-overview">
-    <div class="dashboard-card">
+  <div class="ai-dashboard-overview">
+    <div class="ai-dashboard-card">
       <h3>Users</h3>
-      <p class="dashboard-number">128</p>
+      <p class="ai-dashboard-number">128</p>
     </div>
 
-    <div class="dashboard-card">
+    <div class="ai-dashboard-card">
       <h3>Number of Prompts</h3>
-      <p class="dashboard-number">42</p>
+      <p class="ai-dashboard-number">42</p>
     </div>
 
-    <div class="dashboard-card">
+    <div class="ai-dashboard-card">
       <h3>Number of Conversations</h3>
-      <p class="dashboard-number">7</p>
+      <p class="ai-dashboard-number">7</p>
     </div>
   </div>
 
-  <div class="dashboard-section">
+  <div class="ai-dashboard-section">
     <h2>Tags</h2>
   </div>
 </ConsoleLayout>
 
 <style>
-  h1 {
+  h1 {ai-
     margin-top: 0;
     color: #333;
   }
 
-  .dashboard-overview {
+  .ai-dashboard-overview {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
 
-  .dashboard-card {
+  .ai-dashboard-card {
     background-color: #f9f9f9;
     border-radius: 8px;
     padding: 1.5rem;
@@ -49,24 +48,24 @@ import { UsaSkipNav, AgencyMainContent } from '@repo/ui/components';
     text-align: center;
   }
 
-  .dashboard-card h3 {
+  .ai-dashboard-card h3 {
     margin-top: 0;
     color: #666;
     font-size: 1rem;
   }
 
-  .dashboard-number {
+  .ai-dashboard-number {
     font-size: 2.5rem;
     font-weight: bold;
     margin: 0.5rem 0 0;
     color: #0077cc;
   }
 
-  .dashboard-section {
+  .ai-dashboard-section {
     margin-top: 2.5rem;
   }
 
-  .dashboard-section h2 {
+  .ai-dashboard-section h2 {
     font-size: 1.25rem;
     color: #333;
     margin-bottom: 1rem;
