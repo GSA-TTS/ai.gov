@@ -19,7 +19,7 @@ jobs:
       - name: Build packages
         run: pnpm build
         
-      - name: Upload tokens.json artifact
+      - name: Upload style token artifacts
         if: success()
         uses: actions/upload-artifact@v4
         with:
