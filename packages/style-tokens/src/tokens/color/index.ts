@@ -1,4 +1,4 @@
-import neutral from './neutral';
+import neutral from './neutral.js';
 
 export type ColorKey = string | number;
 export type ColorValue = string | number;

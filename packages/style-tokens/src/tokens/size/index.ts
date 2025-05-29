@@ -1,4 +1,4 @@
-import range from '../../helpers/range';
+import range from '../../helpers/range.js';
 
 const base: number[] = [
   ...range(0, 32, 2),

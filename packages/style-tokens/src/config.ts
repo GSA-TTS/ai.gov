@@ -1,8 +1,4 @@
-import {
-  formats,
-  transformGroups,
-  transformTypes,
-} from 'style-dictionary/enums';
+import { formats, transformGroups } from 'style-dictionary/enums';
 
 const { cssVariables, json } = formats;
 const { css, js } = transformGroups;
