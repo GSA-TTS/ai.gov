@@ -2,6 +2,7 @@
   export let title: string; 
   export let metric: string | number; 
   export let description: string; 
+  export let smallMetric: boolean = false;
   export let fullWidth: boolean = false;
   export let actions: Array<{
     text: string;
@@ -29,10 +30,10 @@
     </div>
     <div class="ai-dashboard-card__body">
         <p class="description">{description}</p>
-        <p class="metric">{metric}</p>
+        <p class="metric" class:metric--small={smallMetric}>{metric}</p>    
     </div>
     <div class="ai-dashboard-data-viz">
-      
+
     </div>
 </div>
 
@@ -56,6 +57,7 @@
   }
   .ai-dashboard-card__header {
     display: flex;
+    min-height: 35px; 
     justify-content: space-between;
     align-items: center;
   }
@@ -78,5 +80,9 @@
   .metric {
     font-size: 3rem; 
     margin: 0; 
+  }
+  .metric--small {
+    font-size: 2rem;
+    font-weight: normal;
   }
 </style>

@@ -18,38 +18,30 @@ import DashboardCard from '../components/DashboardCard.svelte';
   />
 
   <DashboardCard
-    title="Total Active Users"
-    metric="834,624"
+    title="Total Prompts Used"
+    metric="4,734,624"
+    smallMetric={true}
     actions={[
       {
-        text: '12.5%+',
-        iconSrc: '../uswds/img/usa-icons/trending_up.svg',
+        text: 'View Report',
       },
     ]}
     client:visible
   />
 
   <DashboardCard
-    title="Total Active Users"
+    title="Model Evaluation"
     metric="834,624"
     actions={[
       {
-        text: '12.5%+',
-        iconSrc: '../uswds/img/usa-icons/trending_up.svg',
+        text: 'View more',
       },
     ]}
     client:visible
   />
 
   <DashboardCard
-    title="Total Active Users"
-    metric="834,624"
-    actions={[
-      {
-        text: '12.5%+',
-        iconSrc: '../uswds/img/usa-icons/trending_up.svg',
-      },
-    ]}
+    title="Model Ranking"
     client:visible
   />
 </div>
@@ -67,7 +59,7 @@ import DashboardCard from '../components/DashboardCard.svelte';
   .dashboard-overview {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
     margin-bottom: 2rem;
   }
 
