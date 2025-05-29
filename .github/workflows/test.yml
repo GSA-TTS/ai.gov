@@ -39,3 +39,26 @@ jobs:
         
       - name: Check formatting
         run: pnpm format --check
+        
+      - name: Comment artifact link on PR
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const artifactName = 'tokens-json'; // Name of the uploaded artifact
+            const artifactURL = `https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}`;
+            const commentBody = `
+              ### Build Artifact Available 🚀
+              Artifact **${artifactName}** has been successfully uploaded.
+        
+              You can download it [here](${artifactURL}/artifacts).
+            `;
+              
+            // Post the comment to the PR
+            github.rest.issues.createComment({
+                issue_number: context.payload.pull_request.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: commentBody,
+            });
+
