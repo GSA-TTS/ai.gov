@@ -10,7 +10,7 @@ const buildPath = 'dist/';
 const prefix = 'ai-';
 
 export default {
-  source: ['src/tokens/index.ts'],
+  source: [`${buildPath}/tokens/index.js`],
   platforms: {
     css: {
       transformGroup: css,

@@ -1,4 +1,4 @@
-import transformArrayToObject from '../../helpers/transform-array-to-object.js';
+import transformArrayToObject from '../../helpers/transform-array-to-object';
 import { type ColorTuple } from './index';
 
 const colors: ColorTuple[] = [

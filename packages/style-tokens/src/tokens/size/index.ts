@@ -1,7 +1,6 @@
-const range = (start, stop, step) =>
-  Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
+import range from '../../helpers/range';
 
-const base = [
+const base: number[] = [
   ...range(0, 32, 2),
   ...range(36, 48, 4),
   ...range(56, 96, 8),
