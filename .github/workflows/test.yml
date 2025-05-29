@@ -46,19 +46,39 @@ jobs:
         with:
           script: |
             const artifactName = 'tokens-json'; // Name of the uploaded artifact
-            const artifactURL = `https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}`;
+            
+            // Fetch the artifacts for the current workflow run
+            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: context.runId
+            });
+            
+            // Find the artifact by name
+            const artifact = artifacts.data.artifacts.find(a => a.name === artifactName);
+            
+            // Check if the artifact exists and get its ID
+            if (!artifact) {
+              throw new Error(`Artifact "${artifactName}" not found.`);
+            }
+            
+            const artifactID = artifact.id;
+            const artifactURL = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts/${artifactID}`;
+            
+            // Construct the PR comment
             const commentBody = `
               ### Build Artifact Available 🚀
               Artifact **${artifactName}** has been successfully uploaded.
-        
-              You can download it [here](${artifactURL}/artifacts).
+            
+              You can download it [here](${artifactURL}).
             `;
-              
-            // Post the comment to the PR
-            github.rest.issues.createComment({
-                issue_number: context.payload.pull_request.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: commentBody,
+            
+            // Post the comment to the pull request
+            await github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody,
             });
+
 
