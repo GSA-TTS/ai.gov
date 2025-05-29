@@ -1,28 +1,14 @@
 ---
 import { Logo } from '@repo/ui/components';
+import NavigationSection from './NavigationSection.svelte';
+import SideNavUserFooter from './SideNavUserFooter.svelte';
+import { sideNavConfig } from '../../data/sideNavConfig.js';
 
 export interface Props {
   currentPath?: string;
 }
 
 const { currentPath } = Astro.props;
-
-const navigationItems = [
-  { label: 'Dashboard', href: '/dashboard', section: 'ANALYSIS' },
-  { label: 'Model evaluation', href: '/model-evaluation', section: 'ANALYSIS' },
-  { label: 'Trending topics', href: '/trending-topics', section: 'ANALYSIS' },
-  { label: 'Reports', href: '/reports', section: 'ANALYSIS' },
-  { label: 'Team', href: '/team', section: 'ADMIN' },
-  { label: 'Model library', href: '/model-library', section: 'ADMIN' },
-  { label: 'Datasets', href: '/datasets', section: 'ADMIN' },
-  { label: 'Suggested prompts', href: '/suggested-prompts', section: 'ADMIN' },
-  { label: 'Payment settings', href: '/payment-settings', section: 'ADMIN' },
-];
-
-const analysisItems = navigationItems.filter(
-  item => item.section === 'ANALYSIS'
-);
-const adminItems = navigationItems.filter(item => item.section === 'ADMIN');
 ---
 
 <aside class="ai-console-sidebar">
@@ -31,54 +17,23 @@ const adminItems = navigationItems.filter(item => item.section === 'ADMIN');
   </div>
 
   <nav class="ai-console-sidebar__nav">
-    <div class="ai-console-sidebar__section">
-      <h3 class="ai-console-sidebar__section-title">ANALYSIS</h3>
-      <ul class="ai-console-sidebar__list">
-        {
-          analysisItems.map(item => (
-            <li class="ai-console-sidebar__item">
-              <a
-                href={item.href}
-                class={`ai-console-sidebar__link ${currentPath === item.href ? 'ai-console-sidebar__link--active' : ''}`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-
-    <div class="ai-console-sidebar__section">
-      <h3 class="ai-console-sidebar__section-title">ADMIN</h3>
-      <ul class="ai-console-sidebar__list">
-        {
-          adminItems.map(item => (
-            <li class="ai-console-sidebar__item">
-              <a
-                href={item.href}
-                class={`ai-console-sidebar__link ${currentPath === item.href ? 'ai-console-sidebar__link--active' : ''}`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+    {sideNavConfig.sections.map(section => (
+      <NavigationSection
+        title={section.title}
+        items={section.items}
+        currentPath={currentPath}
+        client:load
+      />
+    ))}
   </nav>
 
-  <div class="ai-console-sidebar__footer">
-    <div class="ai-console-sidebar__user">
-      <div class="ai-console-sidebar__avatar">ZW</div>
-      <div class="ai-console-sidebar__user-info">
-        <div class="ai-console-sidebar__user-name">
-          General Services Administration
-        </div>
-        <div class="ai-console-sidebar__user-role">Longer Agency Name</div>
-      </div>
-    </div>
-  </div>
+  <SideNavUserFooter
+    userName="General Services Administration"
+    userRole="Longer Agency Name"
+    avatarText="ZW"
+    avatarColor="#374151"
+    client:load
+  />
 </aside>
 
 <style>
@@ -98,110 +53,7 @@ const adminItems = navigationItems.filter(item => item.section === 'ADMIN');
     margin-bottom: 2rem;
   }
 
-  .ai-console-sidebar__title {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #111827;
-  }
-
   .ai-console-sidebar__nav {
     flex: 1;
-  }
-
-  .ai-console-sidebar__section {
-    margin-bottom: 2rem;
-  }
-
-  .ai-console-sidebar__section-title {
-    padding: 0 1.5rem;
-    margin: 0 0 1rem 0;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .ai-console-sidebar__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .ai-console-sidebar__item {
-    margin: 0;
-  }
-
-  .ai-console-sidebar__link {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 1.5rem;
-    color: #4b5563;
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-  }
-
-  .ai-console-sidebar__link:hover {
-    background-color: #f1f5f9;
-    color: #1f2937;
-  }
-
-  .ai-console-sidebar__link--active {
-    color: black;
-    font-weight: 600;
-  }
-
-  .ai-console-sidebar__icon {
-    margin-right: 0.75rem;
-    font-size: 1rem;
-  }
-
-  .ai-console-sidebar__footer {
-    padding: 1.5rem;
-    border-top: 1px solid #e5e7eb;
-  }
-
-  .ai-console-sidebar__user {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .ai-console-sidebar__avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #374151;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-
-  .ai-console-sidebar__user-info {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .ai-console-sidebar__user-name {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #111827;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .ai-console-sidebar__user-role {
-    font-size: 0.75rem;
-    color: #6b7280;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 </style>
