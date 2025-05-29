@@ -9,11 +9,12 @@
     "properties"
   ],
   "scripts": {
-    "build": "style-dictionary build --config ./config.js",
+    "build": "tsc && style-dictionary build --config ./dist/config.js",
     "clean": "rm -rf build",
     "test": "vitest run"
   },
   "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
     "style-dictionary": "^4.4.0",
     "vitest": "^3.0.7"
   }

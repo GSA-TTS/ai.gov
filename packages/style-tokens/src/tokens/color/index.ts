@@ -1,4 +1,6 @@
-import neutral from './neutral.js';
+import neutral from './neutral';
+
+export type ColorTuple = [number, string];
 
 export default {
   black: {

@@ -1,4 +1,8 @@
-import { formats, transformGroups, transformTypes } from 'style-dictionary/enums';
+import {
+  formats,
+  transformGroups,
+  transformTypes,
+} from 'style-dictionary/enums';
 
 const { cssVariables, json } = formats;
 const { css, js } = transformGroups;
@@ -6,11 +10,11 @@ const buildPath = 'dist/';
 const prefix = 'ai-';
 
 export default {
-  source: ['src/tokens/index.js'],
+  source: ['src/tokens/index.ts'],
   platforms: {
     css: {
       transformGroup: css,
-      buildPath: buildPath,
+      buildPath: `${buildPath}/css/`,
       prefix,
       files: [
         {
@@ -21,7 +25,7 @@ export default {
     },
     json: {
       transformGroup: js,
-      buildPath: buildPath,
+      buildPath: `${buildPath}/css/`,
       files: [
         {
           destination: 'tokens.json',

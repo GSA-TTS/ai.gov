@@ -1,6 +1,7 @@
 import transformArrayToObject from '../../helpers/transform-array-to-object.js';
+import { type ColorTuple } from './index';
 
-const colors = [
+const colors: ColorTuple[] = [
   [5, '#FAFAFA'],
   [10, '#F5F5F5'],
   [20, '#E9EAEB'],

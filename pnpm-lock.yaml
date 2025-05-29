@@ -145,6 +145,9 @@ importers:
 
   packages/style-tokens:
     devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       style-dictionary:
         specifier: ^4.4.0
         version: 4.4.0
