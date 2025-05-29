@@ -18,6 +18,13 @@ jobs:
       
       - name: Build packages
         run: pnpm build
+        
+      - name: Upload tokens.json artifact
+        if: success() # Ensures this step only runs if the build succeeds
+        uses: actions/upload-artifact@v4
+        with:
+          name: tokens-json
+          path: packages/style-tokens/dist/css/tokens.json
 
       - name: Run tests
         run: pnpm test
