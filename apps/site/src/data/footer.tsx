@@ -41,30 +41,26 @@ export const footerMenus: Array<FooterMenu> = [
         title: 'Policies',
         url: '#',
       },
-      {
-        title: 'Guides',
-        url: '#',
-      },
     ],
   },
   {
     title: 'Get Started',
     items: [
       {
-        title: 'Documentation',
+        title: 'Contact Sales',
         url: '#',
       },
       {
-        title: 'Pricing',
+        title: 'Status',
         url: '#',
       },
       {
-        title: 'Data Security',
-        url: '#',
+        title: 'Privacy policy',
+        url: 'https://www.gsa.gov/website-information/website-policies',
       },
       {
-        title: 'Changelog',
-        url: '#',
+        title: 'Performance reports',
+        url: 'https://www.gsa.gov/reference/reports/budget-performance',
       },
     ],
   },
@@ -72,24 +68,28 @@ export const footerMenus: Array<FooterMenu> = [
     title: 'Connect',
     items: [
       {
-        title: 'Support',
-        url: '#',
+        title: 'About GSA',
+        url: 'https://www.gsa.gov/about-us',
       },
       {
-        title: 'Inquiries',
-        url: '#',
+        title: 'Accessibility statement',
+        url: 'https://www.gsa.gov/website-information/accessibility-statement',
       },
       {
-        title: 'Policies',
-        url: '#',
+        title: 'Vulnerability Disclosure Policy',
+        url: 'https://www.gsa.gov/vulnerability-disclosure-policy',
       },
       {
-        title: 'Accessibility',
-        url: '#',
+        title: 'FOIA requests',
+        url: 'https://www.gsa.gov/reference/freedom-of-information-act-foia',
       },
       {
-        title: 'Academy',
-        url: '#',
+        title: 'No FEAR Act data',
+        url: 'https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002',
+      },
+      {
+        title: 'Office of the Inspector General',
+        url: 'https://www.gsaig.gov/',
       },
     ],
   },
