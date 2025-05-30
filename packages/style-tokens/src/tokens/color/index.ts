@@ -1,5 +1,7 @@
+import blue from './blue.js';
 import neutral from './neutral.js';
 import steel from './steel.js';
+import violet from './violet.js';
 
 export type ColorKey = string | number;
 export type ColorValue = string | number;
@@ -14,6 +16,8 @@ export default {
     value: '#fff',
     type: 'color',
   },
+  blue,
   neutral,
   steel,
+  violet,
 };
