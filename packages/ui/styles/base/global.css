@@ -1,5 +1,6 @@
 @layer designsystem, theme, buttons;
 @import '../../../ui/static/uswds/styles/styles.css' layer(designsystem);
+@import '@repo/style-tokens/dist/css/variables.css' layer(theme);
 @import './theme.css' layer(theme);
 @import '../utilities/layout.css' layer(theme);
 @import '../components/buttons.css' layer(buttons);
