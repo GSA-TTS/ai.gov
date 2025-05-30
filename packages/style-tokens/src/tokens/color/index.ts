@@ -1,4 +1,5 @@
 import neutral from './neutral.js';
+import steel from './steel.js';
 
 export type ColorKey = string | number;
 export type ColorValue = string | number;
@@ -14,4 +15,5 @@ export default {
     type: 'color',
   },
   neutral,
+  steel,
 };
