@@ -17,14 +17,16 @@ const { currentPath } = Astro.props;
   </div>
 
   <nav class="ai-console-sidebar__nav">
-    {sideNavConfig.sections.map(section => (
-      <NavigationSection
-        title={section.title}
-        items={section.items}
-        currentPath={currentPath}
-        client:load
-      />
-    ))}
+    {
+      sideNavConfig.sections.map(section => (
+        <NavigationSection
+          title={section.title}
+          items={section.items}
+          currentPath={currentPath}
+          client:load
+        />
+      ))
+    }
   </nav>
 
   <SideNavUserFooter
