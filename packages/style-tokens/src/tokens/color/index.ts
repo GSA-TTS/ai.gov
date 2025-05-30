@@ -1,5 +1,7 @@
 import blue from './blue.js';
 import neutral from './neutral.js';
+import pink from './pink.js';
+import red from './red.js';
 import steel from './steel.js';
 import violet from './violet.js';
 
@@ -18,6 +20,8 @@ export default {
   },
   blue,
   neutral,
+  pink,
+  red,
   steel,
   violet,
 };
