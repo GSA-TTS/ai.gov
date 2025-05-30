@@ -2,7 +2,7 @@ import transformArrayToObject from '../../helpers/transform-array-to-object.js';
 import { type ColorTuple } from './index.js';
 
 const colors: ColorTuple[] = [
-  [10, '#E1E1E1'],
+  [0, '{color.white}'],
   [50, '#F4F4F4'],
   [100, '#ECECEC'],
   [200, '#DDDDDD'],
@@ -13,7 +13,7 @@ const colors: ColorTuple[] = [
   [700, '#6E6E6E'],
   [800, '#5D5D5D'],
   [900, '#404040'],
-  [950, '{color.black}'],
+  [1000, '{color.black}'],
 ];
 
 export default transformArrayToObject(colors);
