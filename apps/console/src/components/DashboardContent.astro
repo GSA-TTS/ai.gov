@@ -1,53 +1,66 @@
 ---
 import DashboardCard from '../components/DashboardCard.svelte';
+import DashboardTag from '../components/DashboardTag.svelte';
 ---
 
 <h1>Dashboard</h1>
 
 <div class="dashboard-overview">
-  <DashboardCard
-    title="Total Active Users"
-    metric="834,624"
-    actions={[
-      {
-        text: '12.5%+',
-        iconSrc: '../uswds/img/usa-icons/trending_up.svg',
-      },
-    ]}
-    client:visible
-  />
+  <DashboardCard title="Total Active Users">
+    <svelte:fragment slot="actions">
+      <div class="card-action-stat">
+        <span>+12%</span>
+        <img class="" src="../uswds/img/usa-icons/trending_up.svg" alt="Upward trend" />
+      </div>
+    </svelte:fragment>
+    <p class="metric">834,624</p>
+  </DashboardCard>
+
+  <DashboardCard title="Total Prompts Used">
+    <svelte:fragment slot="actions">
+        <button>View report</button>
+    </svelte:fragment>
+    <p class="metric metric--small">4,734,624</p>
+    <img class="padding-top-2" src="../img/data_viz_line.svg" alt="Data viz line"/>
+  </DashboardCard>
+
+  <DashboardCard title="Model Evaluation">
+    <svelte:fragment slot="actions">
+      <select>
+        <option selected>MMLU</option>
+        <option>Claude Sonnet 3.7</option>
+        <option>Claude Sonnet 3.5 v2</option>
+      </select>
+      <button>View More</button>
+    </svelte:fragment>
+    <img class="padding-top-2" src="../img/data_viz_radar.png" alt="Data viz radar"/>
+  </DashboardCard>
+
+  <DashboardCard title="Model Ranking">
+    <ol class="ai-dashboard-list ai-dashboard-list--large">
+      <li>Claude Sonnet 3.5 v2</li>
+      <li>Claude Sonnet 3.7</li>
+      <li>Gemini 2.5 Pro</li>
+    </ol>
+  </DashboardCard>
 
   <DashboardCard
-    title="Total Prompts Used"
-    metric="4,734,624"
-    smallMetric={true}
-    actions={[
-      {
-        text: 'View Report',
-      },
-    ]}
-    client:visible
-  />
-
-  <DashboardCard
-    title="Model Evaluation"
-    metric="834,624"
-    actions={[
-      {
-        text: 'View more',
-      },
-    ]}
-    client:visible
-  />
-
-  <DashboardCard
-    title="Model Ranking"
-    client:visible
-  />
-</div>
-
-<div class="dashboard-section">
-  <h2>Tags</h2>
+    title="Trending Topics"
+    fullWidth={true}
+  >
+    <svelte:fragment slot="actions">
+      <button>View all</button>
+    </svelte:fragment>
+    <div class="dashboard-tag-cloud">
+      <DashboardTag tagText="It Services" onClick={() => console.log('Clicked!')} />
+      <DashboardTag tagText="Cloud infrastructure" onClick={() => console.log('Clicked!')} />
+      <DashboardTag tagText="508 Compliance" onClick={() => console.log('Clicked!')} />
+      <DashboardTag tagText="Supply chain management" onClick={() => console.log('Clicked!')} />
+      <DashboardTag tagText="Performance metrics" onClick={() => console.log('Clicked!')} />
+      <DashboardTag tagText="Innovation initiatives" onClick={() => console.log('Clicked!')} />
+      <DashboardTag tagText="Procurement trends" onClick={() => console.log('Clicked!')} />
+    </div>
+  </DashboardCard>
 </div>
 
 <style>
@@ -86,6 +99,13 @@ import DashboardCard from '../components/DashboardCard.svelte';
 
   .dashboard-section {
     margin-top: 2.5rem;
+  }
+
+  .dashboard-tag-cloud {
+    padding: 1rem 0; 
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 2rem;  
   }
 
   .dashboard-section h2 {
