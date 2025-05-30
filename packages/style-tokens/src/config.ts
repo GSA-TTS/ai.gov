@@ -1,11 +1,21 @@
 import { formats, transformGroups } from 'style-dictionary/enums';
+import { transform } from '@divriots/style-dictionary-to-figma';
 
 const { cssVariables, json } = formats;
 const { css, js } = transformGroups;
-const buildPath = 'dist/';
+const buildPath = 'dist';
 const prefix = 'ai-';
 
 export default {
+  hooks: {
+    formats: {
+      // @ts-ignore
+      figmaTokensPluginJson: async ({ dictionary }) => {
+        const transformedTokens = transform(dictionary.tokens);
+        return JSON.stringify(transformedTokens, null, 2);
+      },
+    },
+  },
   source: [`${buildPath}/tokens/index.js`],
   platforms: {
     css: {
@@ -16,6 +26,16 @@ export default {
         {
           destination: 'variables.css',
           format: cssVariables,
+        },
+      ],
+    },
+    figma: {
+      transformGroup: js,
+      buildPath: `${buildPath}/`,
+      files: [
+        {
+          destination: 'figma-tokens.json',
+          format: 'figmaTokensPluginJson',
         },
       ],
     },

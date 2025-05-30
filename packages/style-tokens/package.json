@@ -14,6 +14,7 @@
     "test": "vitest run"
   },
   "devDependencies": {
+    "@divriots/style-dictionary-to-figma": "^0.4.0",
     "@repo/typescript-config": "workspace:*",
     "style-dictionary": "^4.4.0",
     "vitest": "^3.0.7"

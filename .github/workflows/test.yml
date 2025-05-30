@@ -27,6 +27,7 @@ jobs:
           path: |
             packages/style-tokens/dist/css/tokens.json
             packages/style-tokens/dist/css/variables.css
+            packages/style-tokens/dist/figma-tokens.json
 
       - name: Run tests
         run: pnpm test
