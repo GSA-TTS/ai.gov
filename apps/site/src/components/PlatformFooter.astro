@@ -4,55 +4,59 @@ import { siteName } from '@repo/ui/constants';
 import PlatformFooterMenu from './PlatformFooterMenu.astro';
 ---
 
-<div class="ai-footer grid-container ai-maxw-widescreen">
-  <section
-    class="usa-section ai-section ai-footer-cta"
-    aria-labelledby="ai-footer-cta"
-  >
-    <div
-      class="usa-identifier__identity ai-identifier__identity"
-      aria-label="Agency description"
+<footer class="ai-footer">
+  <div class="ai-maxw-widescreen grid-container">
+    <section
+      class="usa-section ai-section ai-footer-cta"
+      aria-labelledby="ai-footer-cta"
     >
-      <p class="usa-identifier__identity-domain ai-identifier__identity-domain">
-        {siteName}
-      </p>
-      <p class="usa-identifier__identity-disclaimer text-normal">
-        An official website of the U.S.
-        <a class="ai-button--unstyled" href="https://www.gsa.gov/"
-          >General Services Administration</a
-        >
-      </p>
-    </div>
-    <p class="ai-footer-cta__heading" id="ai-footer-cta">
-      Get your team started today.
-    </p>
-    <div class="ai-footer-cta__buttons">
-      <a
-        class="usa-button usa-button--primary ai-button ai-button--white"
-        href="#">Contact us</a
+      <div
+        class="usa-identifier__identity ai-identifier__identity"
+        aria-label="Agency description"
       >
-    </div>
-  </section>
-  <section class="usa-section ai-section">
-    <div class="grid-row grid-gap">
-      <div class="tablet:grid-col-12">
-        <nav aria-label="Footer navigation">
-          <div class="grid-row grid-gap">
-            {
-              footerMenus.map(menu => {
-                return (
-                  <div class="tablet:grid-col-3">
-                    <PlatformFooterMenu content={menu} />
-                  </div>
-                );
-              })
-            }
-          </div>
-        </nav>
+        <p
+          class="usa-identifier__identity-domain ai-identifier__identity-domain"
+        >
+          {siteName}
+        </p>
+        <p class="usa-identifier__identity-disclaimer text-normal">
+          An official website of the U.S.
+          <a class="ai-button--unstyled" href="https://www.gsa.gov/"
+            >General Services Administration</a
+          >
+        </p>
       </div>
-    </div>
-  </section>
-</div>
+      <p class="ai-footer-cta__heading" id="ai-footer-cta">
+        Get your team started today.
+      </p>
+      <div class="ai-footer-cta__buttons">
+        <a
+          class="usa-button usa-button--primary ai-button ai-button--white"
+          href="#">Contact us</a
+        >
+      </div>
+    </section>
+    <section class="usa-section ai-section">
+      <div class="grid-row grid-gap">
+        <div class="tablet:grid-col-12">
+          <nav aria-label="Footer navigation">
+            <div class="grid-row grid-gap">
+              {
+                footerMenus.map(menu => {
+                  return (
+                    <div class="tablet:grid-col-3">
+                      <PlatformFooterMenu content={menu} />
+                    </div>
+                  );
+                })
+              }
+            </div>
+          </nav>
+        </div>
+      </div>
+    </section>
+  </div>
+</footer>
 
 <style>
   .ai-footer {
