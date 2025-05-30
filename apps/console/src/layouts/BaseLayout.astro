@@ -1,0 +1,20 @@
+---
+import '@repo/ui/styles/base/global.css';
+import { UsaBanner, Head, UsaSkipNav } from '@repo/ui/components';
+import { getPageTitle } from '@repo/ui/helpers';
+
+const title = getPageTitle(Astro);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <Head title={title} />
+  </head>
+  <body>
+    <slot name="skip-nav" />
+    <UsaBanner />
+    <slot />
+  </body>
+</html>

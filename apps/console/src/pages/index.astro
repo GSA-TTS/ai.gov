@@ -1,12 +1,74 @@
 ---
-// Console home page
+import ConsoleLayout from '../layouts/ConsoleLayout.astro';
 ---
 
-<html>
-  <head>
-    <title>Console</title>
-  </head>
-  <body>
-    <h1>Console App</h1>
-  </body>
-</html>
+<ConsoleLayout title="Dashboard">
+
+  <div class="ai-dashboard__overview">
+    <div class="ai-dashboard-card">
+      <h3>Users</h3>
+      <p class="ai-dashboard-number">128</p>
+    </div>
+
+    <div class="ai-dashboard-card">
+      <h3>Number of Prompts</h3>
+      <p class="ai-dashboard-number">42</p>
+    </div>
+
+    <div class="ai-dashboard-card">
+      <h3>Number of Conversations</h3>
+      <p class="ai-dashboard-number">7</p>
+    </div>
+
+    <div class="ai-dashboard-card">
+      <h3>Model Evaluation</h3>
+      <p class="ai-dashboard-number">7</p>
+    </div>
+  </div>
+
+  <div class="ai-dashboard-section">
+    <h2>Tags</h2>
+  </div>
+</ConsoleLayout>
+
+<style>
+   .ai-dashboard__overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .ai-dashboard-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .ai-dashboard-card h3 {
+    margin-top: 0;
+    color: #666;
+    font-size: 1rem;
+  }
+
+  .ai-dashboard-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0 0;
+    color: #0077cc;
+  }
+
+  .ai-dashboard-section {
+    margin-top: 2.5rem;
+  }
+
+  .ai-dashboard-section h2 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+  }
+</style>
