@@ -123,6 +123,6 @@
     }
   }
   .ai-dashboard-footer:empty {
-    display: none; 
+    display: none;
   }
 </style>
