@@ -10,18 +10,48 @@ import DashboardTag from '../components/DashboardTag.svelte';
     <svelte:fragment slot="actions">
       <div class="card-action-stat">
         <span>+12%</span>
-        <img class="" src="../uswds/img/usa-icons/trending_up.svg" alt="Upward trend" />
+        <img
+          class="icon"
+          src="../uswds/img/usa-icons/trending_up.svg"
+          alt="Upward trend"
+        />
       </div>
     </svelte:fragment>
     <p class="metric">834,624</p>
+    <svelte:fragment slot="footer">
+      <div class="performance margin-right-2">
+        <p class="text-bold">Daily
+          <img
+            class="icon"
+            src="../uswds/img/usa-icons/trending_up.svg"
+            alt="Upward trend"
+          />
+        <p>
+        <p>25,049</p>    
+      </div>
+      <div class="performance">
+        <p class="text-bold">Monthly
+          <img
+            class="icon"
+            src="../uswds/img/usa-icons/trending_up.svg"
+            alt="Upward trend"
+          />
+        <p>
+        <p>25,049</p>    
+      </div>
+    </svelte:fragment>
   </DashboardCard>
 
   <DashboardCard title="Total Prompts Used">
     <svelte:fragment slot="actions">
-        <button>View report</button>
+      <button>View report</button>
     </svelte:fragment>
     <p class="metric metric--small">4,734,624</p>
-    <img class="padding-top-2" src="../img/data_viz_line.svg" alt="Data viz line"/>
+    <img
+      class="padding-top-2"
+      src="../img/data_viz_line.svg"
+      alt="Data viz line"
+    />
   </DashboardCard>
 
   <DashboardCard title="Model Evaluation">
@@ -33,32 +63,81 @@ import DashboardTag from '../components/DashboardTag.svelte';
       </select>
       <button>View More</button>
     </svelte:fragment>
-    <img class="padding-top-2" src="../img/data_viz_radar.png" alt="Data viz radar"/>
+    <svelte:fragment slot="data-viz">
+       <img
+        class="padding-top-2"
+        src="../img/data_viz_radar.png"
+        alt="Data viz radar"
+      />
+    </svelte:fragment>
   </DashboardCard>
 
   <DashboardCard title="Model Ranking">
     <ol class="ai-dashboard-list ai-dashboard-list--large">
-      <li>Claude Sonnet 3.5 v2</li>
-      <li>Claude Sonnet 3.7</li>
-      <li>Gemini 2.5 Pro</li>
+      <li>
+        Claude Sonnet 3.5 v2
+         <div class="performance">
+          <span>4.85%+</span>
+           <img
+            class=""
+            src="../uswds/img/usa-icons/trending_up.svg"
+            alt="Upward trend"
+          />
+        </div>
+      </li>
+      <li>
+        Claude Sonnet 3.7
+        <div class="performance">
+          <span>2.6%+</span>
+           <img
+            class=""
+            src="../uswds/img/usa-icons/trending_up.svg"
+            alt="Upward trend"
+          />
+        </div>
+      </li>
+      <li>
+        Gemini 2.5 Pro
+        <div class="performance">
+          <span>1.8%+</span>
+           <img
+            class=""
+            src="../uswds/img/usa-icons/trending_up.svg"
+            alt="Upward trend"
+          />
+        </div>
+      </li>
     </ol>
   </DashboardCard>
 
-  <DashboardCard
-    title="Trending Topics"
-    fullWidth={true}
-  >
+  <DashboardCard title="Trending Topics" fullWidth={true}>
     <svelte:fragment slot="actions">
       <button>View all</button>
     </svelte:fragment>
     <div class="dashboard-tag-cloud">
-      <DashboardTag tagText="It Services" onClick={() => console.log('Clicked!')} />
-      <DashboardTag tagText="Cloud infrastructure" onClick={() => console.log('Clicked!')} />
-      <DashboardTag tagText="508 Compliance" onClick={() => console.log('Clicked!')} />
-      <DashboardTag tagText="Supply chain management" onClick={() => console.log('Clicked!')} />
-      <DashboardTag tagText="Performance metrics" onClick={() => console.log('Clicked!')} />
-      <DashboardTag tagText="Innovation initiatives" onClick={() => console.log('Clicked!')} />
-      <DashboardTag tagText="Procurement trends" onClick={() => console.log('Clicked!')} />
+      <DashboardTag
+        tagText="It Services"
+      />
+      <DashboardTag
+        tagText="Cloud infrastructure"
+      />
+      <DashboardTag
+        tagText="508 Compliance"
+      />
+      <DashboardTag
+        tagText="Supply chain management"
+      />
+      <DashboardTag
+        tagText="Performance metrics"
+      />
+      <DashboardTag
+        tagText="Innovation initiatives"
+      />
+      <DashboardTag 
+        tagText="Procurement trends" 
+        onClick={() => console.log('Clicked!')} 
+        client:only="svelte"
+      />
     </div>
   </DashboardCard>
 </div>
@@ -102,10 +181,10 @@ import DashboardTag from '../components/DashboardTag.svelte';
   }
 
   .dashboard-tag-cloud {
-    padding: 1rem 0; 
+    padding: 1rem 0;
     display: flex;
-    flex-wrap: wrap; 
-    gap: 2rem;  
+    flex-wrap: wrap;
+    gap: 2rem;
   }
 
   .dashboard-section h2 {

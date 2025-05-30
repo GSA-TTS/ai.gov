@@ -22,7 +22,10 @@
         <slot/>
     </div>
     <div class="ai-dashboard-data-viz">
-
+      <slot name="data-viz"/>
+    </div>
+    <div class="ai-dashboard-footer">
+      <slot name="footer"/>
     </div>
 </div>
 
@@ -34,6 +37,11 @@
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    :global(img.icon){
+      width: 20px; 
+    }
   }
   .ai-dashboard-card--full {
     grid-column: span 2;
@@ -49,6 +57,9 @@
     min-height: 35px; 
     justify-content: space-between;
     align-items: center;
+  }
+  .ai-dashboard-card__body {
+    flex: 1 1 auto;
   }
   .ai-card-actions > :global(*) {
     display: flex;
@@ -66,9 +77,6 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    :global(img){
-      width: 20px; 
-    }
   }
   .ai-card-actions :global(select) {
     padding: 0.5rem 1.75rem 0.5rem 0.5rem;
@@ -87,10 +95,34 @@
     font-weight: normal;
   }
   :global(.ai-dashboard-list--large) {
-    padding-left: 1.5rem; 
+    padding-left: 0rem; 
     font-size: 1.5rem;
     :global(li) {
       padding-bottom: 1rem; 
+      display: flex; 
+      flex-direction: row;
+      justify-content: space-between;
+      :global(.performance) {
+        font-size: 0.875rem;
+        display: flex; 
+        align-items: center;
+        gap: 0.25rem;
+      }
     }
+  }
+  .ai-dashboard-footer > :global(*) {
+    align-self: flex-start;
+    display: flex;  
+    flex-direction: row;
+    :global(p) {
+      margin: 0.25rem 0; 
+      font-size: 0.875rem; 
+      display: flex; 
+      align-items: center; 
+      gap: 0.25rem;
+    }
+  }
+  .ai-dashboard-footer:empty {
+    display: none; 
   }
 </style>

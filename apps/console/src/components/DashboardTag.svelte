@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let tagText: string;
-  export let onClick: (() => void) | undefined;
+    export let tagText: string;
+    export let onClick: (() => void) | undefined;
 </script>
 
 <button class="ai-dashboard-tag" on:click={onClick}>
