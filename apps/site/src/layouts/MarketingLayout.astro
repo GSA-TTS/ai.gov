@@ -1,11 +1,8 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import { getPageTitle } from '@repo/ui/helpers';
-import {
-  AgencyFooter,
-  AgencyHeader,
-  PlatformFooter,
-} from '@repo/ui/components';
+import { AgencyHeader } from '@repo/ui/components';
+import PlatformFooter from '../components/PlatformFooter.astro';
 
 const title = getPageTitle(Astro);
 ---
@@ -14,5 +11,4 @@ const title = getPageTitle(Astro);
   <AgencyHeader />
   <slot />
   <PlatformFooter />
-  <AgencyFooter />
 </BaseLayout>
