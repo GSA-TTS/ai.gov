@@ -53,7 +53,7 @@
     grid-column: span 2;
   }
   .ai-dashboard-card--full {
-    grid-column: span 4;
+    grid-column: 1 / -1;
   }
   .ai-dashboard-card-header {
     font-size: 14px; 
@@ -90,7 +90,7 @@
   .ai-card-actions :global(select) {
     padding: 0.5rem 1.75rem 0.5rem 0.5rem;
     appearance: none;
-    background-image: url('../uswds/img/usa-icons/expand_more.svg');
+    background-image: url('/dashboard/uswds/img/usa-icons/expand_more.svg');
     background-repeat: no-repeat;
     background-position: right 0.5rem center;
     background-size: 1rem auto;

@@ -6,13 +6,13 @@ import DashboardTag from '../components/DashboardTag.svelte';
 
 <ConsoleLayout title="Dashboard">
   <div class="ai-dashboard__overview">
-     <DashboardCard title="Total Active Users">
+    <DashboardCard title="Total Active Users">
       <svelte:fragment slot="actions">
         <div class="card-action-stat">
           <span>+12%</span>
           <img
             class="icon"
-            src="../uswds/img/usa-icons/trending_up.svg"
+            src="/dashboard/uswds/img/usa-icons/trending_up.svg"
             alt="Upward trend"
           />
         </div>
@@ -24,7 +24,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
             Daily
             <img
               class="icon"
-              src="../uswds/img/usa-icons/trending_up.svg"
+              src="/dashboard/uswds/img/usa-icons/trending_up.svg"
               alt="Upward trend"
             />
           </p>
@@ -35,7 +35,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
             Monthly
             <img
               class="icon"
-              src="../uswds/img/usa-icons/trending_up.svg"
+              src="/dashboard/uswds/img/usa-icons/trending_up.svg"
               alt="Upward trend"
             />
           </p>
@@ -51,14 +51,15 @@ import DashboardTag from '../components/DashboardTag.svelte';
       <p class="metric metric--small">4,734,624</p>
       <img
         class="padding-top-2"
-        src="../img/data_viz_line.svg"
+        src="/dashboard/assets/images/data_viz_line.png"
         alt="Data viz line"
       />
     </DashboardCard>
 
     <DashboardCard title="Model Evaluation">
       <svelte:fragment slot="actions">
-        <select>
+        <label for="MMLU" class="usa-sr-only">Select Time Range</label>
+        <select id="MMLU">
           <option selected>MMLU</option>
           <option>Claude Sonnet 3.7</option>
           <option>Claude Sonnet 3.5 v2</option>
@@ -68,7 +69,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
       <svelte:fragment slot="data-viz">
         <img
           class="padding-top-2"
-          src="../img/data_viz_radar.png"
+          src="/dashboard/assets/images/data_viz_radar.png"
           alt="Data viz radar"
         />
       </svelte:fragment>
@@ -82,7 +83,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
             <span>4.85%+</span>
             <img
               class="icon"
-              src="../uswds/img/usa-icons/trending_up.svg"
+              src="/dashboard/uswds/img/usa-icons/trending_up.svg"
               alt="Upward trend"
             />
           </div>
@@ -93,7 +94,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
             <span>2.6%+</span>
             <img
               class="icon"
-              src="../uswds/img/usa-icons/trending_up.svg"
+              src="/dashboard/uswds/img/usa-icons/trending_up.svg"
               alt="Upward trend"
             />
           </div>
@@ -104,7 +105,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
             <span>1.8%+</span>
             <img
               class="icon"
-              src="../uswds/img/usa-icons/trending_up.svg"
+              src="/dashboard/uswds/img/usa-icons/trending_up.svg"
               alt="Upward trend"
             />
           </div>
@@ -139,6 +140,18 @@ import DashboardTag from '../components/DashboardTag.svelte';
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
+  }
+
+  @media (min-width: 1200px) {
+    .ai-dashboard__overview {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .ai-dashboard__overview {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   .ai-dashboard-card {
@@ -180,5 +193,4 @@ import DashboardTag from '../components/DashboardTag.svelte';
     flex-wrap: wrap;
     gap: 2rem;
   }
-  
 </style>
