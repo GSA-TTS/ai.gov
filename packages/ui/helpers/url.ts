@@ -2,15 +2,27 @@ import { normalizeTrailingSlash, cleanTrailingSlashes, isValidPath } from './str
 
 // TODO: remove once we define a true production environment
 const detectSiteEnvironment = (): string | null => {
-  if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
-
+    const pathname = window.location.pathname;
+    
     const isValidFederalistDomain = 
       hostname === 'sites.pages.cloud.gov' ||
       hostname.endsWith('.sites.pages.cloud.gov')
     
     if (isValidFederalistDomain) {
-      return '/site/gsa-tts/ai.gov/';
+      const siteMatch = pathname.match(/^(\/site\/[^/]+\/[^/]+)/);
+      
+      if (siteMatch) {
+        return siteMatch[1] + '/';
+      }
+      
+      if (pathname.startsWith('/site/') || pathname.includes('/site/')) {
+        const flexibleMatch = pathname.match(/(\/site\/[^/]+\/[^/]+)/);
+        if (flexibleMatch) {
+          return flexibleMatch[1] + '/';
+        }
+      }
     }
   }
   
@@ -33,7 +45,16 @@ export const getBaseUrl = () => {
 };
 
 export const getUrlFromBase = (assetPath?: string, customBase?: string) => {
-  const base = customBase || getBaseUrl();
+  const autoDetectedBase = getBaseUrl();
+
+  let base: string;
+  if (autoDetectedBase.includes('/site/')) {
+    base = autoDetectedBase;
+  } else if (customBase) {
+    base = customBase;
+  } else {
+    base = autoDetectedBase;
+  }
   
   if (!isValidPath(assetPath)) {
     return normalizeTrailingSlash(base);
