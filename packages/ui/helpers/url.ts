@@ -48,10 +48,10 @@ export const getUrlFromBase = (assetPath?: string, customBase?: string) => {
   const autoDetectedBase = getBaseUrl();
 
   let base: string;
-  if (autoDetectedBase.includes('/site/')) {
-    base = autoDetectedBase;
-  } else if (customBase) {
+  if (customBase && customBase !== '/' && !autoDetectedBase.includes('/site/')) {
     base = customBase;
+  } else if (customBase && customBase !== '/' && autoDetectedBase.includes('/site/')) {
+    base = autoDetectedBase;
   } else {
     base = autoDetectedBase;
   }
