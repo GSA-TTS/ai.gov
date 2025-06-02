@@ -1,7 +1,7 @@
 import { formats, transformGroups } from 'style-dictionary/enums';
 import { transform } from '@divriots/style-dictionary-to-figma';
 
-const { cssVariables, json } = formats;
+const { cssVariables, json, jsonFlat } = formats;
 const { css, js } = transformGroups;
 const buildPath = 'dist';
 const prefix = 'ai-';
@@ -26,6 +26,10 @@ export default {
         {
           destination: 'variables.css',
           format: cssVariables,
+        },
+        {
+          destination: 'token-list.json',
+          format: jsonFlat,
         },
       ],
     },
