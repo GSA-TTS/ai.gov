@@ -29,6 +29,7 @@ export function createAstroConfig({ appDir, overrides = {} }: AstroConfigOptions
     purgecss({
       fontFace: true, // Removes unused @font-face rules
       keyframes: true, // Removes unused keyframes
+      variables: true, // Removes unused CSS variables
       safelist: {
         standard: [
           /abbr/,
@@ -62,7 +63,7 @@ export function createAstroConfig({ appDir, overrides = {} }: AstroConfigOptions
           extensions: ['astro', 'html'],
         },
       ],
-    }),
+    })
   ];
 
   // Handle vite config merging separately
