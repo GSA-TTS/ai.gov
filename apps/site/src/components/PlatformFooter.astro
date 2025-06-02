@@ -7,7 +7,7 @@ import PlatformFooterMenu from './PlatformFooterMenu.astro';
 <footer class="ai-footer">
   <div class="ai-maxw-widescreen grid-container">
     <section
-      class="usa-section ai-section ai-footer-cta"
+      class="usa-section ai-section ai-footer-top"
       aria-labelledby="ai-footer-cta"
     >
       <div
@@ -59,12 +59,12 @@ import PlatformFooterMenu from './PlatformFooterMenu.astro';
 </footer>
 
 <style>
-  :root {
-    --ai-footer-color-background: var(--ai-color-black);
-    --ai-footer-color-text: var(--ai-color-white);
-    --ai-footer-color-text-muted: var(--ai-color-neutral-500);
-    --ai-footer-color-link-rest: var(--ai-color-neutral-200);
-    --ai-footer-color-link-hover: var(--ai-color-white);
+  .ai-footer-link {
+    color: var(--ai-footer-color-link-rest);
+  }
+
+  .ai-footer-link:hover {
+    color: var(--ai-footer-color-link-hover);
   }
 
   .ai-footer {
@@ -73,15 +73,14 @@ import PlatformFooterMenu from './PlatformFooterMenu.astro';
   }
 
   .ai-footer-cta__heading {
-    margin-block: 0 1.5rem;
+    margin-block: 0 var(--ai-size-24);
   }
 
-  .ai-footer-cta {
-    border-bottom: 1px solid #555;
+  .ai-footer-top {
+    border-bottom: 1px solid var(--ai-footer-color-separator);
   }
 
   .ai-identifier__identity {
-    line-height: 1.3;
     padding-bottom: var(--ai-layout-section-spacing-y);
   }
 
