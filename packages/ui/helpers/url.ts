@@ -4,17 +4,13 @@ import { normalizeTrailingSlash, cleanTrailingSlashes, isValidPath } from './str
 const detectSiteEnvironment = (): string | null => {
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
-    const pathname = window.location.pathname;
 
     const isValidFederalistDomain = 
       hostname === 'sites.pages.cloud.gov' ||
       hostname.endsWith('.sites.pages.cloud.gov')
     
     if (isValidFederalistDomain) {
-      const siteMatch = pathname.match(/^(\/site\/[^/]+\/[^/]+)/);
-      if (siteMatch) {
-        return siteMatch[1] + '/';
-      }
+      return '/site/gsa-tts/ai.gov/';
     }
   }
   
