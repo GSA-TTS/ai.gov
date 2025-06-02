@@ -1,14 +1,4 @@
 a {
-  --_color: var(--ai-color-link-rest, var(--ai-color-black));
-  color: var(--_color);
   text-underline-offset: var(--ai-font-underline-offset);
   transition: color 0.3s ease-in-out;
-}
-
-a:is(:hover, :focus) {
-  --_color: var(--ai-color-link-hover, #404040);
-}
-
-a:active {
-  --_color: var(--ai-color-link-active, #5d5d5d);
 }
