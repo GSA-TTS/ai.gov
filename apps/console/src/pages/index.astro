@@ -1,32 +1,135 @@
 ---
 import ConsoleLayout from '../layouts/ConsoleLayout.astro';
+import DashboardCard from '../components/DashboardCard.svelte';
+import DashboardTag from '../components/DashboardTag.svelte';
 ---
 
 <ConsoleLayout title="Dashboard">
   <div class="ai-dashboard__overview">
-    <div class="ai-dashboard-card">
-      <h3>Users</h3>
-      <p class="ai-dashboard-number">128</p>
-    </div>
+     <DashboardCard title="Total Active Users">
+      <svelte:fragment slot="actions">
+        <div class="card-action-stat">
+          <span>+12%</span>
+          <img
+            class="icon"
+            src="../uswds/img/usa-icons/trending_up.svg"
+            alt="Upward trend"
+          />
+        </div>
+      </svelte:fragment>
+      <p class="metric">834,624</p>
+      <svelte:fragment slot="footer">
+        <div class="performance margin-right-2">
+          <p class="text-bold">
+            Daily
+            <img
+              class="icon"
+              src="../uswds/img/usa-icons/trending_up.svg"
+              alt="Upward trend"
+            />
+          </p>
+          <p>25,049</p>
+        </div>
+        <div class="performance">
+          <p class="text-bold">
+            Monthly
+            <img
+              class="icon"
+              src="../uswds/img/usa-icons/trending_up.svg"
+              alt="Upward trend"
+            />
+          </p>
+          <p>238,328</p>
+        </div>
+      </svelte:fragment>
+    </DashboardCard>
 
-    <div class="ai-dashboard-card">
-      <h3>Number of Prompts</h3>
-      <p class="ai-dashboard-number">42</p>
-    </div>
+    <DashboardCard title="Total Prompts Used">
+      <svelte:fragment slot="actions">
+        <button>View report</button>
+      </svelte:fragment>
+      <p class="metric metric--small">4,734,624</p>
+      <img
+        class="padding-top-2"
+        src="../img/data_viz_line.svg"
+        alt="Data viz line"
+      />
+    </DashboardCard>
 
-    <div class="ai-dashboard-card">
-      <h3>Number of Conversations</h3>
-      <p class="ai-dashboard-number">7</p>
-    </div>
+    <DashboardCard title="Model Evaluation">
+      <svelte:fragment slot="actions">
+        <select>
+          <option selected>MMLU</option>
+          <option>Claude Sonnet 3.7</option>
+          <option>Claude Sonnet 3.5 v2</option>
+        </select>
+        <button>View More</button>
+      </svelte:fragment>
+      <svelte:fragment slot="data-viz">
+        <img
+          class="padding-top-2"
+          src="../img/data_viz_radar.png"
+          alt="Data viz radar"
+        />
+      </svelte:fragment>
+    </DashboardCard>
 
-    <div class="ai-dashboard-card">
-      <h3>Model Evaluation</h3>
-      <p class="ai-dashboard-number">7</p>
-    </div>
-  </div>
+    <DashboardCard title="Model Ranking">
+      <ol class="ai-dashboard-list ai-dashboard-list--large">
+        <li>
+          Claude Sonnet 3.5 v2
+          <div class="performance">
+            <span>4.85%+</span>
+            <img
+              class="icon"
+              src="../uswds/img/usa-icons/trending_up.svg"
+              alt="Upward trend"
+            />
+          </div>
+        </li>
+        <li>
+          Claude Sonnet 3.7
+          <div class="performance">
+            <span>2.6%+</span>
+            <img
+              class="icon"
+              src="../uswds/img/usa-icons/trending_up.svg"
+              alt="Upward trend"
+            />
+          </div>
+        </li>
+        <li>
+          Gemini 2.5 Pro
+          <div class="performance">
+            <span>1.8%+</span>
+            <img
+              class="icon"
+              src="../uswds/img/usa-icons/trending_up.svg"
+              alt="Upward trend"
+            />
+          </div>
+        </li>
+      </ol>
+    </DashboardCard>
 
-  <div class="ai-dashboard-section">
-    <h2>Tags</h2>
+    <DashboardCard title="Trending Topics" fullWidth={true}>
+      <svelte:fragment slot="actions">
+        <button>View all</button>
+      </svelte:fragment>
+      <div class="ai-dashboard-tag-cloud">
+        <DashboardTag tagText="It Services" />
+        <DashboardTag tagText="Cloud infrastructure" />
+        <DashboardTag tagText="508 Compliance" />
+        <DashboardTag tagText="Supply chain management" />
+        <DashboardTag tagText="Performance metrics" />
+        <DashboardTag tagText="Innovation initiatives" />
+        <DashboardTag
+          tagText="Procurement trends"
+          onClick={() => console.log('Clicked!')}
+          client:only="svelte"
+        />
+      </div>
+    </DashboardCard>
   </div>
 </ConsoleLayout>
 
@@ -34,8 +137,8 @@ import ConsoleLayout from '../layouts/ConsoleLayout.astro';
   .ai-dashboard__overview {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
   }
 
   .ai-dashboard-card {
@@ -44,6 +147,14 @@ import ConsoleLayout from '../layouts/ConsoleLayout.astro';
     padding: 1.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     text-align: center;
+  }
+
+  .ai-dashboard-section h2 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
   }
 
   .ai-dashboard-card h3 {
@@ -63,11 +174,11 @@ import ConsoleLayout from '../layouts/ConsoleLayout.astro';
     margin-top: 2.5rem;
   }
 
-  .ai-dashboard-section h2 {
-    font-size: 1.25rem;
-    color: #333;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #eee;
+  .ai-dashboard-tag-cloud {
+    padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
   }
+  
 </style>
