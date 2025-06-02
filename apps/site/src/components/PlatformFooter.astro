@@ -59,9 +59,15 @@ import PlatformFooterMenu from './PlatformFooterMenu.astro';
 </footer>
 
 <style>
-  .ai-footer {
+  :root {
     --ai-footer-color-background: var(--ai-color-black);
     --ai-footer-color-text: var(--ai-color-white);
+    --ai-footer-color-text-muted: var(--ai-color-neutral-500);
+    --ai-footer-color-link-rest: var(--ai-color-neutral-200);
+    --ai-footer-color-link-hover: var(--ai-color-white);
+  }
+
+  .ai-footer {
     background: var(--ai-footer-color-background);
     color: var(--ai-footer-color-text);
   }

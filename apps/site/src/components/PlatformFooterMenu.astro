@@ -20,24 +20,27 @@ const menuLabel = `platform-footer-${uuidv4()}`;
 
 <style>
   p {
-    color: var(--ai-color-neutral-500, #a6a6a6);
+    color: var(--ai-footer-color-text-muted);
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: var(--ai-size-16);
   }
 
   ul {
-    margin-bottom: 2rem;
+    margin-bottom: var(--ai-size-32);
   }
 
   li {
     display: block;
-    line-height: 1.3;
-    margin-bottom: 1rem;
+    line-height: var(--ai-font-lineheight-base);
+    margin-bottom: var(--ai-size-16);
   }
 
   a {
-    color: var(--ai-footer-color-text);
+    color: var(--ai-footer-color-link-rest);
     display: block;
-    text-underline-offset: 6px;
+  }
+
+  a:hover {
+    color: var(--ai-footer-color-link-hover);
   }
 </style>
