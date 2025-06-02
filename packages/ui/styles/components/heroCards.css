@@ -1,8 +1,8 @@
 .ai-hero-card__icon-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.25rem;
+  gap: var(--ai-size-8); 
+  margin-bottom: var(--ai-size-4);;
 }
 .ai-hero-card__icon {
   display: flex;
@@ -10,23 +10,33 @@
   justify-content: center;
 }
 .ai-hero-card__title {
-  font-size: 2rem;
+  font-size: var(--ai-size-32); 
   font-weight: 400;
   line-height: 1.2;
-  margin-block: 0 1rem;
+  margin-block: 0 var(--ai-size-16);
 }
 .ai-hero-card__title--header {
-  font-size: 2.5rem;
+  font-size: var(--ai-size-40); 
   font-weight: 500;
   line-height: 1.2;
 }
 .ai-hero-card__description {
   line-height: 1.4;
-  margin-block: 0 1.5rem;
+  margin-block: 0 var(--ai-size-24); 
 }
 
 .ai-hero-card__row {
   justify-content: center;
+}
+
+.ai-solutions-header__text{
+  font-size: var(--ai-size-32); 
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.ai-hero-card__image-container {
+  line-height: 0;
 }
 
 @media (min-width: 64em) {
@@ -38,10 +48,14 @@
 
   .ai-hero-card__title--header {
     font-weight: 600;
-    font-size: 3rem;
+    font-size: var(--ai-size-48); 
     line-height: 1.2;
   }
   .ai-hero-card-image {
     height: 27rem;
+}
+
+.ai-hero-card__image-container {
+  margin-left: auto;
 }
 }
