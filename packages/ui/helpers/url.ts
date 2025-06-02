@@ -1,6 +1,28 @@
 import { normalizeTrailingSlash, cleanTrailingSlashes, isValidPath } from './string-formatters.js';
 
+// TODO: remove once we define a true production environment
+const detectSiteEnvironment = (): string | null => {
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    const pathname = window.location.pathname;
+    
+    if (hostname.includes('sites.pages.cloud.gov') || hostname.includes('federalist')) {
+      const siteMatch = pathname.match(/^(\/site\/[^/]+\/[^/]+)/);
+      if (siteMatch) {
+        return siteMatch[1] + '/';
+      }
+    }
+  }
+  
+  return null;
+};
+
 export const getBaseUrl = () => {
+  const detectedSiteBase = detectSiteEnvironment();
+  if (detectedSiteBase) {
+    return detectedSiteBase;
+  }
+
   const { BASEURL } = process.env;
 
   if (!BASEURL) {
