@@ -63,5 +63,34 @@ describe('url', () => {
       const result = getUrlFromBase(path);
       expect(result).toBe(`${process.env.BASEURL}${path}`);
     });
+
+    it('should handle customBase parameter', () => {
+      const customBase = 'https://gsa.example.com';
+      const result = getUrlFromBase(path, customBase);
+      expect(result).toBe('https://gsa.example.com/assets/image.png');
+    });
+
+    it('should handle customBase with trailing slash', () => {
+      const customBase = 'https://gsa.example.com/';
+      const result = getUrlFromBase(path, customBase);
+      expect(result).toBe('https://gsa.example.com/assets/image.png');
+    });
+
+    it('should return normalized base when asset path is empty string', () => {
+      process.env.BASEURL = 'https://example.com';
+      const result = getUrlFromBase('');
+      expect(result).toBe('https://example.com/');
+    });
+
+    it('should return normalized custom base when asset path is undefined', () => {
+      const customBase = 'https://gsa.example.com';
+      const result = getUrlFromBase(undefined, customBase);
+      expect(result).toBe('https://gsa.example.com/');
+    });
+
+    it('should handle custom base that equals "/"', () => {
+      const result = getUrlFromBase(path, '/');
+      expect(result).toBe('/assets/image.png');
+    });
   });
 });

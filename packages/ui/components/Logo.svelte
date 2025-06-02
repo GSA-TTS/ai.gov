@@ -1,7 +1,10 @@
 <script>
   import { siteName } from '@repo/ui/constants';
   import { getUrlFromBase } from '../helpers';
-  const logoSrc = getUrlFromBase('/assets/images/ai-gov-logo.svg');
+
+  export let baseUrl = '/';
+
+  const logoSrc = getUrlFromBase('/assets/images/ai-gov-logo.svg', baseUrl);
 </script>
 
 <div class="usa-logo line-height-1 margin-y-0">

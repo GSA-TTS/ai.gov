@@ -1,4 +1,4 @@
-import { normalizeTrailingSlash } from './string-formatters.js';
+import { normalizeTrailingSlash, cleanLeadingSlashes, cleanTrailingSlashes, isValidPath } from './string-formatters.js';
 
 export const getBaseUrl = () => {
   const { BASEURL } = process.env;
@@ -10,10 +10,15 @@ export const getBaseUrl = () => {
   return normalizeTrailingSlash(BASEURL);
 };
 
-export const getUrlFromBase = (assetPath?: string) => {
-  const base = normalizeTrailingSlash(getBaseUrl());
-  if (typeof assetPath !== 'string' || !assetPath) {
-    return base;
+export const getUrlFromBase = (assetPath?: string, customBase?: string) => {
+  const base = customBase || getBaseUrl();
+  
+  if (!isValidPath(assetPath)) {
+    return normalizeTrailingSlash(base);
   }
-  return `${base}${assetPath.replace(/^\/+/, '')}`;
+
+  const cleanAssetPath = cleanLeadingSlashes(assetPath);
+  const normalizedBase = normalizeTrailingSlash(base);
+
+  return `${cleanTrailingSlashes(normalizedBase)}/${cleanAssetPath}`;
 };
