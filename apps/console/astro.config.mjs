@@ -10,6 +10,5 @@ export default createAstroConfig({
   appDir: __dirname,
   overrides: {
     // Add any console-specific overrides here
-    base: '/dashboard',
   }
 });
