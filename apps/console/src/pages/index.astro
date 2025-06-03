@@ -13,11 +13,7 @@ import { getIconUrl } from '@repo/ui/helpers/icons.js';
       <svelte:fragment slot="actions">
         <div class="card-action-stat">
           <span>+12%</span>
-          <img
-            class="icon"
-            src=`${getIconUrl('trending_up')}`
-            alt=""
-          />
+          <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
         </div>
       </svelte:fragment>
       <p class="metric">834,624</p>
@@ -25,22 +21,14 @@ import { getIconUrl } from '@repo/ui/helpers/icons.js';
         <div class="performance margin-right-2">
           <span class="text-bold">
             Daily
-            <img
-              class="icon"
-              src=`${getIconUrl('trending_up')}`
-              alt=""
-            />
+            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
           </span>
           <p>25,049</p>
         </div>
         <div class="performance">
           <span class="text-bold">
             Monthly
-            <img
-              class="icon"
-              src=`${getIconUrl('trending_up')}`
-              alt=""
-            />
+            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
           </span>
           <p>238,328</p>
         </div>
@@ -84,39 +72,31 @@ import { getIconUrl } from '@repo/ui/helpers/icons.js';
           Claude Sonnet 3.5 v2
           <div class="performance">
             <span>4.85%+</span>
-            <img
-              class="icon"
-              src=`${getIconUrl('trending_up')}`
-              alt=""
-            />
+            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
           </div>
         </li>
         <li>
           Claude Sonnet 3.7
           <div class="performance">
             <span>2.6%+</span>
-            <img
-              class="icon"
-              src=`${getIconUrl('trending_up')}`
-              alt=""
-            />
+            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
           </div>
         </li>
         <li>
           Gemini 2.5 Pro
           <div class="performance">
             <span>1.8%+</span>
-            <img
-              class="icon"
-              src=`${getIconUrl('trending_up')}`
-              alt=""
-            />
+            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
           </div>
         </li>
       </ol>
     </DashboardCard>
 
-    <DashboardCard title="Trending Topics" titleId="trending-topics" fullWidth={true}>
+    <DashboardCard
+      title="Trending Topics"
+      titleId="trending-topics"
+      fullWidth={true}
+    >
       <svelte:fragment slot="actions">
         <button>View all</button>
       </svelte:fragment>
