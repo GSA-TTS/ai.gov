@@ -14,5 +14,5 @@ body {
 
 a {
   text-underline-offset: var(--ai-font-underline-offset);
-  transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in;
 }
