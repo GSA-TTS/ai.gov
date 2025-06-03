@@ -1,5 +1,6 @@
 <script lang="ts">
   export let title: string; 
+  export let titleId: string; 
   export let halfWidth: boolean = false;
   export let fullWidth: boolean = false;
   const layoutClass = fullWidth
@@ -17,10 +18,10 @@
   }> = [];
 </script>
 
-<div class={`ai-dashboard-card ${layoutClass}`}>    
+<section aria-labelledby={titleId} class={`ai-dashboard-card ${layoutClass}`}>
   <div class="ai-dashboard-card__header">
-    <h3 class="ai-dashboard-card-header">{title}</h3>
-    <div class="ai-card-actions" hidden={!actions.length}>
+    <h2 id={titleId} class="ai-dashboard-card-header">{title}</h2>
+    <div class="ai-card-actions" aria-label="Dashboard card actions" hidden={!actions.length}>
       <slot name="actions" />
     </div>
   </div>
@@ -33,7 +34,7 @@
   <div class="ai-dashboard-footer">
     <slot name="footer"/>
   </div>
-</div>
+</section>
 
 <style>
   .ai-dashboard-card {
@@ -123,7 +124,7 @@
     align-self: flex-start;
     display: flex;  
     flex-direction: row;
-    :global(p) {
+    :global(p), :global(span) {
       margin: 0.25rem 0; 
       font-size: 0.875rem; 
       display: flex; 

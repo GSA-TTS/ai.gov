@@ -7,46 +7,47 @@ import { getIconUrl } from '@repo/ui/helpers/icons.js';
 ---
 
 <ConsoleLayout title="Dashboard">
+  <h1 class="margin-top-0">Analytics</h1>
   <div class="ai-dashboard__overview">
-    <DashboardCard title="Total Active Users">
+    <DashboardCard title="Total Active Users" titleId="total-active-users">
       <svelte:fragment slot="actions">
         <div class="card-action-stat">
           <span>+12%</span>
           <img
             class="icon"
             src=`${getIconUrl('trending_up')}`
-            alt="Upward trend"
+            alt=""
           />
         </div>
       </svelte:fragment>
       <p class="metric">834,624</p>
       <svelte:fragment slot="footer">
         <div class="performance margin-right-2">
-          <p class="text-bold">
+          <span class="text-bold">
             Daily
             <img
               class="icon"
               src=`${getIconUrl('trending_up')}`
-              alt="Upward trend"
+              alt=""
             />
-          </p>
+          </span>
           <p>25,049</p>
         </div>
         <div class="performance">
-          <p class="text-bold">
+          <span class="text-bold">
             Monthly
             <img
               class="icon"
               src=`${getIconUrl('trending_up')}`
-              alt="Upward trend"
+              alt=""
             />
-          </p>
+          </span>
           <p>238,328</p>
         </div>
       </svelte:fragment>
     </DashboardCard>
 
-    <DashboardCard title="Total Prompts Used">
+    <DashboardCard title="Total Prompts Used" titleId="total-prompts-used">
       <svelte:fragment slot="actions">
         <button>View report</button>
       </svelte:fragment>
@@ -58,7 +59,7 @@ import { getIconUrl } from '@repo/ui/helpers/icons.js';
       />
     </DashboardCard>
 
-    <DashboardCard title="Model Evaluation">
+    <DashboardCard title="Model Evaluation" titleId="model-evaluation">
       <svelte:fragment slot="actions">
         <label for="MMLU" class="usa-sr-only">Select Time Range</label>
         <select id="MMLU">
@@ -77,7 +78,7 @@ import { getIconUrl } from '@repo/ui/helpers/icons.js';
       </svelte:fragment>
     </DashboardCard>
 
-    <DashboardCard title="Model Ranking">
+    <DashboardCard title="Model Ranking" titleId="model-ranking">
       <ol class="ai-dashboard-list ai-dashboard-list--large">
         <li>
           Claude Sonnet 3.5 v2
@@ -86,7 +87,7 @@ import { getIconUrl } from '@repo/ui/helpers/icons.js';
             <img
               class="icon"
               src=`${getIconUrl('trending_up')}`
-              alt="Upward trend"
+              alt=""
             />
           </div>
         </li>
@@ -97,7 +98,7 @@ import { getIconUrl } from '@repo/ui/helpers/icons.js';
             <img
               class="icon"
               src=`${getIconUrl('trending_up')}`
-              alt="Upward trend"
+              alt=""
             />
           </div>
         </li>
@@ -108,14 +109,14 @@ import { getIconUrl } from '@repo/ui/helpers/icons.js';
             <img
               class="icon"
               src=`${getIconUrl('trending_up')}`
-              alt="Upward trend"
+              alt=""
             />
           </div>
         </li>
       </ol>
     </DashboardCard>
 
-    <DashboardCard title="Trending Topics" fullWidth={true}>
+    <DashboardCard title="Trending Topics" titleId="trending-topics" fullWidth={true}>
       <svelte:fragment slot="actions">
         <button>View all</button>
       </svelte:fragment>
