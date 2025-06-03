@@ -92,5 +92,5 @@
 
 .ai-menu-buttons {
   display: flex;
-  gap: 1.5rem;
+  gap: var(--ai-size-16);
 }

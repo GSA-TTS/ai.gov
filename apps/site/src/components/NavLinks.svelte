@@ -40,21 +40,19 @@
 </ul>
 
 <style>
-  .ai-nav__primary button,
-  a {
-    font-weight: 500;
-    color: #404040;
-  }
+.ai-nav__primary button,
+.ai-nav__primary a {
+  font-weight: 500;
+  color: #404040;
+}
 
-  .ai-nav__primary button:hover,
-  a:hover {
-    font-weight: 500;
-    color: #005ea2;
-  }
-  .ai-nav__primary button[aria-expanded='true'] {
-    background-color: #f0f0f0;
-    font-weight: 500;
-  }
+.ai-nav__primary button:hover,
+.ai-nav__primary a:hover {
+  color: #005ea2;
+}
+.ai-nav__primary button[aria-expanded='true'] {
+  background-color: #f0f0f0;
+}
   .ai-nav__primary button[aria-expanded='true'] span::after {
     background-color: #404040;
   }

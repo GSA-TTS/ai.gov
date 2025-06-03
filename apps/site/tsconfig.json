@@ -7,9 +7,15 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@ui/*": ["../../packages/ui/src/*"],
+      "@ui/*": ["../../packages/ui/src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro", ".astro/types.d.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.astro",
+    "src/astro-env.d.ts",
+    ".astro/types.d.ts"
+  ],
   "exclude": ["dist", "node_modules"]
 }
