@@ -2,6 +2,8 @@
 import ConsoleLayout from '../layouts/ConsoleLayout.astro';
 import DashboardCard from '../components/DashboardCard.svelte';
 import DashboardTag from '../components/DashboardTag.svelte';
+import { getUrlFromBase } from '@repo/ui/helpers/url.js';
+import { getIconUrl } from '@repo/ui/helpers/icons.js';
 ---
 
 <ConsoleLayout title="Dashboard">
@@ -12,7 +14,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
           <span>+12%</span>
           <img
             class="icon"
-            src="/dashboard/uswds/img/usa-icons/trending_up.svg"
+            src=`${getIconUrl('trending_up')}`
             alt="Upward trend"
           />
         </div>
@@ -24,7 +26,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
             Daily
             <img
               class="icon"
-              src="/dashboard/uswds/img/usa-icons/trending_up.svg"
+              src=`${getIconUrl('trending_up')}`
               alt="Upward trend"
             />
           </p>
@@ -35,7 +37,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
             Monthly
             <img
               class="icon"
-              src="/dashboard/uswds/img/usa-icons/trending_up.svg"
+              src=`${getIconUrl('trending_up')}`
               alt="Upward trend"
             />
           </p>
@@ -51,7 +53,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
       <p class="metric metric--small">4,734,624</p>
       <img
         class="padding-top-2"
-        src="/dashboard/assets/images/data_viz_line.png"
+        src=`${getUrlFromBase('assets/images/data_viz_line.png')}`
         alt="Data viz line"
       />
     </DashboardCard>
@@ -69,7 +71,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
       <svelte:fragment slot="data-viz">
         <img
           class="padding-top-2"
-          src="/dashboard/assets/images/data_viz_radar.png"
+          src=`${getUrlFromBase('/assets/images/data_viz_radar.png')}`
           alt="Data viz radar"
         />
       </svelte:fragment>
@@ -83,7 +85,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
             <span>4.85%+</span>
             <img
               class="icon"
-              src="/dashboard/uswds/img/usa-icons/trending_up.svg"
+              src=`${getIconUrl('trending_up')}`
               alt="Upward trend"
             />
           </div>
@@ -94,7 +96,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
             <span>2.6%+</span>
             <img
               class="icon"
-              src="/dashboard/uswds/img/usa-icons/trending_up.svg"
+              src=`${getIconUrl('trending_up')}`
               alt="Upward trend"
             />
           </div>
@@ -105,7 +107,7 @@ import DashboardTag from '../components/DashboardTag.svelte';
             <span>1.8%+</span>
             <img
               class="icon"
-              src="/dashboard/uswds/img/usa-icons/trending_up.svg"
+              src=`${getIconUrl('trending_up')}`
               alt="Upward trend"
             />
           </div>
