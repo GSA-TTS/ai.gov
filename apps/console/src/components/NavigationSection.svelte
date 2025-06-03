@@ -14,11 +14,10 @@
   role="group"
   aria-labelledby={sectionId}
 >
-  <h3 class="ai-nav-section__title" id={sectionId}>{title}</h3>
+  <div class="ai-nav-section__title" id={sectionId}>{title}</div>
   <ul 
     class="ai-nav-section__list"
     id={listId}
-    role="menu"
     aria-labelledby={sectionId}>
     {#each items as item}
       <NavigationLink

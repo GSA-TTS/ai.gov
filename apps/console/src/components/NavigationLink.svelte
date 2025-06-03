@@ -15,7 +15,6 @@ $: ariaCurrent = isActive ? "page" : false;
     class="ai-nav-link"
     class:ai-nav-link--active={isActive}
     aria-current={ariaCurrent}
-    role="menuitem"
     tabindex="0"
   >
     <span class="ai-nav-link__label">{label}</span>

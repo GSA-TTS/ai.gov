@@ -57,15 +57,16 @@
   .ai-sidebar-footer__user-name {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #111827;
+    color: #404040;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-bottom: 0.25rem;
   }
 
   .ai-sidebar-footer__user-role {
     font-size: 0.75rem;
-    color: #6b7280;
+    color: #404040;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

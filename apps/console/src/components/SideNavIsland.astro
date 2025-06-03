@@ -1,0 +1,25 @@
+---
+import SidebarToggle from './SidebarToggle.svelte';
+import SideNav from './SideNav.svelte';
+import NavigationSection from './NavigationSection.svelte';
+import { sideNavConfig } from '../../data/sideNavConfig.js';
+import { Logo } from '@repo/ui/components';
+---
+
+<SidebarToggle client:load />
+<SideNav client:load>
+<nav>
+    {
+    sideNavConfig.sections.map((section) => {
+        return (
+        <NavigationSection
+            title={section.title}
+            items={section.items}
+            currentPath="/dashboard"
+            client:load
+        />
+        );
+    })
+    }
+</nav>
+</SideNav>

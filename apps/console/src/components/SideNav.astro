@@ -11,7 +11,9 @@ export interface Props {
 const { currentPath } = Astro.props;
 ---
 
-<aside class="ai-console-sidebar">
+
+
+<div class="ai-console-sidebar" id="sidebar">
   <div class="ai-console-sidebar__brand">
     <Logo />
   </div>
@@ -36,7 +38,7 @@ const { currentPath } = Astro.props;
     avatarColor="#374151"
     client:load
   />
-</aside>
+</div>
 
 <style>
   .ai-console-sidebar {
@@ -47,6 +49,7 @@ const { currentPath } = Astro.props;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease;
   }
 
   .ai-console-sidebar__brand {

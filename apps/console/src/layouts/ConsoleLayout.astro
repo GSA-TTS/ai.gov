@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import ConsoleSidebar from '../components/SideNav.astro';
+import SideNavIsland from '../components/SideNavIsland.astro';
 
 const { title } = Astro.props;
 const currentPath = Astro.url.pathname;
@@ -8,7 +9,8 @@ const currentPath = Astro.url.pathname;
 
 <BaseLayout title={`Console - ${title}`}>
   <div class="ai-console-layout">
-    <ConsoleSidebar currentPath={currentPath} />
+    <!-- <ConsoleSidebar currentPath={currentPath} /> -->
+    <SideNavIsland currentPath={currentPath} />
     <main class="ai-console-content">
       <slot />
     </main>
