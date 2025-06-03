@@ -1,188 +1,99 @@
 ---
+import { Image } from 'astro:assets';
 import HeroCard from './HeroCard.svelte';
 import { heroCardsData } from '../data/heroCardsData';
-import { getUrlFromBase } from '@repo/ui/helpers';
+
+import chatHeroIcon from '../assets/images/chat-icon.svg';
+import chatHeroImage from '../assets/images/chat-hero-image.png';
+import apiHeroIcon from '../assets/images/api-icon.svg';
+import apiHeroImage from '../assets/images/api-hero-image.png';
+import consoleHeroIcon from '../assets/images/console-icon.svg';
+import consoleHeroImage from '../assets/images/console-hero-image.png';
+
+const lazyLoadHeroImages = true; // Set to true to enable lazy loading of hero images
+
+const heroCards = [
+  {
+    data: heroCardsData.chatHero,
+    icon: chatHeroIcon,
+    image: chatHeroImage,
+    imageWidth: 761,
+    imageHeight: 437,
+  },
+  {
+    data: heroCardsData.apiHero,
+    icon: apiHeroIcon,
+    image: apiHeroImage,
+    imageWidth: 761,
+    imageHeight: 437,
+  },
+  {
+    data: heroCardsData.consoleHero,
+    icon: consoleHeroIcon,
+    image: consoleHeroImage,
+    imageWidth: 740,
+    imageHeight: 437,
+  },
+];
 ---
 
 <div class="grid-container ai-maxw-widescreen">
-    <h2 class="ai-solutions-header__text">
-      Three robust solutions—powered by the best in American AI.
-    </h2>
-  <HeroCard
-    background={heroCardsData.chatHero.background}
-    textColor={heroCardsData.chatHero.textColor}
-  >
-    <div slot="iconRow" class="ai-hero-card__icon-row">
-      {
-        heroCardsData.chatHero.iconSvgPath && (
-          <img
-            src={getUrlFromBase(heroCardsData.chatHero.iconSvgPath)}
-            alt=""
-            class="ai-hero-card__icon"
-          />
-        )
-      }
-      {
-        heroCardsData.chatHero.iconText && (
-          <span class="ai-hero-card__icon-text">
-            {heroCardsData.chatHero.iconText}
-          </span>
-        )
-      }
-    </div>
-    <h2 slot="title" class="ai-hero-card__title">
-      {heroCardsData.chatHero.title}
-    </h2>
-    <p slot="description" class="ai-hero-card__description">
-      {heroCardsData.chatHero.description}
-    </p>
-    <div
-      slot="buttons"
-      class="ai-menu-buttons"
-      role="group"
-      aria-label="hero actions"
-    >
-      {
-        heroCardsData.chatHero.buttons.map(button => (
-          <a
-            class={`usa-button ai-button ai-button--${button.type}`}
-            href={button.href || '/'}
-            type="button"
-          >
-            {button.text}
-          </a>
-        ))
-      }
-    </div>
-    {
-      heroCardsData.chatHero.imagePath && (
-        <div slot="heroImage" class="ai-hero-card__image-container">
-          <img
-            src={getUrlFromBase(heroCardsData.chatHero.imagePath)}
-            alt={heroCardsData.chatHero.imageAlt || ''}
-            class="ai-hero-card-image"
-          />
+  <h2 class="ai-solutions-header__text">
+    Three robust solutions—powered by the best in American AI.
+  </h2>
+  {
+    heroCards.map(({ data, icon, image, imageWidth, imageHeight }) => (
+      <HeroCard background={data.background} textColor={data.textColor}>
+        <div slot="iconRow" class="ai-hero-card__icon-row">
+          {data.iconSvgPath && (
+            <Image
+              src={icon}
+              alt={data.imageAlt || ''}
+              class="ai-hero-card__icon"
+              loading={lazyLoadHeroImages ? 'lazy' : 'eager'}
+              width={24}
+              height={24}
+            />
+          )}
+          {data.iconText && (
+            <span class="ai-hero-card__icon-text">{data.iconText}</span>
+          )}
         </div>
-      )
-    }
-  </HeroCard>
-
-  <HeroCard
-    background={heroCardsData.apiHero.background}
-    textColor={heroCardsData.apiHero.textColor}
-  >
-    <div slot="iconRow" class="ai-hero-card__icon-row">
-      {
-        heroCardsData.apiHero.iconSvgPath && (
-          <img
-            src={getUrlFromBase(heroCardsData.apiHero.iconSvgPath)}
-            alt=""
-            class="ai-hero-card__icon"
-          />
-        )
-      }
-      {
-        heroCardsData.apiHero.iconText && (
-          <span class="ai-hero-card__icon-text">
-            {heroCardsData.apiHero.iconText}
-          </span>
-        )
-      }
-    </div>
-    <h2 slot="title" class="ai-hero-card__title">
-      {heroCardsData.apiHero.title}
-    </h2>
-    <p slot="description" class="ai-hero-card__description">
-      {heroCardsData.apiHero.description}
-    </p>
-    <div
-      slot="buttons"
-      class="ai-menu-buttons"
-      role="group"
-      aria-label="hero actions"
-    >
-      {
-        heroCardsData.apiHero.buttons.map(button => (
-          <a
-            class={`usa-button ai-button ai-button--${button.type}`}
-            href={button.href || '/'}
-            type="button"
-          >
-            {button.text}
-          </a>
-        ))
-      }
-    </div>
-    {
-      heroCardsData.apiHero.imagePath && (
-        <div slot="heroImage" class="ai-hero-card__image-container">
-          <img
-            src={getUrlFromBase(heroCardsData.apiHero.imagePath)}
-            alt={heroCardsData.apiHero.imageAlt || ''}
-            class="ai-hero-card-image"
-          />
+        <h2 slot="title" class="ai-hero-card__title">
+          {data.title}
+        </h2>
+        <p slot="description" class="ai-hero-card__description">
+          {data.description}
+        </p>
+        <div
+          slot="buttons"
+          class="ai-menu-buttons"
+          role="group"
+          aria-label="hero actions"
+        >
+          {data.buttons.map(button => (
+            <a
+              class={`usa-button ai-button ai-button--${button.type}`}
+              href={button.href || '/'}
+              type="button"
+            >
+              {button.text}
+            </a>
+          ))}
         </div>
-      )
-    }
-  </HeroCard>
-
-  <HeroCard
-    background={heroCardsData.consoleHero.background}
-    textColor={heroCardsData.consoleHero.textColor}
-  >
-    <div slot="iconRow" class="ai-hero-card__icon-row">
-      {
-        heroCardsData.consoleHero.iconSvgPath && (
-          <img
-            src={getUrlFromBase(heroCardsData.consoleHero.iconSvgPath)}
-            alt=""
-            class="ai-hero-card__icon"
-          />
-        )
-      }
-      {
-        heroCardsData.consoleHero.iconText && (
-          <span class="ai-hero-card__icon-text">
-            {heroCardsData.consoleHero.iconText}
-          </span>
-        )
-      }
-    </div>
-    <h2 slot="title" class="ai-hero-card__title">
-      {heroCardsData.consoleHero.title}
-    </h2>
-    <p slot="description" class="ai-hero-card__description">
-      {heroCardsData.consoleHero.description}
-    </p>
-    <div
-      slot="buttons"
-      class="ai-menu-buttons"
-      role="group"
-      aria-label="hero actions"
-    >
-      {
-        heroCardsData.consoleHero.buttons.map(button => (
-          <a
-            class={`usa-button ai-button ai-button--${button.type}`}
-            href={button.href || '/'}
-            type="button"
-          >
-            {button.text}
-          </a>
-        ))
-      }
-    </div>
-    {
-      heroCardsData.consoleHero.imagePath && (
-        <div slot="heroImage" class="ai-hero-card__image-container">
-          <img
-            slot="heroImage"
-            src={getUrlFromBase(heroCardsData.consoleHero.imagePath)}
-            alt={heroCardsData.consoleHero.imageAlt || ''}
-            class="ai-hero-card-image"
-          />
-        </div>
-      )
-    }
-  </HeroCard>
+        {data.imagePath && (
+          <div slot="heroImage" class="ai-hero-card__image-container">
+            <Image
+              src={image}
+              alt={data.imageAlt || ''}
+              class="ai-hero-card-image"
+              loading={lazyLoadHeroImages ? 'lazy' : 'eager'}
+              width={imageWidth}
+              height={imageHeight}
+            />
+          </div>
+        )}
+      </HeroCard>
+    ))
+  }
 </div>

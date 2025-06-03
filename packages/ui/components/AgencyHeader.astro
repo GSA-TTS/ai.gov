@@ -2,7 +2,6 @@
 import HeaderNavigation from './HeaderNavigation.astro';
 import HeroCard from './HeroCard.svelte';
 import { heroCardsData } from '../data/heroCardsData';
-import { getUrlFromBase } from '@repo/ui/helpers';
 ---
 
 <header class="agency-header grid-container ai-maxw-widescreen">
@@ -12,25 +11,8 @@ import { getUrlFromBase } from '@repo/ui/helpers';
     <HeroCard
       background={heroCardsData.lpHeaderHero.background}
       textColor={heroCardsData.lpHeaderHero.textColor}
+      isHeader={true}
     >
-      <div slot="iconRow" class="ai-hero-card__icon-row">
-        {
-          heroCardsData.lpHeaderHero.iconSvgPath && (
-            <img
-              src={getUrlFromBase(heroCardsData.lpHeaderHero.iconSvgPath)}
-              alt=""
-              class="ai-hero-card__icon"
-            />
-          )
-        }
-        {
-          heroCardsData.lpHeaderHero.iconText && (
-            <span class="ai-hero-card__icon-text">
-              {heroCardsData.lpHeaderHero.iconText}
-            </span>
-          )
-        }
-      </div>
       <h1 slot="title" class="ai-hero-card__title ai-hero-card__title--header">
         {heroCardsData.lpHeaderHero.title}
       </h1>
@@ -60,14 +42,14 @@ import { getUrlFromBase } from '@repo/ui/helpers';
 </header>
 
 <style>
-  .agency-header {
-    height: 41.3125rem;
-    position: relative;
-  }
-  .agency-header__herocard-wrapper {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 3.5625rem;
-  }
+.agency-header {
+  min-height: 41.3125rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.agency-header__herocard-wrapper {
+  margin-top: auto;
+  padding-left: 0;
+}
 </style>
