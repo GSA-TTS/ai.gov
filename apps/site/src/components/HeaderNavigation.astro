@@ -1,9 +1,6 @@
 ---
-import Logo from './Logo.svelte';
-import MenuButton from './MenuButton.svelte';
-import NavLinks from './NavLinks.svelte';
-import SearchBar from './SearchBar.svelte';
-import NavActionButtons from './NavActionButtons.svelte';
+import Logo from '@repo/ui/components/Logo.svelte';
+import { MenuButton, NavLinks, SearchBar, NavActionButtons } from './index.js';
 import { getUrlFromBase } from '@repo/ui/helpers';
 
 let isPlatformExpanded = false;
@@ -14,9 +11,7 @@ function togglePlatformMenu() {
 
 <div class="usa-overlay"></div>
 <div class="usa-header usa-header--basic height-15">
-  <div
-    class="usa-nav-container ai-nav-container"
-  >
+  <div class="usa-nav-container ai-nav-container">
     <div class="usa-navbar ai-navbar">
       <Logo />
       <MenuButton />

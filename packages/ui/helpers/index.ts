@@ -1,3 +1,3 @@
-export * from './meta';
-export * from './url';
-export * from './string-formatters';
+export * from './meta.js';
+export * from './url.js';
+export * from './string-formatters.js';

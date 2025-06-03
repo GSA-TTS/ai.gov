@@ -1,12 +1,11 @@
 ---
-import HeaderNavigation from './HeaderNavigation.astro';
-import HeroCard from './HeroCard.svelte';
+import { HeaderNavigation, HeroCard } from './index.js';
 import { heroCardsData } from '../data/heroCardsData';
 ---
 
 <header class="agency-header grid-container ai-maxw-widescreen">
   <HeaderNavigation />
-  
+
   <div class="agency-header__herocard-wrapper">
     <HeroCard
       background={heroCardsData.lpHeaderHero.background}
@@ -42,14 +41,14 @@ import { heroCardsData } from '../data/heroCardsData';
 </header>
 
 <style>
-.agency-header {
-  min-height: 41.3125rem;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.agency-header__herocard-wrapper {
-  margin-top: auto;
-  padding-left: 0;
-}
+  .agency-header {
+    min-height: 41.3125rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .agency-header__herocard-wrapper {
+    margin-top: auto;
+    padding-left: 0;
+  }
 </style>

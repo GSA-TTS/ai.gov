@@ -1,14 +1,14 @@
 ---
 import { Image } from 'astro:assets';
-import HeroCard from './HeroCard.svelte';
+import { HeroCard } from './index.js';
 import { heroCardsData } from '../data/heroCardsData';
 
-import chatHeroIcon from '../assets/images/chat-icon.svg';
-import chatHeroImage from '../assets/images/chat-hero-image.png';
-import apiHeroIcon from '../assets/images/api-icon.svg';
-import apiHeroImage from '../assets/images/api-hero-image.png';
-import consoleHeroIcon from '../assets/images/console-icon.svg';
-import consoleHeroImage from '../assets/images/console-hero-image.png';
+import chatHeroIcon from '../../public/assets/images/chat-icon.svg';
+import chatHeroImage from '../../public/assets/images/chat-hero-image.png';
+import apiHeroIcon from '../../public/assets/images/api-icon.svg';
+import apiHeroImage from '../../public/assets/images/api-hero-image.png';
+import consoleHeroIcon from '../../public/assets/images/console-icon.svg';
+import consoleHeroImage from '../../public/assets/images/console-hero-image.png';
 
 const lazyLoadHeroImages = true; // Set to true to enable lazy loading of hero images
 
