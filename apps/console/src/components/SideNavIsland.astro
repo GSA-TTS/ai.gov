@@ -8,18 +8,18 @@ import { Logo } from '@repo/ui/components';
 
 <SidebarToggle client:load />
 <SideNav client:load>
-<nav>
+  <nav>
     {
-    sideNavConfig.sections.map((section) => {
+      sideNavConfig.sections.map(section => {
         return (
-        <NavigationSection
+          <NavigationSection
             title={section.title}
             items={section.items}
             currentPath="/dashboard"
             client:load
-        />
+          />
         );
-    })
+      })
     }
-</nav>
+  </nav>
 </SideNav>
