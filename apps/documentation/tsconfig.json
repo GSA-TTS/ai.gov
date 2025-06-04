@@ -1,0 +1,12 @@
+{
+  "extends": "../../packages/typescript-config/base.json", // Extend the shared monorepo config
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "baseUrl": "."
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "node_modules"]
+}
