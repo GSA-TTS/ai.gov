@@ -14,15 +14,11 @@
 </div>
 
 <style>
-  .ai-menu-buttons {
-    display: flex;
-    gap: 1rem;
-  }
   @media (max-width: 64em) {
     .ai-menu-buttons {
       flex-direction: column;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
+      padding: var(--ai-size-16);
+      margin-bottom: var(--ai-size-24);
       position: absolute;
       bottom: 0;
       width: 90%;

@@ -1,5 +1,5 @@
 ---
-import Logo from './Logo.svelte';
+import Logo from '@repo/ui/components/Logo.svelte';
 import MenuButton from './MenuButton.svelte';
 import NavLinks from './NavLinks.svelte';
 import SearchBar from './SearchBar.svelte';
@@ -13,17 +13,15 @@ function togglePlatformMenu() {
 ---
 
 <div class="usa-overlay"></div>
-<header class="usa-header usa-header--basic height-15">
-  <div
-    class="usa-nav-container ai-nav-container grid-container ai-maxw-widescreen"
-  >
+<div class="usa-header usa-header--basic height-15">
+  <div class="usa-nav-container ai-nav-container">
     <div class="usa-navbar ai-navbar">
       <Logo />
       <MenuButton />
       <nav aria-label="Primary navigation" class="usa-nav ai-nav">
         <button type="button" class="usa-nav__close">
           <img
-            src=`${getUrlFromBase('uswds/img/usa-icons/close.svg')}`
+            src={getUrlFromBase('uswds/img/usa-icons/close.svg')}
             role="img"
             alt="Close"
           />
@@ -41,7 +39,7 @@ function togglePlatformMenu() {
       </nav>
     </div>
   </div>
-</header>
+</div>
 
 <style>
   .ai-nav-container {
@@ -51,25 +49,20 @@ function togglePlatformMenu() {
     padding-right: 0;
   }
 
-  .ai-navbar {
-    padding-left: 1rem;
-  }
   @media (min-width: 64em) {
     .ai-nav-container {
       display: flex;
       flex-direction: row;
       height: auto;
       position: relative;
-      top: 62px;
-      padding-left: 1rem;
-      padding-right: 2rem;
+      top: var(--ai-size-64);
     }
     .ai-navbar {
       width: fit-content;
       display: flex;
       flex-direction: row;
       flex: auto;
-      gap: 16px;
+      gap: var(--ai-size-16);
       align-items: center;
       justify-content: flex-end;
     }
@@ -80,7 +73,7 @@ function togglePlatformMenu() {
       display: flex;
       flex-direction: row;
       flex: auto;
-      gap: 1rem;
+      gap: var(--ai-size-16);
       align-items: center;
       justify-content: flex-end;
     }

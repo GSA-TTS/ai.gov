@@ -13,13 +13,13 @@
   --ai-button-text-primary-rest: #fff;
   --ai-button-text-primary-hover: var(--ai-button-text-primary-rest);
 
-  /* white button */
-  --ai-button-background-white-rest: #fff;
-  --ai-button-background-white-hover: #f4f4f4;
-  --ai-button-text-white-rest: #000;
-  --ai-button-text-white-hover: #000;
-  --ai-button-border-white-rest: none;
-  --ai-button-border-white-hover: none;
+  /* inverted button */
+  --ai-button-background-inverted-rest: #fff;
+  --ai-button-background-inverted-hover: #f4f4f4;
+  --ai-button-text-inverted-rest: #000;
+  --ai-button-text-inverted-hover: #000;
+  --ai-button-border-inverted-rest: none;
+  --ai-button-border-inverted-hover: none;
 
   /* outline button */
   --ai-button-text-outline-rest: #000;
@@ -56,25 +56,23 @@
   color: var(--ai-button-text-outline-hover);
 }
 
-.ai-button--white {
-  background-color: var(--ai-button-background-white-rest);
-  color: var(--ai-button-text-white-rest);
+.ai-button--inverted {
+  background-color: var(--ai-button-background-inverted-rest);
+  color: var(--ai-button-text-inverted-rest);
   box-shadow: none;
-  border: var(--ai-button-border-white-rest);
+  border: var(--ai-button-border-inverted-rest);
 }
 
-.ai-button--white:is(:hover, :focus) {
-  background-color: var(--ai-button-background-white-hover);
-  color: var(--ai-button-text-white-hover);
-  border: var(--ai-button-border-white-hover);
+.ai-button--inverted:is(:hover, :focus) {
+  background-color: var(--ai-button-background-inverted-hover);
+  color: var(--ai-button-text-inverted-hover);
+  border: var(--ai-button-border-inverted-hover);
 }
 
 .ai-button--unstyled {
   background: none;
   color: inherit;
   border: none;
-  /* border-bottom: 1px solid #000; */
-  /* border-radius: none; */
   box-shadow: none;
   min-width: fit-content;
   padding: 0;
@@ -90,4 +88,9 @@
   border: none;
   box-shadow: none;
   text-decoration: none;
+}
+
+.ai-menu-buttons {
+  display: flex;
+  gap: var(--ai-size-16);
 }

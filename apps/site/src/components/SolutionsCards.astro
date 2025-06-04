@@ -1,0 +1,99 @@
+---
+import { Image } from 'astro:assets';
+import HeroCard from './HeroCard.svelte';
+import { heroCardsData } from '../data/heroCardsData';
+
+import chatHeroIcon from '../../public/assets/images/chat-icon.svg';
+import chatHeroImage from '../../public/assets/images/chat-hero-image.png';
+import apiHeroIcon from '../../public/assets/images/api-icon.svg';
+import apiHeroImage from '../../public/assets/images/api-hero-image.png';
+import consoleHeroIcon from '../../public/assets/images/console-icon.svg';
+import consoleHeroImage from '../../public/assets/images/console-hero-image.png';
+
+const lazyLoadHeroImages = true; // Set to true to enable lazy loading of hero images
+
+const heroCards = [
+  {
+    data: heroCardsData.chatHero,
+    icon: chatHeroIcon,
+    image: chatHeroImage,
+    imageWidth: 761,
+    imageHeight: 437,
+  },
+  {
+    data: heroCardsData.apiHero,
+    icon: apiHeroIcon,
+    image: apiHeroImage,
+    imageWidth: 761,
+    imageHeight: 437,
+  },
+  {
+    data: heroCardsData.consoleHero,
+    icon: consoleHeroIcon,
+    image: consoleHeroImage,
+    imageWidth: 740,
+    imageHeight: 437,
+  },
+];
+---
+
+<div class="grid-container ai-maxw-widescreen">
+  <h2 class="ai-solutions-header__text">
+    Three robust solutions—powered by the best in American AI.
+  </h2>
+  {
+    heroCards.map(({ data, icon, image, imageWidth, imageHeight }) => (
+      <HeroCard background={data.background} textColor={data.textColor}>
+        <div slot="iconRow" class="ai-hero-card__icon-row">
+          {data.iconSvgPath && (
+            <Image
+              src={icon}
+              alt={data.imageAlt || ''}
+              class="ai-hero-card__icon"
+              loading={lazyLoadHeroImages ? 'lazy' : 'eager'}
+              width={24}
+              height={24}
+            />
+          )}
+          {data.iconText && (
+            <span class="ai-hero-card__icon-text">{data.iconText}</span>
+          )}
+        </div>
+        <h2 slot="title" class="ai-hero-card__title">
+          {data.title}
+        </h2>
+        <p slot="description" class="ai-hero-card__description">
+          {data.description}
+        </p>
+        <div
+          slot="buttons"
+          class="ai-menu-buttons"
+          role="group"
+          aria-label="hero actions"
+        >
+          {data.buttons.map(button => (
+            <a
+              class={`usa-button ai-button ai-button--${button.type}`}
+              href={button.href || '/'}
+              type="button"
+            >
+              {button.text}
+            </a>
+          ))}
+        </div>
+        {data.imagePath && (
+          <div slot="heroImage" class="ai-hero-card__image-container">
+            <Image
+              src={image}
+              alt={data.imageAlt || ''}
+              class="ai-hero-card-image"
+              loading={lazyLoadHeroImages ? 'lazy' : 'eager'}
+              width={imageWidth}
+              height={imageHeight}
+            />
+          </div>
+        )}
+      </HeroCard>
+    ))
+  }
+</div>

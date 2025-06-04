@@ -4,3 +4,4 @@
 @import './theme.css' layer(theme);
 @import '../utilities/layout.css' layer(theme);
 @import '../components/buttons.css' layer(buttons);
+@import '../components/heroCards.css' layer(theme);

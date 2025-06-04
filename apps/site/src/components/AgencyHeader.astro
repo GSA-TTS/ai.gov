@@ -1,0 +1,55 @@
+---
+import HeaderNavigation from './HeaderNavigation.astro';
+import HeroCard from './HeroCard.svelte';
+import { heroCardsData } from '../data/heroCardsData';
+---
+
+<header class="agency-header grid-container ai-maxw-widescreen">
+  <HeaderNavigation />
+
+  <div class="agency-header__herocard-wrapper">
+    <HeroCard
+      background={heroCardsData.lpHeaderHero.background}
+      textColor={heroCardsData.lpHeaderHero.textColor}
+      isHeader={true}
+    >
+      <h1 slot="title" class="ai-hero-card__title ai-hero-card__title--header">
+        {heroCardsData.lpHeaderHero.title}
+      </h1>
+      <p slot="description" class="ai-hero-card__description">
+        {heroCardsData.lpHeaderHero.description}
+      </p>
+      <div
+        slot="buttons"
+        class="ai-menu-buttons"
+        role="group"
+        aria-label="Hero actions"
+      >
+        {
+          heroCardsData.lpHeaderHero.buttons.map(button => (
+            <a
+              class={`usa-button ai-button ai-button--${button.type}`}
+              href={button.href || '/'}
+              type="button"
+            >
+              {button.text}
+            </a>
+          ))
+        }
+      </div>
+    </HeroCard>
+  </div>
+</header>
+
+<style>
+  .agency-header {
+    min-height: 41.3125rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .agency-header__herocard-wrapper {
+    margin-top: auto;
+    padding-left: 0;
+  }
+</style>
