@@ -4,18 +4,18 @@
 </script>
 
 <button class="ai-dashboard-tag" on:click={onClick}>
-    {tagText}
+  {tagText}
 </button>
 
 <style>
-    .ai-dashboard-tag {
-        display: flex;
-        padding: 16px 32px;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        border-radius: 54px;
-        border: none; 
-        background: #F1F1F1;    
-    }
+	.ai-dashboard-tag {
+		display: flex;
+		padding: var(--ai-size-16) var(--ai-size-24);
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		border-radius: 54px;
+		border: none; 
+		background: var(--ai-color-neutral-100);    
+	}
 </style>

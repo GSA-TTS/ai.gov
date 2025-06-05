@@ -26,14 +26,14 @@
 
 <style>
   .ai-sidebar-footer {
-    padding: 1.5rem;
+    padding: var(--ai-size-24);
     border-top: 1px solid #e5e7eb;
   }
 
   .ai-sidebar-footer__user {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--ai-size-12);
   }
 
   .ai-sidebar-footer__avatar {
@@ -44,7 +44,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.875rem;
+    font-size: var(--ai-size-14);
     font-weight: 500;
     flex-shrink: 0;
   }
@@ -55,7 +55,7 @@
   }
 
   .ai-sidebar-footer__user-name {
-    font-size: 0.875rem;
+    font-size: var(--ai-size-14);
     font-weight: 500;
     color: #111827;
     white-space: nowrap;
@@ -64,7 +64,7 @@
   }
 
   .ai-sidebar-footer__user-role {
-    font-size: 0.75rem;
+    font-size: var(--ai-size-12);
     color: #6b7280;
     white-space: nowrap;
     overflow: hidden;

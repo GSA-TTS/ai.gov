@@ -32,13 +32,13 @@
 
 <style>
   .ai-nav-section {
-    margin-bottom: 2rem;
+    margin-bottom: var(--ai-size-32);
   }
 
   .ai-nav-section__title {
-    padding: 0 1.5rem;
-    margin: 0 0 1rem 0;
-    font-size: 0.75rem;
+    padding: 0 var(--ai-size-24);
+    margin: 0 0 var(--ai-size-16) 0;
+    font-size: var(--ai-size-12);
     font-weight: 600;
     color: black;
     text-transform: uppercase;

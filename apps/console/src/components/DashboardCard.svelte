@@ -1,13 +1,16 @@
 <script lang="ts">
   export let title: string; 
-  export let titleId: string; 
+  export let titleId: string;
+  export let headingLevel = 'h2'; 
   export let halfWidth: boolean = false;
   export let fullWidth: boolean = false;
-  const layoutClass = fullWidth
-    ? 'ai-dashboard-card--full'
-    : halfWidth
-    ? 'ai-dashboard-card--half'
-    : '';
+  const layoutClassMap: Record<'full' | 'half' | 'default', string> = {
+    full: 'ai-dashboard-card--full',
+    half: 'ai-dashboard-card--half',
+    default: ''
+  };
+  const width = fullWidth ? 'full' : halfWidth ? 'half' : 'default';
+  const layoutClass = layoutClassMap[width];
   export let actions: Array<{
     text: string;
     iconSrc?: string;
@@ -20,7 +23,7 @@
 
 <section aria-labelledby={titleId} class={`ai-dashboard-card ${layoutClass}`}>
   <div class="ai-dashboard-card__header">
-    <h2 id={titleId} class="ai-dashboard-card-header">{title}</h2>
+  <svelte:element this={headingLevel} id={titleId} class="ai-dashboard-card-header">{title}</svelte:element>   
     <div class="ai-card-actions" aria-label="Dashboard card actions" hidden={!actions.length}>
       <slot name="actions" />
     </div>
@@ -38,16 +41,16 @@
 
 <style>
   .ai-dashboard-card {
-    padding: 1rem;
-    background: #fff;
-    border: 1px solid #dcdcdc;
-    border-radius: 0.5rem;
+    padding: var(--ai-size-16);
+    background: var(--ai-color-white);
+    border: 1px solid var(--ai-color-neutral-100);
+    border-radius: var(--ai-size-8);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     :global(img.icon){
-      width: 20px; 
+      width: var(--ai-size-20); 
     }
   }
   .ai-dashboard-card--half {
@@ -57,14 +60,14 @@
     grid-column: 1 / -1;
   }
   .ai-dashboard-card-header {
-    font-size: 14px; 
-    color: #888;
+    font-size: var(--ai-size-14); 
+    color: var(--ai-color-neutral-800);
     font-weight: 400; 
     margin: 0; 
   }
   .ai-dashboard-card__header {
     display: flex;
-    min-height: 35px; 
+    min-height: var(--ai-size-32); 
     justify-content: space-between;
     align-items: center;
   }
@@ -74,49 +77,49 @@
   .ai-card-actions > :global(*) {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--ai-size-8);
   }
   .ai-card-actions :global(button),
   .ai-card-actions :global(select),
   .ai-card-actions :global(.card-action-stat) {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-    border: 1px solid #E4E4E4;
-    border-radius: 4px;
+    padding: var(--ai-size-8) var(--ai-size-12);
+    font-size: var(--ai-size-14);
+    border: 1px solid var(--ai-color-neutral-100);
+    border-radius: var(--ai-size-2);
     background-color: white;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--ai-size-8);
   }
   .ai-card-actions :global(select) {
-    padding: 0.5rem 1.75rem 0.5rem 0.5rem;
+    padding: var(--ai-size-8) var(--ai-size-28) var(--ai-size-8) var(--ai-size-8);
     appearance: none;
     background-image: url('/uswds/img/usa-icons/expand_more.svg');
     background-repeat: no-repeat;
-    background-position: right 0.5rem center;
-    background-size: 1rem auto;
+    background-position: right var(--ai-size-8) center;
+    background-size: var(--ai-size-16) auto;
   }
   :global(.metric) {
-    font-size: 3rem; 
+    font-size: var(--ai-size-48); 
     margin: 0; 
   }
   :global(.metric--small) {
-    font-size: 2rem;
+    font-size: var(--ai-size-32);
     font-weight: normal;
   }
   :global(.ai-dashboard-list--large) {
-    padding-left: 0rem; 
-    font-size: 1.5rem;
+    padding-left: 0; 
+    font-size: var(--ai-size-24);
     :global(li) {
-      padding-bottom: 1rem; 
+      padding-bottom: var(--ai-size-16); 
       display: flex; 
       flex-direction: row;
       justify-content: space-between;
       :global(.performance) {
-        font-size: 0.875rem;
+        font-size: var(--ai-size-14);
         display: flex; 
         align-items: center;
-        gap: 0.25rem;
+        gap: var(--ai-size-4);
       }
     }
   }
@@ -125,11 +128,11 @@
     display: flex;  
     flex-direction: row;
     :global(p), :global(span) {
-      margin: 0.25rem 0; 
-      font-size: 0.875rem; 
+      margin: var(--ai-size-4) 0; 
+      font-size: var(--ai-size-14); 
       display: flex; 
       align-items: center; 
-      gap: 0.25rem;
+      gap: var(--ai-size-16);
     }
   }
   .ai-dashboard-footer:empty {
