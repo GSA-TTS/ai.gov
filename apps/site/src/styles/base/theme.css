@@ -16,9 +16,3 @@ a {
   text-underline-offset: var(--ai-font-underline-offset);
   transition: color 0.3s ease-in;
 }
-
-@media (--ai-size-breakpoint-desktop) {
-  body {
-    background: #00a91c !important;
-  }
-}
