@@ -1,0 +1,68 @@
+---
+import '@repo/style-tokens/dist/css/variables.css';
+import tokens from '@repo/style-tokens/dist/css/token-list.json';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ColorSwatch from '../components/ColorSwatch.svelte';
+---
+
+<BaseLayout>
+  <div class="wrapper">
+    <main id="main-content" class="main-content">
+      <h1>Design tokens</h1>
+      <table>
+        {
+          Object.entries(tokens).map(([key, value]) => {
+            return (
+              <tr>
+                <td>
+                  <code>--{key}</code>
+                </td>
+                <td>
+                  <div class="value">
+                    {key.indexOf('ai-color') !== -1 ? (
+                      <>
+                        <code class="label">{value}</code>
+                        <a
+                          href={`https://www.siegemedia.com/contrast-ratio#${encodeURIComponent(value)}-on-%23ffffff`}
+                        >
+                          <ColorSwatch value={value} size="small" />
+                        </a>
+                      </>
+                    ) : (
+                      <code>{value}</code>
+                    )}
+                  </div>
+                </td>
+              </tr>
+            );
+          })
+        }
+      </table>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .main-content {
+    max-width: var(--ai-size-breakpoint-desktop-lg);
+  }
+
+  table {
+    border-collapse: collapse;
+    font-size: var(--ai-size-16);
+    width: 100%;
+  }
+
+  tr {
+    border-bottom: 1px solid var(--ai-color-neutral-400);
+  }
+
+  td {
+    padding-block: var(--ai-size-8);
+  }
+
+  .value {
+    display: flex;
+    gap: var(--ai-size-8);
+  }
+</style>
