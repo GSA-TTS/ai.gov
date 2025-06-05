@@ -25,7 +25,7 @@ export default {
             const { name, value } = prop;
             const cleanedName = name.replace(/_/g, '-');
             if (name.includes('breakpoint')) {
-              return `@custom-media --${cleanedName} (${value});`;
+              return `@custom-media --${cleanedName} ${value};`;
             }
             return;
           })

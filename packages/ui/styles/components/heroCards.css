@@ -42,7 +42,7 @@
   height: auto;
 }
 
-@media (min-width: 64em) {
+@media (--ai-size-breakpoint-desktop) {
   .ai-hero-card__row {
     align-items: flex-end;
     justify-content: flex-start;

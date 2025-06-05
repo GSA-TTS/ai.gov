@@ -19,9 +19,12 @@
     "svelte": "^5.28.2"
   },
   "devDependencies": {
+    "@csstools/postcss-global-data": "^3.0.0",
     "@repo/vitest-config": "workspace:*",
     "@vitest/coverage-istanbul": "^3.0.7",
     "astro-purgecss": "^5.2.2",
+    "postcss": "^8.5.4",
+    "postcss-custom-media": "^11.0.6",
     "prettier-plugin-astro": "^0.14.1",
     "purgecss": "^7.0.2",
     "vitest": "^3.0.7"
