@@ -46,7 +46,7 @@
 <style>
 
 .ai-console-sidebar__brand {
-  padding: 0 1.5rem 1.5rem;
+  padding: 0 var(--ai-size-24) var(--ai-size-24);
   display: flex; 
   flex-direction: row; 
   align-items: center;
@@ -55,7 +55,7 @@
     margin-left: 0; 
   }
   :global(img) {
-    max-width: 54px; 
+    max-width: var(--ai-size-56); 
   } 
 }
 
