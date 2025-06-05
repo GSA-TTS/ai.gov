@@ -1,0 +1,18 @@
+:root {
+  /* Footer component */
+  --ai-footer-color-background: var(--ai-color-black);
+  --ai-footer-color-text: var(--ai-color-white);
+  --ai-footer-color-text-muted: var(--ai-color-neutral-500);
+  --ai-footer-color-link-rest: var(--ai-color-white);
+  --ai-footer-color-link-hover: var(--ai-color-neutral-200);
+  --ai-footer-color-separator: var(--ai-color-neutral-800);
+}
+
+body {
+  line-height: var(--ai-font-lineheight-base);
+}
+
+a {
+  text-underline-offset: var(--ai-font-underline-offset);
+  transition: color 0.3s ease-in;
+}

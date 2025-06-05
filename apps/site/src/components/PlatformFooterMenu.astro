@@ -1,10 +1,8 @@
 ---
 const { content } = Astro.props;
-import slugify from 'slugify';
+import { v4 as uuidv4 } from 'uuid';
 
-const menuLabel = `platform-footer-${slugify(content.title, {
-  lower: true,
-})}`;
+const menuLabel = `platform-footer-${uuidv4()}`;
 ---
 
 <p id={menuLabel}>{content.title}</p>
@@ -22,27 +20,26 @@ const menuLabel = `platform-footer-${slugify(content.title, {
 
 <style>
   p {
-    color: rgba(0, 0, 0, 0.54);
+    color: var(--ai-footer-color-text-muted);
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: var(--ai-size-16);
   }
 
   ul {
-    margin-bottom: 2rem;
+    margin-bottom: var(--ai-size-32);
   }
 
   li {
     display: block;
-    line-height: 140%;
-    margin-bottom: 1rem;
+    margin-bottom: var(--ai-size-16);
   }
 
   a {
-    color: #000;
+    color: var(--ai-footer-color-link-rest);
     display: block;
   }
 
   a:hover {
-    text-decoration: none;
+    color: var(--ai-footer-color-link-hover);
   }
 </style>

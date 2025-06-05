@@ -1,0 +1,91 @@
+---
+import { footerMenus } from '../data/footer.js';
+import { siteName } from '@repo/ui/constants';
+import PlatformFooterMenu from './PlatformFooterMenu.astro';
+---
+
+<footer class="ai-footer">
+  <div class="ai-maxw-widescreen grid-container">
+    <section
+      class="usa-section ai-section ai-footer-top"
+      aria-labelledby="ai-footer-cta"
+    >
+      <div
+        class="usa-identifier__identity ai-identifier__identity"
+        aria-label="Agency description"
+      >
+        <p
+          class="usa-identifier__identity-domain ai-identifier__identity-domain"
+        >
+          {siteName}
+        </p>
+        <p class="usa-identifier__identity-disclaimer text-normal">
+          An official website of the U.S.
+          <a class="ai-footer-link" href="https://www.gsa.gov/"
+            >General Services Administration</a
+          >
+        </p>
+      </div>
+      <p class="ai-footer-cta__heading" id="ai-footer-cta">
+        Get your team started today.
+      </p>
+      <div class="ai-footer-cta__buttons">
+        <a
+          class="usa-button usa-button--primary ai-button ai-button--white"
+          href="#">Contact us</a
+        >
+      </div>
+    </section>
+    <section class="usa-section ai-section">
+      <div class="grid-row grid-gap">
+        <div class="tablet:grid-col-12">
+          <nav aria-label="Footer navigation">
+            <div class="grid-row grid-gap">
+              {
+                footerMenus.map(menu => {
+                  return (
+                    <div class="tablet:grid-col-3">
+                      <PlatformFooterMenu content={menu} />
+                    </div>
+                  );
+                })
+              }
+            </div>
+          </nav>
+        </div>
+      </div>
+    </section>
+  </div>
+</footer>
+
+<style>
+  .ai-footer-link {
+    color: var(--ai-footer-color-link-rest);
+  }
+
+  .ai-footer-link:hover {
+    color: var(--ai-footer-color-link-hover);
+  }
+
+  .ai-footer {
+    background: var(--ai-footer-color-background);
+    color: var(--ai-footer-color-text);
+  }
+
+  .ai-footer-cta__heading {
+    margin-block: 0 var(--ai-size-24);
+  }
+
+  .ai-footer-top {
+    border-bottom: 1px solid var(--ai-footer-color-separator);
+  }
+
+  .ai-identifier__identity {
+    padding-bottom: var(--ai-layout-section-spacing-y);
+  }
+
+  .ai-identifier__identity-domain {
+    color: var(--ai-footer-color-text);
+    font-weight: 600;
+  }
+</style>
