@@ -101,7 +101,7 @@
   }
   :global(.metric) {
     font-size: var(--ai-size-48); 
-    margin: 0; 
+    margin-top: 0; 
   }
   :global(.metric--small) {
     font-size: var(--ai-size-32);
@@ -132,7 +132,7 @@
       font-size: var(--ai-size-14); 
       display: flex; 
       align-items: center; 
-      gap: var(--ai-size-16);
+      gap: var(--ai-size-8);
     }
   }
   .ai-dashboard-footer:empty {
