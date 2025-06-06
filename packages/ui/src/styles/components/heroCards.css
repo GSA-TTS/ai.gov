@@ -9,8 +9,8 @@
   align-items: center;
   justify-content: center;
 }
-.ai-hero-card__icon-text{
-  font-weight: 600  ;
+.ai-hero-card__icon-text {
+  font-weight: 600;
 }
 .ai-hero-card__title {
   font-size: var(--ai-size-32);
