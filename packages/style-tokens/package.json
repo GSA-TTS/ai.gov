@@ -16,6 +16,8 @@
   "devDependencies": {
     "@divriots/style-dictionary-to-figma": "^0.4.0",
     "@repo/typescript-config": "workspace:*",
+    "@repo/vitest-config": "workspace:*",
+    "@vitest/coverage-istanbul": "^3.0.7",
     "style-dictionary": "^4.4.0",
     "vitest": "^3.0.7"
   }

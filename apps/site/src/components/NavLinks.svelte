@@ -70,7 +70,7 @@
     color: #fff;
   }
 
-  @media (min-width: 64em) {
+  @media (--ai-size-breakpoint-desktop) {
     .ai-nav__submenu {
       width: 9rem;
     }

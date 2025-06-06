@@ -1,17 +1,15 @@
-import type { ColorKey, ColorTuple, ColorValue } from '../tokens/color';
-
-export default (array: ColorTuple[], type = 'color') => {
+export default function transformArrayToObject<K extends string | number, V>(
+  array: [K, V][],
+  type: string = 'color'
+): Record<K, { value: V; type: string }> {
   return array.reduce(
-    (
-      acc: Record<ColorKey, { value: ColorValue; type: string }>,
-      [key, value]
-    ) => {
+    (acc, [key, value]) => {
       acc[key] = {
         value,
         type,
       };
       return acc;
     },
-    {}
+    {} as Record<K, { value: V; type: string }>
   );
-};
+}
