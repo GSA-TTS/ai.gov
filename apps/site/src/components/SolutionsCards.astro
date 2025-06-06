@@ -37,7 +37,7 @@ const heroCards = [
 ];
 ---
 
-<div class="grid-container ai-maxw-widescreen">
+<div class="grid-container ai-maxw-widescreen padding-bottom-6">
   <h2 class="ai-solutions-header__text">
     Three robust solutions—powered by the best in American AI.
   </h2>
@@ -69,7 +69,7 @@ const heroCards = [
           slot="buttons"
           class="ai-menu-buttons"
           role="group"
-          aria-label="hero actions"
+          aria-label={`Actions for ${data.title} solution`}
         >
           {data.buttons.map(button => (
             <a
@@ -77,7 +77,14 @@ const heroCards = [
               href={button.href || '/'}
               type="button"
             >
-              {button.text}
+              {button.text === 'Learn more' ? (
+                <>
+                  {button.text}
+                  <span class="usa-sr-only"> about {data.iconText}</span>
+                </>
+              ) : (
+                button.text
+              )}
             </a>
           ))}
         </div>

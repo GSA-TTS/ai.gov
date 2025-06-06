@@ -1,4 +1,4 @@
-# 1. Use Astro Experimental Fonts API
+# 3. Use Astro Experimental Fonts API
 
 Date: 2025-05-09
 
