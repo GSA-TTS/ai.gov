@@ -62,7 +62,7 @@
   .ai-dashboard-card-header {
     font-size: var(--ai-size-14); 
     color: var(--ai-color-neutral-800);
-    font-weight: 400; 
+    font-weight: 700; 
     margin: 0; 
   }
   .ai-dashboard-card__header {

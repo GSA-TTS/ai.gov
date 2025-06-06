@@ -3,23 +3,42 @@ import ConsoleLayout from '../layouts/ConsoleLayout.astro';
 import DashboardCard from '../components/DashboardCard.svelte';
 import DashboardTag from '../components/DashboardTag.svelte';
 import { weeklyTrendIndicators } from '../../data/dashboardStats.js';
+import { trendingTopics } from '../../data/dashboardStats.js';
+import { modelComparison } from '../../data/dashboardStats.js';
+const entries = Object.entries(trendingTopics.topic_counts)
+  .sort((a, b) => b[1] - a[1]) // sort descending by count
+  .slice(0, 10); // limit to top 10;
 import { getUrlFromBase } from '@repo/ui/helpers/url.js';
 import { getIconUrl } from '@repo/ui/helpers/icons.js';
 import TrendingIcon from '../components/TrendingIcon.svelte';
+const maxCount = Math.max(...entries.map(([_, count]) => count));
+function toTitleCase(str) {
+  return str
+    .replaceAll('_', ' ')
+    .replace(/\w\S*/g, word => word.charAt(0).toUpperCase() + word.slice(1));
+}
+const rowHeight = 28;
+const svgWidth = 600;
+const svgHeight = entries.length * rowHeight;
 ---
 
 <ConsoleLayout title="Dashboard">
-  <h1 class="margin-top-0">Analytics</h1>
+  <h1 class="margin-top-0 font-body-md margin-left-05 s">Analytics</h1>
   <div class="ai-dashboard__overview">
-    
-    <DashboardCard title="Total Active Users" titleId="total-active-users">
+    <DashboardCard title="Total Users" titleId="total-users">
       <svelte:fragment slot="actions">
         <div class="card-action-stat">
-          <span>{weeklyTrendIndicators.total_users.pct_change_display.toLocaleString()}</span>
+          <span
+            >{
+              weeklyTrendIndicators.total_users.pct_change_display.toLocaleString()
+            }</span
+          >
           <TrendingIcon indicator={weeklyTrendIndicators.total_users} />
         </div>
       </svelte:fragment>
-      <p class="metric metric--small margin-bottom-4">{weeklyTrendIndicators.total_users.to_date.toLocaleString()}</p>
+      <p class="metric metric--small margin-bottom-4">
+        {weeklyTrendIndicators.total_users.to_date.toLocaleString()}
+      </p>
       <svelte:fragment slot="footer">
         <div class="performance">
           <p class="text-bold">
@@ -31,14 +50,20 @@ import TrendingIcon from '../components/TrendingIcon.svelte';
       </svelte:fragment>
     </DashboardCard>
 
-    <DashboardCard title="Total Active Users" titleId="total-active-users">
+    <DashboardCard title="Active Users" titleId="active-users">
       <svelte:fragment slot="actions">
         <div class="card-action-stat">
-          <span>{weeklyTrendIndicators.active_users.pct_change_display.toLocaleString()}</span>
+          <span
+            >{
+              weeklyTrendIndicators.active_users.pct_change_display.toLocaleString()
+            }</span
+          >
           <TrendingIcon indicator={weeklyTrendIndicators.active_users} />
         </div>
       </svelte:fragment>
-      <p class="metric metric--small">{weeklyTrendIndicators.active_users.to_date.toLocaleString()}</p>
+      <p class="metric metric--small">
+        {weeklyTrendIndicators.active_users.to_date.toLocaleString()}
+      </p>
       <svelte:fragment slot="footer">
         <div class="performance">
           <p class="text-bold">
@@ -53,11 +78,17 @@ import TrendingIcon from '../components/TrendingIcon.svelte';
     <DashboardCard title="Total Prompts Used" titleId="total-prompts-used">
       <svelte:fragment slot="actions">
         <div class="card-action-stat">
-          <span>{weeklyTrendIndicators.prompts.pct_change_display.toLocaleString()}</span>
+          <span
+            >{
+              weeklyTrendIndicators.prompts.pct_change_display.toLocaleString()
+            }</span
+          >
           <TrendingIcon indicator={weeklyTrendIndicators.prompts} />
         </div>
       </svelte:fragment>
-      <p class="metric metric--small">{weeklyTrendIndicators.prompts.to_date.toLocaleString()}</p>
+      <p class="metric metric--small">
+        {weeklyTrendIndicators.prompts.to_date.toLocaleString()}
+      </p>
       <svelte:fragment slot="footer">
         <div class="performance">
           <p class="text-bold">
@@ -66,17 +97,23 @@ import TrendingIcon from '../components/TrendingIcon.svelte';
           </p>
           <p>{weeklyTrendIndicators.prompts.subtitle_display_text}</p>
         </div>
-    </svelte:fragment>
+      </svelte:fragment>
     </DashboardCard>
 
     <DashboardCard title="Token Costs" titleId="token-costs">
       <svelte:fragment slot="actions">
         <div class="card-action-stat">
-          <span>{weeklyTrendIndicators.token_costs.pct_change_display.toLocaleString()}</span>
+          <span
+            >{
+              weeklyTrendIndicators.token_costs.pct_change_display.toLocaleString()
+            }</span
+          >
           <TrendingIcon indicator={weeklyTrendIndicators.token_costs} />
         </div>
       </svelte:fragment>
-      <p class="metric metric--small">${weeklyTrendIndicators.token_costs.to_date.toLocaleString()}</p>
+      <p class="metric metric--small">
+        ${weeklyTrendIndicators.token_costs.to_date.toLocaleString()}
+      </p>
       <svelte:fragment slot="footer">
         <div class="performance">
           <p class="text-bold">
@@ -132,6 +169,102 @@ import TrendingIcon from '../components/TrendingIcon.svelte';
         </li>
       </ol>
     </DashboardCard> -->
+
+    <DashboardCard title="Model Comparison" titleId="trending-topics" halfWidth={true}>
+    <svelte:fragment slot="actions"></svelte:fragment>
+    <svelte:fragment slot="data-viz">
+      <p class="margin-top-0 font-body-2xs">Top 10 topics by prompt count</p>
+      <svg viewBox="0 0 300 300" width="300" height="300">
+        <g transform="translate(150, 150)">
+          <!-- Axes -->
+          <g stroke="#ccc">
+            <line x1="0" y1="0" x2="0" y2="-100" />
+            <line x1="0" y1="0" x2="95" y2="-31" />
+            <line x1="0" y1="0" x2="59" y2="81" />
+            <line x1="0" y1="0" x2="-59" y2="81" />
+            <line x1="0" y1="0" x2="-95" y2="-31" />
+          </g>
+
+          <!-- Labels -->
+          <text x="0" y="-110" text-anchor="middle">Business</text>
+          <text x="100" y="-30" text-anchor="start">Coding</text>
+          <text x="65" y="95" text-anchor="start">Reading</text>
+          <text x="-65" y="95" text-anchor="end">Safeguards</text>
+          <text x="-100" y="-30" text-anchor="end">FAR</text>
+
+          <!-- Polygon for Haiku -->
+          <polygon
+            fill="rgba(0, 123, 255, 0.3)"
+            stroke="#007bff"
+            stroke-width="1"
+            points="
+              0,-65
+              70,-23
+              53,73
+              -55,75
+              -57,-19
+            "
+          />
+
+          <!-- Polygon for Sonnet -->
+          <polygon
+            fill="rgba(255, 99, 132, 0.3)"
+            stroke="#ff6384"
+            stroke-width="1"
+            points="
+              0,-85
+              74,-24
+              53,73
+              -55,75
+              -76,-25
+            "
+          />
+        </g>
+      </svg>
+    </svelte:fragment>
+  </DashboardCard>
+
+    <DashboardCard title="Trending Topics" titleId="trending-topics" halfWidth={true}>
+      <svelte:fragment slot="actions"></svelte:fragment>
+      <svelte:fragment slot="data-viz">
+        <p class="margin-top-0 font-body-2xs">Top 10 topics by prompt count</p>
+
+        <svg
+          viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+          width="100%"
+          height="auto"
+          preserveAspectRatio="xMinYMin meet"
+        >
+          {entries.map(([label, count], i) => {
+            const yOffset = i * rowHeight;
+            const barWidth = (count / entries[0][1]) * 400;
+            const labelPadding = 150;
+
+            return (
+              <>
+                <text x="0" y={yOffset + 25} font-size="12">{toTitleCase(label)}</text>
+                <rect
+                  x={labelPadding}
+                  y={yOffset + 10}
+                  width={barWidth}
+                  height="20"
+                  fill="var(--ai-color-blue-400)"
+                  rx="4"
+                  ry="4"
+                />
+                <text
+                  x={labelPadding + barWidth + 8}
+                  y={yOffset + 25}
+                  font-size="12"
+                >
+                  {count.toLocaleString()}
+                </text>
+              </>
+            );
+          })}
+        </svg>
+      </svelte:fragment>
+    </DashboardCard>
 
     <DashboardCard
       title="Trending Topics"

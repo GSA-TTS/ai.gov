@@ -20,14 +20,13 @@ export const weeklyTrendIndicators = {
   },
 
   prompts: {
-    previous_week: 100000,
-    to_date: 12990000,
+    previous_week: 1229790,
+    to_date: 2420598,
     pct_change_symbol: '+',
-    pct_change_display: '+39%',
-    display_text: 'Up 39% this week',
+    pct_change_display: "+153.7%",
+    display_text: 'Up 153.7% this week',
     subtitle_display_text: 'Major increase in people using daily',
   },
-
   token_costs: {
     previous_week: 100000,
     to_date: 19571.0,
@@ -37,3 +36,56 @@ export const weeklyTrendIndicators = {
     subtitle_display_text: 'Major increase in people using daily',
   },
 };
+
+export const trendingTopics = {
+  start_date: '2025-05-23T00:00:00',
+  end_date: "2025-05-30T00:00:00",
+  topic_counts: {
+    technology: 9445,
+    business: 7786,
+    government: 3770,
+    software_development: 1871,
+    programming: 1309,
+    communication: 1109,
+    procurement: 1098,
+    general: 974,
+    web_development: 889,
+    human_resources: 721,
+    education: 689,
+    professional_development: 605,
+    construction: 517
+  },
+}
+
+export const modelComparison = [
+  {
+    name: "Haiku 3.5",
+    scores: {
+      Business: 65,
+      Coding: 74,
+      "Reading Comprehension": 90,
+      Safeguards: 94,
+      FAR: 60,
+    },
+  },
+  {
+    name: "Sonnet 3.5",
+    scores: {
+      Business: 85,
+      Coding: 78,
+      "Reading Comprehension": 90,
+      Safeguards: 95,
+      FAR: 80,
+    },
+  },
+  {
+    name: "LLama 3.2 (11B)",
+    scores: {
+      Business: 82,
+      Coding: 72,
+      "Reading Comprehension": 89,
+      Safeguards: 95,
+      FAR: 20,
+    },
+  },
+];
