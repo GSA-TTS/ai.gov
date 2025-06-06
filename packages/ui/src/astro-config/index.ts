@@ -5,7 +5,7 @@ import svelte from '@astrojs/svelte';
 import purgecss from 'astro-purgecss';
 import { join as pathJoin, dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
-import { normalizeTrailingSlash } from "../helpers/string-formatters";
+import { normalizeTrailingSlash } from '../helpers/string-formatters';
 
 interface AstroConfigOptions {
   appDir: string;
@@ -19,7 +19,10 @@ interface AstroConfigOptions {
 /**
  * Creates an Astro config with app-specific customizations
  */
-export function createAstroConfig({ appDir, overrides = {} }: AstroConfigOptions) {
+export function createAstroConfig({
+  appDir,
+  overrides = {},
+}: AstroConfigOptions) {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
 
@@ -33,25 +36,19 @@ export function createAstroConfig({ appDir, overrides = {} }: AstroConfigOptions
       safelist: {
         standard: [
           /abbr/,
-          "kbd",
-          "samp",
-          "sub",
-          "optgroup",
-          "fieldset",
-          "summary",
-          "cite",
-          "dfn",
-          "pre",
+          'kbd',
+          'samp',
+          'sub',
+          'optgroup',
+          'fieldset',
+          'summary',
+          'cite',
+          'dfn',
+          'pre',
         ],
-        deep: [
-          /usa-in-page.+/,
-        ],
+        deep: [/usa-in-page.+/],
       },
-      dynamicAttributes: [
-        "contentEditable",
-        "title",
-        "type",
-      ],
+      dynamicAttributes: ['contentEditable', 'title', 'type'],
       blocklist: [],
       content: [
         pathJoin(appDir, 'src/**/*.{astro,svelte,ts,tsx,js,jsx}'),
@@ -63,7 +60,7 @@ export function createAstroConfig({ appDir, overrides = {} }: AstroConfigOptions
           extensions: ['astro', 'html'],
         },
       ],
-    })
+    }),
   ];
 
   // Handle vite config merging separately
@@ -74,27 +71,30 @@ export function createAstroConfig({ appDir, overrides = {} }: AstroConfigOptions
     resolve: {
       dedupe: ['@repo/ui'],
       alias: {
-        '@ui-assets': resolve(appDir, '../../packages/ui/assets')
+        '@ui-assets': resolve(appDir, '../../packages/ui/assets'),
       },
     },
     ssr: {
       noExternal: ['@repo/ui'],
     },
-    assetsInclude: ['**/*.svg']
+    assetsInclude: ['**/*.svg'],
   };
 
-  const mergedViteConfig = overrides.vite ? {
-    ...baseViteConfig,
-    ...overrides.vite,
-    resolve: {
-      ...baseViteConfig.resolve,
-      ...(overrides.vite.resolve as Record<string, unknown> || {}),
-      alias: {
-        ...baseViteConfig.resolve.alias,
-        ...((overrides.vite.resolve as Record<string, unknown>)?.alias as Record<string, unknown> || {}),
-      },
-    },
-  } : baseViteConfig;
+  const mergedViteConfig = overrides.vite
+    ? {
+        ...baseViteConfig,
+        ...overrides.vite,
+        resolve: {
+          ...baseViteConfig.resolve,
+          ...((overrides.vite.resolve as Record<string, unknown>) || {}),
+          alias: {
+            ...baseViteConfig.resolve.alias,
+            ...(((overrides.vite.resolve as Record<string, unknown>)
+              ?.alias as Record<string, unknown>) || {}),
+          },
+        },
+      }
+    : baseViteConfig;
 
   return defineConfig({
     base: normalizeTrailingSlash(process.env.BASEURL || ''),
@@ -123,13 +123,15 @@ export function createAstroConfig({ appDir, overrides = {} }: AstroConfigOptions
     },
     image: {
       service: {
-        entrypoint: 'astro/assets/services/noop'
-      }
+        entrypoint: 'astro/assets/services/noop',
+      },
     },
     vite: mergedViteConfig,
     // Spread other overrides (excluding the ones we handle specifically)
     ...Object.fromEntries(
-      Object.entries(overrides).filter(([key]) => !['integrations', 'vite'].includes(key))
+      Object.entries(overrides).filter(
+        ([key]) => !['integrations', 'vite'].includes(key)
+      )
     ),
   });
 }
