@@ -40,34 +40,34 @@
 </ul>
 
 <style>
-.ai-nav__primary button,
-.ai-nav__primary a {
-  font-weight: 500;
-  color: #404040;
-}
+  .ai-nav__primary button,
+  .ai-nav__primary a {
+    font-weight: 500;
+    color: var(--ai-color-neutral-900);
+  }
 
-.ai-nav__primary button:hover,
-.ai-nav__primary a:hover {
-  color: #005ea2;
-}
-.ai-nav__primary button[aria-expanded='true'] {
-  background-color: #f0f0f0;
-}
+  .ai-nav__primary button:hover,
+  .ai-nav__primary a:hover {
+    color: #005ea2;
+  }
+  .ai-nav__primary button[aria-expanded='true'] {
+    background-color: var(--ai-color-neutral-50);
+  }
   .ai-nav__primary button[aria-expanded='true'] span::after {
-    background-color: #404040;
+    background-color: var(--ai-color-neutral-900);
   }
 
   .ai-nav__submenu {
-    background-color: #f0f0f0;
+    background-color: var(--ai-color-neutral-50);
   }
 
   .ai-nav__submenu-item a {
-    color: #000;
+    color: var(--ai-color-black);
   }
 
   .ai-nav__submenu-item a:hover {
-    background-color: #404040;
-    color: #fff;
+    background-color: var(--ai-color-neutral-900);
+    color: var(--ai-color-white);
   }
 
   @media (--ai-size-breakpoint-desktop) {

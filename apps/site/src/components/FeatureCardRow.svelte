@@ -3,12 +3,12 @@
 </script>
 
 <section
-  class="grid-container ai-maxw-widescreen ai-section-card"
+  class="grid-container ai-maxw-widescreen desktop:padding-x-4"
   aria-label="Key features"
 >
-  <div class="ai-feature-card-row">
+  <div class="padding-y-4 ai-feature-card-row">
     {#each features as feature}
-      <div class="ai-feature-card">
+      <div class="grid-row padding-y-4 ai-feature-card">
         <div class="ai-feature-card__icon">
           <img
             src={feature.iconPath}
@@ -17,7 +17,7 @@
             height="83"
           />
         </div>
-        <h3 class="ai-feature-card__title">{feature.title}</h3>
+        <h2 class="ai-feature-card__title">{feature.title}</h2>
         <div class="ai-feature-card__description">{feature.description}</div>
       </div>
     {/each}
@@ -28,46 +28,34 @@
   .ai-feature-card-row {
     display: flex;
     flex-direction: column;
-    color: #000;
-    min-height: 391px;
-    padding-top: var(--ai-size-32);
-    padding-bottom: var(--ai-size-32);
+    color: var(--ai-color-black);
+    min-height: var(--ai-size-384);
     align-items: flex-start;
   }
   .ai-feature-card {
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    padding-top: var(--ai-size-32);
-    padding-bottom: var(--ai-size-32);
-    gap: var(--ai-size-17, 17px);
+    gap: var(--ai-size-16);
     flex: 1 1 0;
   }
   .ai-feature-card__icon {
-    display: flex;
     align-items: center;
     justify-content: center;
   }
   .ai-feature-card__title {
-    align-self: stretch;
     font-size: var(--ai-size-24);
-    font-style: normal;
     font-weight: 400;
   }
   .ai-feature-card__description {
     font-size: var(--ai-size-16);
-    font-style: normal;
     font-weight: 400;
   }
 
-  @media (min-width: 64em) {
+  @media (--ai-size-breakpoint-desktop) {
     .ai-feature-card-row {
       flex-direction: row;
-      gap: var(--ai-size-64);
+      gap: var(--ai-size-128);
     }
-
-    .ai-section-card {
-      padding-left: var(--ai-size-32);
+    .ai-feature-card {
       padding-right: var(--ai-size-32);
     }
   }
