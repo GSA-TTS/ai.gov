@@ -1,6 +1,7 @@
 <script>
   import { toggleSidebar } from '../utils/toggleSidebar.js';
   import { Logo } from '@repo/ui/components';
+  import { getUrlFromBase } from '@repo/ui/helpers/url.js';
   import NavigationSection from './NavigationSection.svelte';
   import SideNavUserFooter from './SideNavUserFooter.svelte';
   import { sideNavConfig } from '../../data/sideNavConfig.js';
@@ -17,7 +18,7 @@
        <img
         alt=""
         class="display-block"
-        src="/uswds/img/usa-icons/close.svg"
+        src={getUrlFromBase('/uswds/img/usa-icons/close.svg')}
         width=24
         height=24
       />  

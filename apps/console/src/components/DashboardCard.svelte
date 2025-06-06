@@ -101,7 +101,7 @@
   }
   :global(.metric) {
     font-size: var(--ai-size-48); 
-    margin-top: 0; 
+    margin-top: 0;
   }
   :global(.metric--small) {
     font-size: var(--ai-size-32);

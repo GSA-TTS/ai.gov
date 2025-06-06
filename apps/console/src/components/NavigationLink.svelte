@@ -34,8 +34,8 @@ $: ariaCurrent = isActive ? "page" : false;
     color: #4b5563;
     text-decoration: none;
     font-size: var(--ai-size-16);
-    font-weight: 500;
-    transition: all 0.2s ease;
+    font-weight: 400;
+    transition: color 0.3s ease-in;
   }
 
   .ai-nav-link:hover {
