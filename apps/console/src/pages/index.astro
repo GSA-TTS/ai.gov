@@ -170,61 +170,69 @@ const svgHeight = entries.length * rowHeight;
       </ol>
     </DashboardCard> -->
 
-    <DashboardCard title="Model Comparison" titleId="trending-topics" halfWidth={true}>
-    <svelte:fragment slot="actions"></svelte:fragment>
-    <svelte:fragment slot="data-viz">
-      <p class="margin-top-0 font-body-2xs">Top 10 topics by prompt count</p>
-      <svg viewBox="0 0 300 300" width="300" height="300">
-        <g transform="translate(150, 150)">
-          <!-- Axes -->
-          <g stroke="#ccc">
-            <line x1="0" y1="0" x2="0" y2="-100" />
-            <line x1="0" y1="0" x2="95" y2="-31" />
-            <line x1="0" y1="0" x2="59" y2="81" />
-            <line x1="0" y1="0" x2="-59" y2="81" />
-            <line x1="0" y1="0" x2="-95" y2="-31" />
-          </g>
+    <DashboardCard
+      title="Model Comparison"
+      titleId="trending-topics"
+      halfWidth={true}
+    >
+      <svelte:fragment slot="actions"></svelte:fragment>
+      <svelte:fragment slot="data-viz">
+        <p class="margin-top-0 font-body-2xs">Top 10 topics by prompt count</p>
+        <svg viewBox="0 0 300 300" width="300" height="300">
+          <g transform="translate(150, 150)">
+            <!-- Axes -->
+            <g stroke="#ccc">
+              <line x1="0" y1="0" x2="0" y2="-100"></line>
+              <line x1="0" y1="0" x2="95" y2="-31"></line>
+              <line x1="0" y1="0" x2="59" y2="81"></line>
+              <line x1="0" y1="0" x2="-59" y2="81"></line>
+              <line x1="0" y1="0" x2="-95" y2="-31"></line>
+            </g>
 
-          <!-- Labels -->
-          <text x="0" y="-110" text-anchor="middle">Business</text>
-          <text x="100" y="-30" text-anchor="start">Coding</text>
-          <text x="65" y="95" text-anchor="start">Reading</text>
-          <text x="-65" y="95" text-anchor="end">Safeguards</text>
-          <text x="-100" y="-30" text-anchor="end">FAR</text>
+            <!-- Labels -->
+            <text x="0" y="-110" text-anchor="middle">Business</text>
+            <text x="100" y="-30" text-anchor="start">Coding</text>
+            <text x="65" y="95" text-anchor="start">Reading</text>
+            <text x="-65" y="95" text-anchor="end">Safeguards</text>
+            <text x="-100" y="-30" text-anchor="end">FAR</text>
 
-          <!-- Polygon for Haiku -->
-          <polygon
-            fill="rgba(0, 123, 255, 0.3)"
-            stroke="#007bff"
-            stroke-width="1"
-            points="
+            <!-- Polygon for Haiku -->
+            <polygon
+              fill="rgba(0, 123, 255, 0.3)"
+              stroke="#007bff"
+              stroke-width="1"
+              points="
               0,-65
               70,-23
               53,73
               -55,75
               -57,-19
             "
-          />
+            ></polygon>
 
-          <!-- Polygon for Sonnet -->
-          <polygon
-            fill="rgba(255, 99, 132, 0.3)"
-            stroke="#ff6384"
-            stroke-width="1"
-            points="
+            <!-- Polygon for Sonnet -->
+            <polygon
+              fill="rgba(255, 99, 132, 0.3)"
+              stroke="#ff6384"
+              stroke-width="1"
+              points="
               0,-85
               74,-24
               53,73
               -55,75
               -76,-25
             "
-          />
-        </g>
-      </svg>
-    </svelte:fragment>
-  </DashboardCard>
+            ></polygon>
+          </g>
+        </svg>
+      </svelte:fragment>
+    </DashboardCard>
 
-    <DashboardCard title="Trending Topics" titleId="trending-topics" halfWidth={true}>
+    <DashboardCard
+      title="Trending Topics"
+      titleId="trending-topics"
+      halfWidth={true}
+    >
       <svelte:fragment slot="actions"></svelte:fragment>
       <svelte:fragment slot="data-viz">
         <p class="margin-top-0 font-body-2xs">Top 10 topics by prompt count</p>
@@ -235,33 +243,37 @@ const svgHeight = entries.length * rowHeight;
           height="auto"
           preserveAspectRatio="xMinYMin meet"
         >
-          {entries.map(([label, count], i) => {
-            const yOffset = i * rowHeight;
-            const barWidth = (count / entries[0][1]) * 400;
-            const labelPadding = 150;
+          {
+            entries.map(([label, count], i) => {
+              const yOffset = i * rowHeight;
+              const barWidth = (count / entries[0][1]) * 400;
+              const labelPadding = 150;
 
-            return (
-              <>
-                <text x="0" y={yOffset + 25} font-size="12">{toTitleCase(label)}</text>
-                <rect
-                  x={labelPadding}
-                  y={yOffset + 10}
-                  width={barWidth}
-                  height="20"
-                  fill="var(--ai-color-blue-400)"
-                  rx="4"
-                  ry="4"
-                />
-                <text
-                  x={labelPadding + barWidth + 8}
-                  y={yOffset + 25}
-                  font-size="12"
-                >
-                  {count.toLocaleString()}
-                </text>
-              </>
-            );
-          })}
+              return (
+                <>
+                  <text x="0" y={yOffset + 25} font-size="12">
+                    {toTitleCase(label)}
+                  </text>
+                  <rect
+                    x={labelPadding}
+                    y={yOffset + 10}
+                    width={barWidth}
+                    height="20"
+                    fill="var(--ai-color-blue-400)"
+                    rx="4"
+                    ry="4"
+                  />
+                  <text
+                    x={labelPadding + barWidth + 8}
+                    y={yOffset + 25}
+                    font-size="12"
+                  >
+                    {count.toLocaleString()}
+                  </text>
+                </>
+              );
+            })
+          }
         </svg>
       </svelte:fragment>
     </DashboardCard>
