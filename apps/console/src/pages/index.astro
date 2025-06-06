@@ -2,94 +2,152 @@
 import ConsoleLayout from '../layouts/ConsoleLayout.astro';
 import DashboardCard from '../components/DashboardCard.svelte';
 import DashboardTag from '../components/DashboardTag.svelte';
+import { weeklyTrendIndicators } from '../../data/dashboardStats.js';
+import { trendingTopics } from '../../data/dashboardStats.js';
+import { modelComparison } from '../../data/dashboardStats.js';
+const entries = Object.entries(trendingTopics.topic_counts)
+  .sort((a, b) => b[1] - a[1]) // sort descending by count
+  .slice(0, 10); // limit to top 10;
 import { getUrlFromBase } from '@repo/ui/helpers/url.js';
 import { getIconUrl } from '@repo/ui/helpers/icons.js';
+import RadarChart from '../components/dataviz/RadarChart.svelte';
+import BarChart from '../components/dataviz/BarChart.svelte';
+import TrendingIcon from '../components/TrendingIcon.svelte';
+const maxCount = Math.max(...entries.map(([_, count]) => count));
+function toTitleCase(str) {
+  return str
+    .replaceAll('_', ' ')
+    .replace(/\w\S*/g, word => word.charAt(0).toUpperCase() + word.slice(1));
+}
+const rowHeight = 28;
+const svgWidth = 600;
+const svgHeight = entries.length * rowHeight;
 ---
 
 <ConsoleLayout title="Dashboard">
-  <h1 class="margin-top-0">Analytics</h1>
+  <h1 class="margin-top-0 font-body-md margin-left-05 s">Analytics</h1>
   <div class="ai-dashboard__overview">
-    <DashboardCard title="Total Active Users" titleId="total-active-users">
+    <DashboardCard title="Total Users" titleId="total-users">
       <svelte:fragment slot="actions">
         <div class="card-action-stat">
-          <span>+12%</span>
-          <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
+          <span
+            >{
+              weeklyTrendIndicators.total_users.pct_change_display.toLocaleString()
+            }</span
+          >
+          <TrendingIcon indicator={weeklyTrendIndicators.total_users} />
         </div>
       </svelte:fragment>
-      <p class="metric">834,624</p>
+      <p class="metric metric--small margin-bottom-4">
+        {weeklyTrendIndicators.total_users.to_date.toLocaleString()}
+      </p>
       <svelte:fragment slot="footer">
-        <div class="performance margin-right-2">
-          <span class="text-bold">
-            Daily
-            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
-          </span>
-          <p>25,049</p>
-        </div>
         <div class="performance">
-          <span class="text-bold">
-            Monthly
-            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
-          </span>
-          <p>238,328</p>
+          <p class="text-bold">
+            {weeklyTrendIndicators.total_users.display_text}
+            <TrendingIcon indicator={weeklyTrendIndicators.total_users} />
+          </p>
+          <p>{weeklyTrendIndicators.total_users.subtitle_display_text}</p>
+        </div>
+      </svelte:fragment>
+    </DashboardCard>
+
+    <DashboardCard title="Active Users" titleId="active-users">
+      <svelte:fragment slot="actions">
+        <div class="card-action-stat">
+          <span
+            >{
+              weeklyTrendIndicators.active_users.pct_change_display.toLocaleString()
+            }</span
+          >
+          <TrendingIcon indicator={weeklyTrendIndicators.active_users} />
+        </div>
+      </svelte:fragment>
+      <p class="metric metric--small">
+        {weeklyTrendIndicators.active_users.to_date.toLocaleString()}
+      </p>
+      <svelte:fragment slot="footer">
+        <div class="performance">
+          <p class="text-bold">
+            {weeklyTrendIndicators.active_users.display_text}
+            <TrendingIcon indicator={weeklyTrendIndicators.active_users} />
+          </p>
+          <p>{weeklyTrendIndicators.active_users.subtitle_display_text}</p>
         </div>
       </svelte:fragment>
     </DashboardCard>
 
     <DashboardCard title="Total Prompts Used" titleId="total-prompts-used">
       <svelte:fragment slot="actions">
-        <button>View report</button>
+        <div class="card-action-stat">
+          <span
+            >{
+              weeklyTrendIndicators.prompts.pct_change_display.toLocaleString()
+            }</span
+          >
+          <TrendingIcon indicator={weeklyTrendIndicators.prompts} />
+        </div>
       </svelte:fragment>
-      <p class="metric metric--small">4,734,624</p>
-      <img
-        class="padding-top-2"
-        src=`${getUrlFromBase('assets/images/data_viz_line.png')}`
-        alt="Data viz line"
-      />
+      <p class="metric metric--small">
+        {weeklyTrendIndicators.prompts.to_date.toLocaleString()}
+      </p>
+      <svelte:fragment slot="footer">
+        <div class="performance">
+          <p class="text-bold">
+            {weeklyTrendIndicators.prompts.display_text}
+            <TrendingIcon indicator={weeklyTrendIndicators.prompts} />
+          </p>
+          <p>{weeklyTrendIndicators.prompts.subtitle_display_text}</p>
+        </div>
+      </svelte:fragment>
     </DashboardCard>
 
-    <DashboardCard title="Model Evaluation" titleId="model-evaluation">
+    <DashboardCard title="Token Costs" titleId="token-costs">
       <svelte:fragment slot="actions">
-        <label for="MMLU" class="usa-sr-only">Select Time Range</label>
-        <select id="MMLU">
-          <option selected>MMLU</option>
-          <option>Claude Sonnet 3.7</option>
-          <option>Claude Sonnet 3.5 v2</option>
-        </select>
-        <button>View More</button>
+        <div class="card-action-stat">
+          <span
+            >{
+              weeklyTrendIndicators.token_costs.pct_change_display.toLocaleString()
+            }</span
+          >
+          <TrendingIcon indicator={weeklyTrendIndicators.token_costs} />
+        </div>
       </svelte:fragment>
-      <svelte:fragment slot="data-viz">
-        <img
-          class="padding-top-2"
-          src=`${getUrlFromBase('/assets/images/data_viz_radar.png')}`
-          alt="Data viz radar"
-        />
+      <p class="metric metric--small">
+        ${weeklyTrendIndicators.token_costs.to_date.toLocaleString()}
+      </p>
+      <svelte:fragment slot="footer">
+        <div class="performance">
+          <p class="text-bold">
+            {weeklyTrendIndicators.token_costs.display_text}
+            <TrendingIcon indicator={weeklyTrendIndicators.token_costs} />
+          </p>
+          <p>{weeklyTrendIndicators.token_costs.subtitle_display_text}</p>
+        </div>
       </svelte:fragment>
     </DashboardCard>
 
-    <DashboardCard title="Model Ranking" titleId="model-ranking">
-      <ol class="ai-dashboard-list ai-dashboard-list--large">
-        <li>
-          Claude Sonnet 3.5 v2
-          <div class="performance">
-            <span>4.85%+</span>
-            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
-          </div>
-        </li>
-        <li>
-          Claude Sonnet 3.7
-          <div class="performance">
-            <span>2.6%+</span>
-            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
-          </div>
-        </li>
-        <li>
-          Gemini 2.5 Pro
-          <div class="performance">
-            <span>1.8%+</span>
-            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
-          </div>
-        </li>
-      </ol>
+    <DashboardCard
+      title="Model Comparison"
+      titleId="trending-topics"
+      halfWidth={true}
+    >
+      <svelte:fragment slot="actions"></svelte:fragment>
+      <svelte:fragment slot="data-viz">
+        <RadarChart data={modelComparison} />
+      </svelte:fragment>
+    </DashboardCard>
+
+    <DashboardCard
+      title="Trending Topics"
+      titleId="trending-topics"
+      halfWidth={true}
+    >
+      <svelte:fragment slot="actions"></svelte:fragment>
+      <svelte:fragment slot="data-viz">
+        <p class="margin-top-0 font-body-2xs">Top 10 topics by prompt count</p>
+        <BarChart data={trendingTopics.topic_counts} />
+      </svelte:fragment>
     </DashboardCard>
 
     <DashboardCard
@@ -123,20 +181,28 @@ import { getIconUrl } from '@repo/ui/helpers/icons.js';
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--ai-size-32);
     margin-bottom: var(--ai-size-32);
+    gap: var(--ai-size-32);
+    margin-bottom: var(--ai-size-32);
   }
 
-  @media (min-width: 75rem) {
+  @media (min-width: 87.5rem) {
     .ai-dashboard__overview {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (min-width: 87.5rem) {
+  @media (min-width: 75rem) {
     .ai-dashboard__overview {
       grid-template-columns: repeat(4, 1fr);
     }
   }
 
+  .ai-dashboard-tag-cloud {
+    padding: var(--ai-size-16) 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ai-size-32);
+  }
   .ai-dashboard-tag-cloud {
     padding: var(--ai-size-16) 0;
     display: flex;
