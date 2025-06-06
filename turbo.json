@@ -20,7 +20,8 @@
     },
     "test": {
       "dependsOn": ["transit", "@repo/vitest-config#build"],
-      "outputs": ["coverage.json"]
+      "outputs": ["coverage.json"],
+      "env": ["VITEST"]
     },
     "transit": {
       "dependsOn": ["^transit"]
