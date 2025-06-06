@@ -4,7 +4,10 @@ import { expect, test } from 'vitest';
 import Logo from './Logo.svelte';
 
 test('Component renders properly', async () => {
-  render(Logo);
-  const image = screen.getByRole('image');
-  expect(image).toBeInTheDocument();
+  const { container } = render(Logo);
+
+  const component = screen.getByRole('link');
+  expect(component).toBeInTheDocument();
+
+  expect(container.querySelector('img')).toHaveAttribute('src');
 });

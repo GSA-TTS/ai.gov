@@ -8,7 +8,7 @@
 <div class="usa-logo line-height-1 margin-0">
   <em class="usa-logo__text">
     <a href="/" class="display-block">
-      <img src={logoSrc} alt={siteName} width="105" height="39" role="image" />
+      <img src={logoSrc} alt={siteName} width="105" height="39" />
     </a>
   </em>
 </div>
