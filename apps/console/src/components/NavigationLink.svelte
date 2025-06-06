@@ -30,12 +30,12 @@ $: ariaCurrent = isActive ? "page" : false;
   .ai-nav-link {
     display: flex;
     align-items: center;
-    padding: 0.75rem 1.5rem;
+    padding: var(--ai-size-12) var(--ai-size-24);
     color: #4b5563;
     text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
+    font-size: var(--ai-size-16);
+    font-weight: 400;
+    transition: color 0.3s ease-in;
   }
 
   .ai-nav-link:hover {
