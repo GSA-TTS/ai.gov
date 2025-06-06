@@ -13,8 +13,7 @@ export const baseConfig = defineConfig({
         ],
         ["text"],
       ],
-      enabled: true,
-      exclude: ["**/*.astro"],
+      enabled: true
     },
   },
 });
