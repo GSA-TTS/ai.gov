@@ -1,14 +1,25 @@
 ---
 import SolutionsCards from './SolutionsCards.astro';
+import FeatureCardRow from './FeatureCardRow.svelte';
+import { featureCardData } from '../data/featureCardsData';
 ---
 
 <main id="main-content" class="padding-x-0 border-top-0">
   <!-- ===== WORK IN PROGRESS MESSAGE ===== -->
   <div
-    style="min-height: 500px; margin: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center;"
+    style="
+      display: flex;
+      padding: 38px 187px 48px 187px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      align-self: stretch;
+      background: #F2F4F7;
+    "
   >
     <p>We are working hard to bring you this content. Stay tuned!</p>
   </div>
-
+  <FeatureCardRow features={featureCardData} />
   <SolutionsCards />
 </main>
