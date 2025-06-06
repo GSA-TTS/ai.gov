@@ -10,6 +10,8 @@ const entries = Object.entries(trendingTopics.topic_counts)
   .slice(0, 10); // limit to top 10;
 import { getUrlFromBase } from '@repo/ui/helpers/url.js';
 import { getIconUrl } from '@repo/ui/helpers/icons.js';
+import RadarChart from '../components/dataviz/RadarChart.svelte';
+import BarChart from '../components/dataviz/BarChart.svelte';
 import TrendingIcon from '../components/TrendingIcon.svelte';
 const maxCount = Math.max(...entries.map(([_, count]) => count));
 function toTitleCase(str) {
@@ -125,51 +127,6 @@ const svgHeight = entries.length * rowHeight;
       </svelte:fragment>
     </DashboardCard>
 
-    <!-- <DashboardCard title="Model Evaluation" titleId="model-evaluation">
-      <svelte:fragment slot="actions">
-        <label for="MMLU" class="usa-sr-only">Select Time Range</label>
-        <select id="MMLU">
-          <option selected>MMLU</option>
-          <option>Claude Sonnet 3.7</option>
-          <option>Claude Sonnet 3.5 v2</option>
-        </select>
-        <button>View More</button>
-      </svelte:fragment>
-      <svelte:fragment slot="data-viz">
-        <img
-          class="padding-top-2"
-          src=`${getUrlFromBase('/assets/images/data_viz_radar.png')}`
-          alt="Data viz radar"
-        />
-      </svelte:fragment>
-    </DashboardCard> -->
-
-    <!-- <DashboardCard title="Model Ranking" titleId="model-ranking">
-      <ol class="ai-dashboard-list ai-dashboard-list--large">
-        <li>
-          Claude Sonnet 3.5 v2
-          <div class="performance">
-            <span>4.85%+</span>
-            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
-          </div>
-        </li>
-        <li>
-          Claude Sonnet 3.7
-          <div class="performance">
-            <span>2.6%+</span>
-            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
-          </div>
-        </li>
-        <li>
-          Gemini 2.5 Pro
-          <div class="performance">
-            <span>1.8%+</span>
-            <img class="icon" src=`${getIconUrl('trending_up')}` alt="" />
-          </div>
-        </li>
-      </ol>
-    </DashboardCard> -->
-
     <DashboardCard
       title="Model Comparison"
       titleId="trending-topics"
@@ -177,54 +134,7 @@ const svgHeight = entries.length * rowHeight;
     >
       <svelte:fragment slot="actions"></svelte:fragment>
       <svelte:fragment slot="data-viz">
-        <p class="margin-top-0 font-body-2xs">Top 10 topics by prompt count</p>
-        <svg viewBox="0 0 300 300" width="300" height="300">
-          <g transform="translate(150, 150)">
-            <!-- Axes -->
-            <g stroke="#ccc">
-              <line x1="0" y1="0" x2="0" y2="-100"></line>
-              <line x1="0" y1="0" x2="95" y2="-31"></line>
-              <line x1="0" y1="0" x2="59" y2="81"></line>
-              <line x1="0" y1="0" x2="-59" y2="81"></line>
-              <line x1="0" y1="0" x2="-95" y2="-31"></line>
-            </g>
-
-            <!-- Labels -->
-            <text x="0" y="-110" text-anchor="middle">Business</text>
-            <text x="100" y="-30" text-anchor="start">Coding</text>
-            <text x="65" y="95" text-anchor="start">Reading</text>
-            <text x="-65" y="95" text-anchor="end">Safeguards</text>
-            <text x="-100" y="-30" text-anchor="end">FAR</text>
-
-            <!-- Polygon for Haiku -->
-            <polygon
-              fill="rgba(0, 123, 255, 0.3)"
-              stroke="#007bff"
-              stroke-width="1"
-              points="
-              0,-65
-              70,-23
-              53,73
-              -55,75
-              -57,-19
-            "
-            ></polygon>
-
-            <!-- Polygon for Sonnet -->
-            <polygon
-              fill="rgba(255, 99, 132, 0.3)"
-              stroke="#ff6384"
-              stroke-width="1"
-              points="
-              0,-85
-              74,-24
-              53,73
-              -55,75
-              -76,-25
-            "
-            ></polygon>
-          </g>
-        </svg>
+        <RadarChart data={modelComparison} />
       </svelte:fragment>
     </DashboardCard>
 
@@ -236,45 +146,7 @@ const svgHeight = entries.length * rowHeight;
       <svelte:fragment slot="actions"></svelte:fragment>
       <svelte:fragment slot="data-viz">
         <p class="margin-top-0 font-body-2xs">Top 10 topics by prompt count</p>
-
-        <svg
-          viewBox={`0 0 ${svgWidth} ${svgHeight}`}
-          width="100%"
-          height="auto"
-          preserveAspectRatio="xMinYMin meet"
-        >
-          {
-            entries.map(([label, count], i) => {
-              const yOffset = i * rowHeight;
-              const barWidth = (count / entries[0][1]) * 400;
-              const labelPadding = 150;
-
-              return (
-                <>
-                  <text x="0" y={yOffset + 25} font-size="12">
-                    {toTitleCase(label)}
-                  </text>
-                  <rect
-                    x={labelPadding}
-                    y={yOffset + 10}
-                    width={barWidth}
-                    height="20"
-                    fill="var(--ai-color-blue-400)"
-                    rx="4"
-                    ry="4"
-                  />
-                  <text
-                    x={labelPadding + barWidth + 8}
-                    y={yOffset + 25}
-                    font-size="12"
-                  >
-                    {count.toLocaleString()}
-                  </text>
-                </>
-              );
-            })
-          }
-        </svg>
+        <BarChart data={trendingTopics.topic_counts} />
       </svelte:fragment>
     </DashboardCard>
 
