@@ -8,10 +8,10 @@ export default getViteConfig(
     test: {
       coverage: {
         exclude: [
-          '**/dist/**',
-          '**/static/**',
-          '**/types/**',
-          '**/turbo/**',
+          'dist/**',
+          'static/**',
+          'types/**',
+          'turbo/**',
           '**/*.config.*',
           '**/*.svelte'
         ],
